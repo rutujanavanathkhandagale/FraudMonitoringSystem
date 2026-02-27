@@ -1,37 +1,40 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
-using FraudMonitoringSystem.Exceptions.Customer;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace FraudMonitoringSystem.Services.Customer.Implementations
 {
     public class ChatService : IChatService
     {
-        private readonly IChatRepository _repo;
+        private readonly IChatRepository _repository;
 
-        public ChatService(IChatRepository repo)
+        public ChatService(IChatRepository repository)
         {
-            _repo = repo;
+            _repository = repository;
         }
 
-        public async Task<List<ChatMessage>> GetConversationAsync(long customerId, string receiverRole)
+        public async Task<IEnumerable<ChatMessage>> GetChatByCustomerAsync(long customerId)
         {
-            var messages = await _repo.GetMessagesAsync(customerId, receiverRole);
-            if (messages == null || messages.Count == 0)
-                throw new ChatNotFoundException($"No chat found between Customer {customerId} and {receiverRole}");
-            return messages;
+            return await _repository.GetChatByCustomerAsync(customerId);
         }
 
-        public async Task<string> SendMessageAsync(ChatMessage message)
+        public async Task SendMessageAsync(long customerId, string sender, string message)
         {
-            if (string.IsNullOrWhiteSpace(message.Message))
-                throw new ChatValidationException("Message cannot be empty");
+            if (string.IsNullOrWhiteSpace(message))
+                throw new ArgumentException("Message cannot be empty");
 
-            if (string.IsNullOrWhiteSpace(message.ReceiverRole))
-                throw new ChatValidationException("ReceiverRole must be specified");
+            var chatMessage = new ChatMessage
+            {
+                CustomerId = customerId,
+                Sender = sender, // "Customer" or "Admin"
+                Message = message,
+                SentAt = DateTime.UtcNow
+            };
 
-            message.SentAt = DateTime.UtcNow;
-            await _repo.AddMessageAsync(message);
-            return $"Message sent to {message.ReceiverRole} successfully";
+            await _repository.AddChatMessageAsync(chatMessage);
         }
     }
 }

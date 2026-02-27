@@ -1,12 +1,16 @@
-﻿namespace FraudMonitoringSystem.Models.Customer
+﻿using System;
+
+namespace FraudMonitoringSystem.Models.Customer
 {
     public class ChatMessage
     {
-        public long Id { get; set; }
-        public long CustomerId { get; set; }      
-        public string SenderRole { get; set; }    
-        public string ReceiverRole { get; set; }  
+        public int ChatMessageId { get; set; }
+        public long CustomerId { get; set; }
+        public string Sender { get; set; }   // "Customer" or "Admin"
         public string Message { get; set; }
         public DateTime SentAt { get; set; }
+
+        // Navigation property
+        public PersonalDetails Customer { get; set; }
     }
 }

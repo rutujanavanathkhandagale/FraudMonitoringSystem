@@ -4,9 +4,11 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin
 {
     public interface IPermissionRepository
     {
-        Task<IEnumerable<Permission>> GetAllAsync();
+        Task<List<Permission>> GetAllAsync();
         Task<Permission?> GetByIdAsync(int id);
+        Task<Permission?> GetByModuleAndActionAsync(string module, string action);
         Task AddAsync(Permission permission);
+        Task UpdateAsync(Permission permission);
         Task DeleteAsync(Permission permission);
         Task SaveAsync();
     }

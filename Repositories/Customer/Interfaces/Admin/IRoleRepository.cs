@@ -12,13 +12,14 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin
 
         Task<Role?> GetByNameAsync(string roleName);
 
-        Task<bool> ExistsByNameAsync(string roleName);
-
         Task AddAsync(Role role);
 
-        Task DeleteAsync(Role role);
+        void Update(Role role);
+
+        void Delete(Role role);
 
         Task SaveAsync();
 
     }
+
 }

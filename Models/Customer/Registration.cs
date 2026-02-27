@@ -2,10 +2,11 @@
 
 namespace FraudMonitoringSystem.Models.Customer
 {
+   
     public class Registration
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int RegistrationId { get; set; } 
 
         [Required(ErrorMessage = "First name is required")]
         [StringLength(50)]
@@ -25,12 +26,15 @@ namespace FraudMonitoringSystem.Models.Customer
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters")]
+        [StringLength(100, MinimumLength = 6)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Confirm password is required")]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "Role is required")]
+        public RegisterRole Role { get; set; }
     }
 }

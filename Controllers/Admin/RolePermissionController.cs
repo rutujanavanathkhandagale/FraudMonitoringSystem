@@ -4,17 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FraudMonitoringSystem.Controllers.Admin
 {
-    [Route("api/[controller]")]
-
     [ApiController]
 
-    public class RolePermissionController : ControllerBase
+    [Route("api/[controller]")]
+
+    public class RolePermissionsController : ControllerBase
 
     {
 
         private readonly IRolePermissionService _service;
 
-        public RolePermissionController(IRolePermissionService service)
+        public RolePermissionsController(IRolePermissionService service)
 
         {
 
@@ -22,33 +22,29 @@ namespace FraudMonitoringSystem.Controllers.Admin
 
         }
 
-        // POST: api/RolePermission/assign
+        [HttpGet]
 
-        [HttpPost("assign")]
+        public async Task<IActionResult> GetAll()
 
-        public async Task<IActionResult> AssignPermission([FromBody] AssignPermissionDto dto)
+            => Ok(await _service.GetAllAsync());
 
-        {
+        [HttpGet("{id}")]
 
-            var result = await _service.AssignPermissionAsync(dto.RoleName, dto.PermissionId);
+        public async Task<IActionResult> GetById(int id)
 
-            return Ok(result);
+            => Ok(await _service.GetByIdAsync(id));
 
-        }
+        [HttpPost]
 
-        // GET: api/RolePermission/{roleName}
+        public async Task<IActionResult> Create(RolePermissionCreateDto dto)
 
-        [HttpGet("{roleName}")]
+            => Ok(await _service.AssignPermissionAsync(dto));
 
-        public async Task<IActionResult> GetRolePermissions(string roleName)
+        [HttpDelete("{id}")]
 
-        {
+        public async Task<IActionResult> Delete(int id)
 
-            var result = await _service.GetRolePermissionsAsync(roleName);
-
-            return Ok(result);
-
-        }
+            => Ok(await _service.RemovePermissionAsync(id));
 
     }
 

@@ -2,6 +2,9 @@
 {
     public class PermissionNotFoundException : Exception
     {
-        public PermissionNotFoundException(string message) : base(message) { }
+        public PermissionNotFoundException(int id)
+            : base($"Permission with Id {id} not found.")
+        {
+        }
     }
 }

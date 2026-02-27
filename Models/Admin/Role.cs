@@ -1,12 +1,30 @@
-﻿namespace FraudMonitoringSystem.Models.Admin
-{
-    public class Role
-    {
-        public int RoleId { get; set; }
-        public string RoleName { get; set; } = string.Empty;
-        public string? Description { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+﻿using System.ComponentModel.DataAnnotations;
 
-        public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
+namespace FraudMonitoringSystem.Models.Admin
+{
+    public class Role : BaseEntity
+
+    {
+
+        [Key]
+
+        public int RoleId { get; set; }
+
+        [Required]
+
+        [MaxLength(100)]
+
+        public string RoleName { get; set; }
+
+        [MaxLength(255)]
+
+        public string Description { get; set; }
+
+        // Navigation
+
+
+        public ICollection<RolePermission> RolePermissions { get; set; }
+
     }
+
 }

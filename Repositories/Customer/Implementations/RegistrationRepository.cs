@@ -1,14 +1,11 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using FraudMonitoringSystem.Repositories.Interfaces;
 using FraudMonitoringSystem.Data;
-using FraudMonitoringSystem.Models;
-using FraudMonitoringSystem.Repositories.Customer.Interfaces;
-namespace FraudMonitoringSystem.Repositories.Customer.Implementations
+using Microsoft.EntityFrameworkCore;
+
+namespace FraudMonitoringSystem.Repositories.Implementations
 {
    
-
     public class RegistrationRepository : IRegistrationRepository
     {
         private readonly WebContext _context;
@@ -18,42 +15,22 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             _context = context;
         }
 
-        public async Task<int> RegisterUserAsync(Registration reg)
+        public async Task<int> RegisterAsync(Registration registration)
         {
-            await _context.Registrations.AddAsync(reg);
+            await _context.Registrations.AddAsync(registration);
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<Registration?> GetUserByIdAsync(int id)
+        public async Task<Registration?> GetByEmailAsync(string email)
         {
-            return await _context.Registrations.FindAsync(id);
+            return await _context.Registrations
+                                 .FirstOrDefaultAsync(r => r.Email == email);
         }
 
-        public async Task<Registration?> GetUserByEmailAsync(string email)
+        public async Task<Registration?> GetByRoleAsync(RegisterRole role)
         {
-            return await _context.Registrations.FirstOrDefaultAsync(u => u.Email == email);
-        }
-
-        public async Task<List<Registration>> GetAllUsersAsync()
-        {
-            return await _context.Registrations.ToListAsync();
-        }
-
-        public async Task<int> UpdateUserAsync(Registration reg)
-        {
-            _context.Registrations.Update(reg);
-            return await _context.SaveChangesAsync();
-        }
-
-        public async Task<int> DeleteUserAsync(int id)
-        {
-            var user = await _context.Registrations.FindAsync(id);
-            if (user != null)
-            {
-                _context.Registrations.Remove(user);
-                return await _context.SaveChangesAsync();
-            }
-            return 0;
+            return await _context.Registrations
+                                 .FirstOrDefaultAsync(r => r.Role == role);
         }
     }
 }

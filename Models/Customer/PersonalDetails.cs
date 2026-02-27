@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace FraudMonitoringSystem.Models.Customer
 {
@@ -62,5 +64,9 @@ namespace FraudMonitoringSystem.Models.Customer
         [Display(Name = "Profile Image Path")]
         [StringLength(255, ErrorMessage = "Image path cannot exceed 255 characters")]
         public string ProfileImagePath { get; set; }
+
+        [JsonIgnore]
+        public ICollection<Notification>? Notifications { get; set; }
+
     }
 }

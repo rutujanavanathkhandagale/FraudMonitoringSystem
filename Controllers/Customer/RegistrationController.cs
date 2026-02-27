@@ -1,15 +1,14 @@
-﻿using FraudMonitoringSystem.Models.Customer;
-using FraudMonitoringSystem.Services.Customer.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using FraudMonitoringSystem.Models;
-using FraudMonitoringSystem.Services.Customer.Interfaces;
-namespace FraudMonitoringSystem.Controllers.Customer
-{
-  
+﻿using Microsoft.AspNetCore.Mvc;
+using FraudMonitoringSystem.Models.Customer;
+using FraudMonitoringSystem.Services.Interfaces;
 
-    [Route("api/[controller]")]
+namespace FraudMonitoringSystem.Controllers
+{
+    /// <summary>
+    /// API Controller for registration endpoints.
+    /// </summary>
     [ApiController]
+    [Route("api/[controller]")]
     public class RegistrationController : ControllerBase
     {
         private readonly IRegistrationService _service;
@@ -19,49 +18,26 @@ namespace FraudMonitoringSystem.Controllers.Customer
             _service = service;
         }
 
-        [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] Registration reg)
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] Registration registration)
         {
-            var result = await _service.RegisterUserAsync(reg);
-            return Ok(result);
+            var response = await _service.RegisterAsync(registration);
+            return Ok(response);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(int id)
+        [HttpGet("role/{role}")]
+        public async Task<IActionResult> GetUserByRole(RegisterRole role)
         {
-            var user = await _service.GetUserByIdAsync(id);
+            var user = await _service.GetUserByRoleAsync(role);
             return Ok(user);
         }
 
-        [HttpGet("ByEmail/{email}")]
-        public async Task<IActionResult> GetUserByEmail(string email)
+        [HttpGet("roles")]
+        public IActionResult GetRoles()
         {
-            var user = await _service.GetUserByEmailAsync(email);
-            return Ok(user);
-        }
-
-        [HttpGet("All")]
-        public async Task<IActionResult> GetAllUsers()
-        {
-            var users = await _service.GetAllUsersAsync();
-            return Ok(users);
-        }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] Registration reg)
-        {
-            if (id != reg.CustomerId)
-                return BadRequest("ID in URL and body must match");
-
-            var result = await _service.UpdateUserAsync(reg);
-            return Ok(result);
-        }
-
-
-        [HttpDelete("Delete/{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
-        {
-            var result = await _service.DeleteUserAsync(id);
-            return Ok(result);
+            var roles = Enum.GetNames(typeof(RegisterRole));
+            return Ok(roles);
+            // Returns ["Analyst","Investigator","Compliance","Modeler","Admin"]
         }
     }
 }

@@ -12,6 +12,8 @@ namespace FraudMonitoringSystem.Models.Customer
         [Required(ErrorMessage = "CustomerId is required")]
         public long CustomerId { get; set; }
 
+        [ForeignKey("CustomerId")]
+
         [Required(ErrorMessage = "Account Number is required")]
         [MaxLength(30)]
         [RegularExpression(@"^[A-Z0-9]+$", ErrorMessage = "Account Number must be alphanumeric")]

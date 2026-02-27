@@ -37,12 +37,22 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             return profile;
         }
 
-        public async Task<KYCProfile> UpdateAsync(KYCProfile profile)
+        public Task<KYCProfile> UpdateAsync(KYCProfile profile)
         {
-            _context.KYCProfile.Update(profile);
-            await _context.SaveChangesAsync();
-            return profile;
+            throw new NotImplementedException();
         }
+
+        //public Task<KYCProfile> UpdateAsync(KYCProfile profile)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public async Task<KYCProfile> UpdateAsync(KYCProfile profile)
+        //{
+        //    _context.KYCProfile.Update(profile);
+        //    await _context.SaveChangesAsync();
+        //    return profile;
+        //}
     }
 }
 

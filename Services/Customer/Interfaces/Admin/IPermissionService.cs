@@ -1,5 +1,4 @@
 ﻿using FraudMonitoringSystem.DTOs.Admin;
-using FraudMonitoringSystem.Models.Admin;
 
 namespace FraudMonitoringSystem.Services.Customer.Interfaces.Admin
 {
@@ -7,14 +6,17 @@ namespace FraudMonitoringSystem.Services.Customer.Interfaces.Admin
 
     {
 
-        Task<IEnumerable<Permission>> GetAllPermissionsAsync();
+        Task<List<PermissionResponseDto>> GetAllAsync();
 
-        Task<Permission> GetPermissionByIdAsync(int id);
+        Task<PermissionResponseDto> GetByIdAsync(int id);
 
-        Task<string> CreatePermissionAsync(CreatePermissionDto dto);
+        Task<string> CreateAsync(PermissionCreateDto dto);
 
-        Task<string> DeletePermissionAsync(int id);
+        Task<string> UpdateAsync(int id, PermissionUpdateDto dto);
+
+        Task<string> DeleteAsync(int id);
 
     }
 
 }
+

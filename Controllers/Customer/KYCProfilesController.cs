@@ -45,17 +45,17 @@ namespace FraudMonitoringSystem.Controllers.Customer
       
 
         // ✅ Patch partial updates (e.g., compliance officer changes status)
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch(long id, [FromBody] KYCProfile partialProfile)
-        {
-            var updated = await _service.PatchAsync(id, partialProfile);
-            if (updated == null)
-                return NotFound(new { Message = $"KYC profile {id} not found" });
+        //[HttpPatch("{id}")]
+        //public async Task<IActionResult> Patch(long id, [FromBody] KYCProfile partialProfile)
+        //{
+        //    var updated = await _service.PatchAsync(id, partialProfile);
+        //    if (updated == null)
+        //        return NotFound(new { Message = $"KYC profile {id} not found" });
 
-            Console.WriteLine($"[NOTIFY] Compliance office: KYC {id} status changed to {updated.Status}");
+        //    Console.WriteLine($"[NOTIFY] Compliance office: KYC {id} status changed to {updated.Status}");
 
-            return Ok(new { Message = "KYC patched successfully", Profile = updated });
-        }
+        //    return Ok(new { Message = "KYC patched successfully", Profile = updated });
+        //}
 
         // ✅ Search KYC profiles by query (status or customer type)
         [HttpGet("search")]

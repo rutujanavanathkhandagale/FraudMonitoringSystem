@@ -1,18 +1,13 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using FraudMonitoringSystem.Models;
-namespace FraudMonitoringSystem.Repositories.Customer.Interfaces
-{
- 
 
+namespace FraudMonitoringSystem.Repositories.Interfaces
+{
+   
     public interface IRegistrationRepository
     {
-        Task<int> RegisterUserAsync(Registration reg);
-        Task<Registration?> GetUserByIdAsync(int id);
-        Task<Registration?> GetUserByEmailAsync(string email);
-        Task<List<Registration>> GetAllUsersAsync();
-        Task<int> UpdateUserAsync(Registration reg);
-        Task<int> DeleteUserAsync(int id);
+        Task<int> RegisterAsync(Registration registration);
+        Task<Registration?> GetByEmailAsync(string email);
+        Task<Registration?> GetByRoleAsync(RegisterRole role);
     }
 }

@@ -1,12 +1,11 @@
 ﻿using FraudMonitoringSystem.DTOs.Admin;
-using FraudMonitoringSystem.Exceptions.Admin;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FraudMonitoringSystem.Controllers.Admin
 {
     [ApiController]
-    [Route("api/permissions")]
+    [Route("api/[controller]")]
     public class PermissionController : ControllerBase
     {
         private readonly IPermissionService _service;
@@ -14,40 +13,20 @@ namespace FraudMonitoringSystem.Controllers.Admin
         {
             _service = service;
         }
-        // GET: api/permissions
         [HttpGet]
         public async Task<IActionResult> GetAll()
-        {
-            var permissions = await _service.GetAllPermissionsAsync();
-            return Ok(permissions);
-        }
-        // GET: api/permissions/5
+            => Ok(await _service.GetAllAsync());
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
-        {
-            var permission = await _service.GetPermissionByIdAsync(id);
-            return Ok(permission);
-        }
-        // POST: api/permissions
+            => Ok(await _service.GetByIdAsync(id));
         [HttpPost]
-        public async Task<IActionResult> Create(CreatePermissionDto dto)
-        {
-            var result = await _service.CreatePermissionAsync(dto);
-            return Ok(result);
-        }
-        // DELETE: api/permissions/5
+        public async Task<IActionResult> Create(PermissionCreateDto dto)
+            => Ok(await _service.CreateAsync(dto));
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, PermissionUpdateDto dto)
+            => Ok(await _service.UpdateAsync(id, dto));
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
-        {
-            try
-            {
-                var result = await _service.DeletePermissionAsync(id);
-                return Ok(result);
-            }
-            catch (PermissionNotFoundException ex)
-            {
-                return NotFound(ex.Message);   // 404
-            }
-        }
+            => Ok(await _service.DeleteAsync(id));
     }
 }

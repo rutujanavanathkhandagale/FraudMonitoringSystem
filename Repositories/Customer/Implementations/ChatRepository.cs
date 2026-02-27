@@ -1,9 +1,10 @@
 ﻿using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Implementations
 {
@@ -16,19 +17,19 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             _context = context;
         }
 
-        public async Task<List<ChatMessage>> GetMessagesAsync(long customerId, string receiverRole)
+        public async Task<IEnumerable<ChatMessage>> GetChatByCustomerAsync(long customerId)
         {
             return await _context.ChatMessages
-                .Where(m => m.CustomerId == customerId && m.ReceiverRole == receiverRole)
-                .OrderBy(m => m.SentAt)
+                .Where(c => c.CustomerId == customerId)
+                .Include(c => c.Customer)
+                .OrderBy(c => c.SentAt)
                 .ToListAsync();
         }
 
-        public async Task<int> AddMessageAsync(ChatMessage message)
+        public async Task AddChatMessageAsync(ChatMessage message)
         {
-            await _context.ChatMessages.AddAsync(message);
-            return await _context.SaveChangesAsync();
+            _context.ChatMessages.Add(message);
+            await _context.SaveChangesAsync();
         }
     }
 }
-

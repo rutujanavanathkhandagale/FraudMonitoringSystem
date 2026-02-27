@@ -1,10 +1,12 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Interfaces
 {
     public interface IChatRepository
     {
-        Task<List<ChatMessage>> GetMessagesAsync(long customerId, string receiverRole);
-        Task<int> AddMessageAsync(ChatMessage message);
+        Task<IEnumerable<ChatMessage>> GetChatByCustomerAsync(long customerId);
+        Task AddChatMessageAsync(ChatMessage message);
     }
 }
