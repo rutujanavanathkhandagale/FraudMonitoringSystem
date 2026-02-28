@@ -1,5 +1,4 @@
-﻿
-using FraudMonitoringSystem.Models.Admin;
+﻿using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.Customer;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +19,7 @@ namespace FraudMonitoringSystem.Data
 
 
 
-
+        public DbSet<SystemUser> SystemUsers { get; set; }
 
         public DbSet<Role> Roles { get; set; }
         public DbSet<Permission> Permissions { get; set; }

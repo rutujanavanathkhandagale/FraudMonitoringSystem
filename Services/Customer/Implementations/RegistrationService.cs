@@ -4,7 +4,7 @@ using FraudMonitoringSystem.Services.Interfaces;
 using FraudMonitoringSystem.Exceptions.Customer;
 using FraudMonitoringSystem.Exceptions;
 
-namespace FraudMonitoringSystem.Services.Implementations
+namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin
 {
     
     public class RegistrationService : IRegistrationService
@@ -41,6 +41,13 @@ namespace FraudMonitoringSystem.Services.Implementations
             if (result == 0)
                 throw new RegisterDatabaseException("Registration failed to save in database");
 
+            // this is for admin 
+            // 🔥 ADD THIS PART (SystemUser logic)
+            if (registration.Role != RegisterRole.Customer)
+            {
+                await _repository.AddSystemUserAsync(registration);
+            }
+
             return $"Registration successful with role: {registration.Role}";
         }
 
@@ -58,5 +65,13 @@ namespace FraudMonitoringSystem.Services.Implementations
 
             return user;
         }
+        //public async Task<List<Registration>> GetSystemUsersAsync()
+        //{
+        //    var users = await _repository.GetSystemUsersAsync();
+        //    if (!users.Any())
+        //        throw new RegisterUserNotFoundException("No system users found");
+        //    return users;
+        //}
+
     }
 }

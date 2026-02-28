@@ -10,5 +10,6 @@ namespace FraudMonitoringSystem.Services.Interfaces
     {
         Task<string> RegisterAsync(Registration registration);
         Task<Registration?> GetUserByRoleAsync(RegisterRole role);
+    //    Task<List<Registration>> GetSystemUsersAsync();
     }
 }

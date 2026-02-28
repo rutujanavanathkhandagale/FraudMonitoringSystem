@@ -159,6 +159,27 @@ namespace FraudMonitoringSystem.Migrations
                     b.ToTable("RolePermissions");
                 });
 
+            modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.SystemUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("RegistrationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RegistrationId");
+
+                    b.ToTable("SystemUsers");
+                });
+
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.Account", b =>
                 {
                     b.Property<long>("AccountId")
@@ -428,6 +449,17 @@ namespace FraudMonitoringSystem.Migrations
                     b.Navigation("Permission");
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.SystemUser", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.Customer.Registration", "Registration")
+                        .WithMany()
+                        .HasForeignKey("RegistrationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Registration");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.ChatMessage", b =>

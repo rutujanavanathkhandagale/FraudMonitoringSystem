@@ -39,5 +39,11 @@ namespace FraudMonitoringSystem.Controllers
             return Ok(roles);
             // Returns ["Analyst","Investigator","Compliance","Modeler","Admin"]
         }
+        //[HttpGet("admin/system-users")]
+        //public async Task<IActionResult> GetSystemUsers()
+        //{
+        //    var users = await _service.GetSystemUsersAsync();
+        //    return Ok(users);
+        //}
     }
 }

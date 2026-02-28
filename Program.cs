@@ -1,18 +1,15 @@
 using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.Customer;
-using FraudMonitoringSystem.Repositories.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
 using FraudMonitoringSystem.Repositories.Implementations;
 using FraudMonitoringSystem.Repositories.Interfaces;
-using FraudMonitoringSystem.Services.Customer;
-using FraudMonitoringSystem.Services.Customer.Implementations;
-using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
-using FraudMonitoringSystem.Services.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
-using FraudMonitoringSystem.Services.Implementations;
+using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
+using FraudMonitoringSystem.Services.Customer.Implementations;
+using FraudMonitoringSystem.Services.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -32,10 +29,12 @@ builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 
 builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-    });
+   .AddJsonOptions(options =>
+   {
+       options.JsonSerializerOptions.Converters.Add(
+           new System.Text.Json.Serialization.JsonStringEnumConverter()
+       );
+   });
 
 builder.Services.AddScoped<IPersonalDetailsRepository, PersonalDetailsRepository>();
 builder.Services.AddScoped<IPersonalDetailsService, PersonalDetailsService>();
@@ -67,8 +66,8 @@ builder.Services.AddScoped<IPermissionService, PermissionService>();
 builder.Services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
 builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
 
-
-
+builder.Services.AddScoped<ISystemUserRepository, SystemUserRepository>();
+builder.Services.AddScoped<ISystemUserService, SystemUserService>();
 
 builder.Services.AddSignalR();
 

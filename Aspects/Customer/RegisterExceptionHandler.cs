@@ -1,6 +1,5 @@
 ﻿using FraudMonitoringSystem.Exceptions;
 using FraudMonitoringSystem.Exceptions.Customer;
-using FraudMonitoringSystem.Services.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

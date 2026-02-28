@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FraudMonitoringSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class data : Migration
+    public partial class Data : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -183,6 +183,26 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SystemUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RegistrationId = table.Column<int>(type: "int", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SystemUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SystemUsers_Registrations_RegistrationId",
+                        column: x => x.RegistrationId,
+                        principalTable: "Registrations",
+                        principalColumn: "RegistrationId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RolePermissions",
                 columns: table => new
                 {
@@ -246,6 +266,11 @@ namespace FraudMonitoringSystem.Migrations
                 table: "Roles",
                 column: "RoleName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SystemUsers_RegistrationId",
+                table: "SystemUsers",
+                column: "RegistrationId");
         }
 
         /// <inheritdoc />
@@ -264,10 +289,10 @@ namespace FraudMonitoringSystem.Migrations
                 name: "Notifications");
 
             migrationBuilder.DropTable(
-                name: "Registrations");
+                name: "RolePermissions");
 
             migrationBuilder.DropTable(
-                name: "RolePermissions");
+                name: "SystemUsers");
 
             migrationBuilder.DropTable(
                 name: "PersonalDetails");
@@ -277,6 +302,9 @@ namespace FraudMonitoringSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Registrations");
         }
     }
 }
