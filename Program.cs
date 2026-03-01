@@ -2,14 +2,22 @@ using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Admin;
+using FraudMonitoringSystem.Repositories.Customer.Implementations.Investigator;
+using FraudMonitoringSystem.Repositories.Customer.Implementations.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
+using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
+using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Repositories.Implementations;
 using FraudMonitoringSystem.Repositories.Interfaces;
-using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
-using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Services.Customer.Implementations;
+using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
+using FraudMonitoringSystem.Services.Customer.Implementations.Investigator;
+using FraudMonitoringSystem.Services.Customer.Implementations.Rules;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -69,6 +77,23 @@ builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
 builder.Services.AddScoped<ISystemUserRepository, SystemUserRepository>();
 builder.Services.AddScoped<ISystemUserService, SystemUserService>();
 
+
+builder.Services.AddScoped<IScenarioRepository, ScenarioRepository>();
+builder.Services.AddScoped<IScenarioService, ScenarioService>();
+
+builder.Services.AddScoped<IDetectionRuleRepository, DetectionRuleRepository>();
+builder.Services.AddScoped<IDetectionRuleService, DetectionRuleService>();
+
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+
+builder.Services.AddScoped<IRiskScoreRepository, RiskScoreRepository>();
+builder.Services.AddScoped<IRiskScoreService, RiskScoreService>();
+
+
+
+
+
 builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
@@ -91,6 +116,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-app.MapHub<NotificationHub>("/notificationHub");
 
 app.Run();

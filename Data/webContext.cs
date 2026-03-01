@@ -1,6 +1,9 @@
 ﻿using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.Customer;
+using FraudMonitoringSystem.Models.Investigator;
+using FraudMonitoringSystem.Models.Rules;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace FraudMonitoringSystem.Data
 {
@@ -25,6 +28,16 @@ namespace FraudMonitoringSystem.Data
         public DbSet<Permission> Permissions { get; set; }
 
         public DbSet<RolePermission> RolePermissions { get; set; }
+        public DbSet<Scenario> Scenarios { get; set; }
+
+        public DbSet<DetectionRule> DetectionRule { get; set; }
+
+        public DbSet<Transaction> Transaction{ get; set; }
+
+        public DbSet<RiskScore> RiskScore { get; set; }
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,6 +87,8 @@ namespace FraudMonitoringSystem.Data
                 .WithMany(p => p.RolePermissions)
 
                 .HasForeignKey(rp => rp.PermissionId);
+
+
         }
     }
 }
