@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FraudMonitoringSystem.Migrations
 {
     [DbContext(typeof(WebContext))]
-    [Migration("20260228180902_data")]
+    [Migration("20260302104653_data")]
     partial class data
     {
         /// <inheritdoc />
@@ -173,12 +173,14 @@ namespace FraudMonitoringSystem.Migrations
                     b.Property<int>("RegistrationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Role")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RegistrationId");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("SystemUsers");
                 });
@@ -262,14 +264,6 @@ namespace FraudMonitoringSystem.Migrations
                     b.Property<string>("DocumentRefsJSON")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastReviewedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("KYCId");
 
@@ -607,7 +601,15 @@ namespace FraudMonitoringSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FraudMonitoringSystem.Models.Admin.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Registration");
+
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.ChatMessage", b =>
@@ -673,6 +675,8 @@ namespace FraudMonitoringSystem.Migrations
             modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.Role", b =>
                 {
                     b.Navigation("RolePermissions");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.PersonalDetails", b =>

@@ -15,6 +15,6 @@ namespace FraudMonitoringSystem.Models.Admin
         [MaxLength(255)]
         public string Description { get; set; }
         // Navigation
-        public ICollection<RolePermission> RolePermissions { get; set; }
+        public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
     }
 }

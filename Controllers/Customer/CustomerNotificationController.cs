@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using FraudMonitoringSystem.Models.Customer;
+﻿using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,16 +18,19 @@ namespace FraudMonitoringSystem.Controllers
             _notificationService = notificationService;
         }
 
-        // GET: api/customer/{customerId}/notifications
+
         [HttpGet("{customerId}/notifications")]
+
+        [Authorize(Roles = "Customer")]
         public async Task<ActionResult<IEnumerable<Notification>>> GetNotifications(long customerId)
         {
             var notifications = await _notificationService.GetUserNotificationsAsync(customerId);
             return Ok(notifications);
         }
 
-        // PUT: api/customer/notifications/{notificationId}/read
         [HttpPut("notifications/{notificationId}/read")]
+
+        [Authorize(Roles = "Customer")]
         public async Task<ActionResult> MarkNotificationAsRead(int notificationId)
         {
             await _notificationService.MarkAsReadAsync(notificationId);

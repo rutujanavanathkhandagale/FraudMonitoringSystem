@@ -9,10 +9,8 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin
     public class RolePermissionService : IRolePermissionService
     {
         private readonly IRolePermissionRepository _repository;
-        public RolePermissionService(IRolePermissionRepository repository)
-        {
-            _repository = repository;
-        }
+        public RolePermissionService(IRolePermissionRepository repository) => _repository = repository;
+
         public async Task<List<RolePermissionResponseDto>> GetAllAsync()
         {
             var list = await _repository.GetAllAsync();
@@ -27,11 +25,12 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin
                 AssignedAt = rp.AssignedAt
             }).ToList();
         }
+
         public async Task<RolePermissionResponseDto> GetByIdAsync(int id)
         {
-            var rp = await _repository.GetByIdAsync(id);
-            if (rp == null)
-                throw new RolePermissionNotFoundException(id);
+            var rp = await _repository.GetByIdAsync(id)
+                ?? throw new RolePermissionNotFoundException(id);
+
             return new RolePermissionResponseDto
             {
                 RolePermissionId = rp.RolePermissionId,
@@ -43,31 +42,37 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin
                 AssignedAt = rp.AssignedAt
             };
         }
+
         public async Task<string> AssignPermissionAsync(RolePermissionCreateDto dto)
         {
             if (!await _repository.RoleExistsAsync(dto.RoleId))
-                throw new Exception("Role does not exist.");
+                throw new InvalidRoleException("Role does not exist.");
+
             if (!await _repository.PermissionExistsAsync(dto.PermissionId))
-                throw new Exception("Permission does not exist.");
+                throw new InvalidPermissionException("Permission does not exist.");
+
             var existing = await _repository.GetByRoleAndPermissionAsync(dto.RoleId, dto.PermissionId);
             if (existing != null)
                 throw new DuplicateRolePermissionException();
+
             var rolePermission = new RolePermission
             {
                 RoleId = dto.RoleId,
                 PermissionId = dto.PermissionId,
                 AssignedBy = dto.AssignedBy,
-                AssignedAt = DateTime.UtcNow
+                AssignedAt = DateTime.UtcNow,
             };
+
             await _repository.AddAsync(rolePermission);
             await _repository.SaveAsync();
             return "Permission assigned to role successfully.";
         }
+
         public async Task<string> RemovePermissionAsync(int id)
         {
-            var rp = await _repository.GetByIdAsync(id);
-            if (rp == null)
-                throw new RolePermissionNotFoundException(id);
+            var rp = await _repository.GetByIdAsync(id)
+                ?? throw new RolePermissionNotFoundException(id);
+
             await _repository.DeleteAsync(rp);
             await _repository.SaveAsync();
             return "Permission removed successfully.";

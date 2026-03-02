@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using FraudMonitoringSystem.Models.Customer;
+﻿using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Controllers
 {
+    [Authorize(Roles = "Customer,Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomerChatController : ControllerBase
@@ -17,7 +19,7 @@ namespace FraudMonitoringSystem.Controllers
             _chatService = chatService;
         }
 
-        // GET: api/customerchat/{customerId}
+
         [HttpGet("{customerId}")]
         public async Task<ActionResult<IEnumerable<ChatMessage>>> GetChat(long customerId)
         {
@@ -25,7 +27,7 @@ namespace FraudMonitoringSystem.Controllers
             return Ok(chat);
         }
 
-        // POST: api/customerchat/send
+       
         [HttpPost("send")]
         public async Task<ActionResult> SendMessage(long customerId, string message)
         {

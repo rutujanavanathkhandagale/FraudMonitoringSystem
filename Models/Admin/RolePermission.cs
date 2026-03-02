@@ -7,16 +7,20 @@ namespace FraudMonitoringSystem.Models.Admin
     {
         [Key]
         public int RolePermissionId { get; set; }
+
         [Required]
         public int RoleId { get; set; }
+
         [Required]
         public int PermissionId { get; set; }
+
         public DateTime AssignedAt { get; set; } = DateTime.UtcNow;
         public int? AssignedBy { get; set; }
-        // Navigation
-        [ForeignKey("RoleId")]
+
+        [ForeignKey(nameof(RoleId))]
         public Role Role { get; set; }
-        [ForeignKey("PermissionId")]
+
+        [ForeignKey(nameof(PermissionId))]
         public Permission Permission { get; set; }
     }
 }

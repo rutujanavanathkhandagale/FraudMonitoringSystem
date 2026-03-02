@@ -20,10 +20,11 @@ namespace FraudMonitoringSystem.Models.Admin
 
         public string Description { get; set; }
 
-        // Navigation
 
 
-        public ICollection<RolePermission> RolePermissions { get; set; }
+
+        public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
+        public ICollection<SystemUser> Users { get; set; } = new List<SystemUser>();
 
     }
 

@@ -44,7 +44,6 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             {
                 CustomerId = customerId,
                 DocumentRefsJSON = JsonSerializer.Serialize(docMappings),
-                Status = "Pending"
             };
 
             return await _repository.AddAsync(profile);
@@ -77,7 +76,6 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             if (docMappings.Any())
             {
                 profile.DocumentRefsJSON = JsonSerializer.Serialize(docMappings);
-                profile.Status = "Pending"; // reset to pending after re-upload
             }
 
             return await _repository.UpdateAsync(profile);
@@ -88,11 +86,7 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null) return null;
 
-            if (!string.IsNullOrEmpty(partialProfile.Status))
-                existing.Status = partialProfile.Status;
-
-            if (partialProfile.LastReviewedDate.HasValue)
-                existing.LastReviewedDate = partialProfile.LastReviewedDate;
+         
 
             if (!string.IsNullOrEmpty(partialProfile.DocumentRefsJSON))
                 existing.DocumentRefsJSON = partialProfile.DocumentRefsJSON;

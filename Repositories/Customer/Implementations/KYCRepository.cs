@@ -26,9 +26,10 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
         {
             return await _context.KYCProfile
                 .Include(k => k.Customer)
-                .Where(k => k.Customer.CustomerType.Contains(query) || k.Status.Contains(query))
+                .Where(k => k.Customer.CustomerType.Contains(query))
                 .ToListAsync();
         }
+
 
         public async Task<KYCProfile> AddAsync(KYCProfile profile)
         {
@@ -42,17 +43,6 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             throw new NotImplementedException();
         }
 
-        //public Task<KYCProfile> UpdateAsync(KYCProfile profile)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public async Task<KYCProfile> UpdateAsync(KYCProfile profile)
-        //{
-        //    _context.KYCProfile.Update(profile);
-        //    await _context.SaveChangesAsync();
-        //    return profile;
-        //}
     }
 }
 

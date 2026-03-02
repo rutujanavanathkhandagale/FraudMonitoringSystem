@@ -7,11 +7,10 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin
     {
         Task<List<SystemUser>> GetAllAsync(int page, int pageSize);
         Task<SystemUser?> GetByIdAsync(int id);
-        Task<List<SystemUser>> GetByRoleAsync(AdminRole role);
+        Task<List<SystemUser>> GetByRoleIdAsync(int roleId);
         Task AddAsync(SystemUser user);
         Task DeleteAsync(SystemUser user);
         Task<bool> ExistsByRegistrationId(int registrationId);
-        Task<int> CountByRoleAsync(AdminRole role);
-      
+        Task<int> CountByRoleIdAsync(int roleId);
     }
 }

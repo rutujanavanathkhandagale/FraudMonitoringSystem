@@ -180,8 +180,6 @@ namespace FraudMonitoringSystem.Migrations
                     KYCId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    LastReviewedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DocumentRefsJSON = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -220,26 +218,6 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SystemUsers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RegistrationId = table.Column<int>(type: "int", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SystemUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_SystemUsers_Registrations_RegistrationId",
-                        column: x => x.RegistrationId,
-                        principalTable: "Registrations",
-                        principalColumn: "RegistrationId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RolePermissions",
                 columns: table => new
                 {
@@ -267,6 +245,32 @@ namespace FraudMonitoringSystem.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RolePermissions_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
+                        principalColumn: "RoleId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SystemUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RegistrationId = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SystemUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SystemUsers_Registrations_RegistrationId",
+                        column: x => x.RegistrationId,
+                        principalTable: "Registrations",
+                        principalColumn: "RegistrationId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SystemUsers_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "RoleId",
@@ -364,6 +368,11 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_SystemUsers_RegistrationId",
                 table: "SystemUsers",
                 column: "RegistrationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SystemUsers_RoleId",
+                table: "SystemUsers",
+                column: "RoleId");
         }
 
         /// <inheritdoc />
@@ -406,10 +415,10 @@ namespace FraudMonitoringSystem.Migrations
                 name: "Permissions");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Registrations");
 
             migrationBuilder.DropTable(
-                name: "Registrations");
+                name: "Roles");
         }
     }
 }

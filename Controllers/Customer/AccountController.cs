@@ -1,14 +1,16 @@
-﻿using FraudMonitoringSystem.Models.Customer;
+﻿using FraudMonitoringSystem.Aspects.Customer;
+using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using FraudMonitoringSystem.Aspects.Customer;
 
 
 namespace FraudMonitoringSystem.Controllers.Customer
 {
+    [Authorize(Roles = "Customer,Admin")]
     [ApiController]
     [Route("api/[controller]")]
-    [TypeFilter(typeof(AccountExceptionHandler))] // Aspect applied here
+    [TypeFilter(typeof(AccountExceptionHandler))] 
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _service;

@@ -6,6 +6,7 @@
         Investigator,
         Compliance,
         Modeler,
-        Customer
+        Customer,
+        Admin
     }
 }

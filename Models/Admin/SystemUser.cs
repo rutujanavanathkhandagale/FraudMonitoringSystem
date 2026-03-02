@@ -8,14 +8,18 @@ namespace FraudMonitoringSystem.Models.Admin
     {
         [Key]
         public int Id { get; set; }
-        // Foreign Key to Registration
+
         [Required]
         public int RegistrationId { get; set; }
+
         [ForeignKey(nameof(RegistrationId))]
         public Registration Registration { get; set; }
-        // Store role separately for quick filtering (Analyst, Admin, etc.)
+
         [Required]
-        public AdminRole Role { get; set; }
-        
+        public int RoleId { get; set; }
+
+        [ForeignKey(nameof(RoleId))]
+        public Role Role { get; set; }
+
     }
 }

@@ -12,13 +12,7 @@ namespace FraudMonitoringSystem.Models.Customer
         [Required]
         public long CustomerId { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        [RegularExpression("Pending|Verified|Rejected", ErrorMessage = "Status must be Pending, Verified, or Rejected")]
-        public string Status { get; set; } = "Pending";
-
-        [DataType(DataType.Date)]
-        public DateTime? LastReviewedDate { get; set; }
+   
 
         [Required(ErrorMessage = "Documents are required")]
         public string DocumentRefsJSON { get; set; }

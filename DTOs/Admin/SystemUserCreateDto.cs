@@ -9,6 +9,6 @@ namespace FraudMonitoringSystem.DTOs.Admin
         [Required]
         public int RegistrationId { get; set; }
         [Required]
-        public AdminRole Role { get; set; }
+        public int  RoleId { get; set; }
     }
 }

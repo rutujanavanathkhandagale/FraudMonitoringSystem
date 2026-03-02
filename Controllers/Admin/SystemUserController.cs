@@ -8,34 +8,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FraudMonitoringSystem.Controllers.Admin
 {
-    [Route("api/system-users")]
     [ApiController]
+    [Route("api/system-users")]
     public class SystemUsersController : ControllerBase
     {
         private readonly ISystemUserService _service;
-        public SystemUsersController(ISystemUserService service)
-        {
-            _service = service;
-        }
+        public SystemUsersController(ISystemUserService service) => _service = service;
+
         [HttpGet]
-        public async Task<IActionResult> GetAll(int page = 1, int pageSize = 10)
+        public async Task<IActionResult> GetAll(int page = 1, int pageSize = 10) =>
+            Ok(await _service.GetAllAsync(page, pageSize));
+
+        [HttpGet("by-role/{roleId:int}")]
+        public async Task<IActionResult> GetByRoleId(int roleId) =>
+            Ok(await _service.GetByRoleIdAsync(roleId));
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] SystemUserCreateDto dto)
         {
-            var result = await _service.GetAllAsync(page, pageSize);
-            return Ok(result);
+            await _service.AddAsync(dto);
+            return StatusCode(201);
         }
-        [HttpGet("by-role/{role}")]
-        public async Task<IActionResult> GetByRole(AdminRole role)
-        {
-            var result = await _service.GetByRoleAsync(role);
-            return Ok(result);
-        }
-        //[HttpPost]
-        //public async Task<IActionResult> Create([FromBody]SystemUserCreateDto dto)
-        //{
-        //    await _service.AddAsync(dto);
-        //    return StatusCode(201);
-        //}
-        [HttpDelete("{id}")]
+
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _service.DeleteAsync(id);
