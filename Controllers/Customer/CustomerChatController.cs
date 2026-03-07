@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Controllers
 {
-    [Authorize(Roles = "Customer,Admin")]
+    //[Authorize(Roles = "Customer,Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomerChatController : ControllerBase

@@ -36,7 +36,6 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             if (existing == null)
                 throw new AccountNotFoundException($"Account with ID {id} not found.");
 
-
             if (!string.IsNullOrEmpty(partialAccount.AccountNumber))
                 existing.AccountNumber = partialAccount.AccountNumber;
 
@@ -49,12 +48,9 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             if (!string.IsNullOrEmpty(partialAccount.Status))
                 existing.Status = partialAccount.Status;
 
-            // ⚠️ Balance intentionally skipped (as you requested)
-
+            // Balance intentionally skipped
             return await _repository.PatchAsync(existing);
         }
-
-
 
         public async Task<Account> GetAccountByIdAsync(long id)
         {
@@ -62,6 +58,18 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             if (account == null)
                 throw new AccountNotFoundException($"Account with ID {id} not found.");
             return account;
+        }
+
+        // ✅ New
+        public async Task<IEnumerable<Account>> GetAccountsByCustomerIdAsync(long customerId)
+        {
+            var accounts = await _repository.GetByCustomerIdAsync(customerId);
+
+            // Optional: If you want to throw when none found
+            if (accounts == null || !accounts.Any())
+                throw new AccountNotFoundException($"No accounts found for CustomerId {customerId}.");
+
+            return accounts;
         }
 
         private void ValidateAccount(Account account)

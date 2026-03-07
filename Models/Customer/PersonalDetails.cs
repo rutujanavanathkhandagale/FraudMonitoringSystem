@@ -47,7 +47,7 @@ namespace FraudMonitoringSystem.Models.Customer
       
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
-        public DateTime? DOB { get; set; }
+        public DateOnly? DOB { get; set; }
 
         [StringLength(20, ErrorMessage = "Status cannot exceed 20 characters")]
         [RegularExpression("Active|Inactive", ErrorMessage = "Status must be either Active or Inactive")]

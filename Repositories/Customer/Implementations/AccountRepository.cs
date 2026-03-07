@@ -2,8 +2,9 @@
 using FraudMonitoringSystem.Models.Customer;
 using Microsoft.EntityFrameworkCore;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
-
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Implementations
 {
@@ -29,11 +30,17 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             return account;
         }
 
-
-
         public async Task<Account> GetByIdAsync(long id)
         {
             return await _context.Accounts.FirstOrDefaultAsync(a => a.AccountId == id);
+        }
+
+   
+        public async Task<IEnumerable<Account>> GetByCustomerIdAsync(long customerId)
+        {
+            return await _context.Accounts
+                                 .Where(a => a.CustomerId == customerId)
+                                 .ToListAsync();
         }
     }
 }

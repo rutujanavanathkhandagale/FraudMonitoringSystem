@@ -1,8 +1,12 @@
 ﻿using FraudMonitoringSystem.Models.Admin;
+using FraudMonitoringSystem.Models.AlertCase;
+
+using FraudMonitoringSystem.Models.ComplianceOfficer;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Models.Investigator;
 using FraudMonitoringSystem.Models.Rules;
 using Microsoft.EntityFrameworkCore;
+using FraudMonitoringSystem.Models;
 
 
 namespace FraudMonitoringSystem.Data
@@ -32,9 +36,23 @@ namespace FraudMonitoringSystem.Data
 
         public DbSet<DetectionRule> DetectionRule { get; set; }
 
-        public DbSet<Transaction> Transaction{ get; set; }
+        public DbSet<Transaction>Transaction{ get; set; }
 
         public DbSet<RiskScore> RiskScore { get; set; }
+
+
+        public DbSet<Regulatory_Report> Regulatory_Report { get; set; } = default!;
+        public DbSet<ControlChecklist> Control_Checklist { get; set; } = default!;
+    
+        public DbSet<Alert> Alerts { get; set; }
+        public DbSet<Case> Cases { get; set; }
+        public DbSet<Sanction> Sanctions { get; set; }
+
+        public DbSet<PEPListModel> PEPList { get; set; }
+
+        
+
+
 
 
 
@@ -87,7 +105,9 @@ namespace FraudMonitoringSystem.Data
                 .WithMany(p => p.RolePermissions)
 
                 .HasForeignKey(rp => rp.PermissionId);
-
+        
+           
+        
 
         }
     }

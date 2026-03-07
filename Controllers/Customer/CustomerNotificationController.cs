@@ -21,7 +21,7 @@ namespace FraudMonitoringSystem.Controllers
 
         [HttpGet("{customerId}/notifications")]
 
-        [Authorize(Roles = "Customer")]
+        //[Authorize(Roles = "Customer")]
         public async Task<ActionResult<IEnumerable<Notification>>> GetNotifications(long customerId)
         {
             var notifications = await _notificationService.GetUserNotificationsAsync(customerId);
@@ -30,7 +30,7 @@ namespace FraudMonitoringSystem.Controllers
 
         [HttpPut("notifications/{notificationId}/read")]
 
-        [Authorize(Roles = "Customer")]
+        //[Authorize(Roles = "Customer")]
         public async Task<ActionResult> MarkNotificationAsRead(int notificationId)
         {
             await _notificationService.MarkAsReadAsync(notificationId);

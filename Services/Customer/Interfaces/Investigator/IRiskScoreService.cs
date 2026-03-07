@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 
 
-
 namespace FraudMonitoringSystem.Services.Customer.Interfaces.Investigator
 {
     public interface IRiskScoreService

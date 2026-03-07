@@ -1,16 +1,15 @@
 ﻿using FraudMonitoringSystem.Aspects.Customer;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using FraudMonitoringSystem.Services.Customer.Interfaces;
 
 namespace FraudMonitoringSystem.Controllers.Customer
 {
-    [Authorize(Roles = "Customer,Admin")]
+    //[Authorize(Roles = "Customer,Admin")]
     [ApiController]
     [Route("api/[controller]")]
-    [TypeFilter(typeof(AccountExceptionHandler))] 
+    [TypeFilter(typeof(AccountExceptionHandler))]
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _service;
@@ -31,16 +30,22 @@ namespace FraudMonitoringSystem.Controllers.Customer
         public async Task<IActionResult> Patch(long id, [FromBody] Account partialAccount)
         {
             var updated = await _service.PatchAsync(id, partialAccount);
-            if (updated == null) return NotFound(new { Error = $"Account with ID {id} not found." });
             return Ok(updated);
         }
-
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(long id)
         {
             var account = await _service.GetAccountByIdAsync(id);
             return Ok(account);
+        }
+
+        // ✅ New: GET /api/Account/by-customer/{customerId}
+        [HttpGet("by-customer/{customerId:long}")]
+        public async Task<IActionResult> GetByCustomerId(long customerId)
+        {
+            var accounts = await _service.GetAccountsByCustomerIdAsync(customerId);
+            return Ok(accounts); // returns IEnumerable<Account>
         }
     }
 }

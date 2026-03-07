@@ -6,27 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FraudMonitoringSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class data : Migration
+    public partial class finaldata : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Accounts",
+                name: "PEPList",
                 columns: table => new
                 {
-                    AccountId = table.Column<long>(type: "bigint", nullable: false)
+                    PepId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    AccountNumber = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    ProductType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DOB = table.Column<DateOnly>(type: "date", nullable: false),
+                    PermanentAddress = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accounts", x => x.AccountId);
+                    table.PrimaryKey("PK_PEPList", x => x.PepId);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,7 +61,7 @@ namespace FraudMonitoringSystem.Migrations
                     CustomerType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    DOB = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DOB = table.Column<DateOnly>(type: "date", nullable: true),
                     Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     PermanentAddress = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CurrentAddress = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
@@ -115,6 +112,21 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Sanctions",
+                columns: table => new
+                {
+                    SanctionId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DOB = table.Column<DateOnly>(type: "date", nullable: false),
+                    PermanentAddress = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sanctions", x => x.SanctionId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Scenarios",
                 columns: table => new
                 {
@@ -131,24 +143,50 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transaction",
+                name: "Accounts",
                 columns: table => new
                 {
-                    TransactionID = table.Column<int>(type: "int", nullable: false)
+                    AccountId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountID = table.Column<int>(type: "int", nullable: false),
-                    CounterpartyAccount = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Currency = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
-                    TransactionType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Channel = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GeoLocation = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
+                    AccountNumber = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    ProductType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transaction", x => x.TransactionID);
+                    table.PrimaryKey("PK_Accounts", x => x.AccountId);
+                    table.ForeignKey(
+                        name: "FK_Accounts_PersonalDetails_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "PersonalDetails",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cases",
+                columns: table => new
+                {
+                    CaseID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CaseType = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Priority = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cases", x => x.CaseID);
+                    table.ForeignKey(
+                        name: "FK_Cases_PersonalDetails_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "PersonalDetails",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -180,7 +218,8 @@ namespace FraudMonitoringSystem.Migrations
                     KYCId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    DocumentRefsJSON = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DocumentRefsJSON = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -211,6 +250,35 @@ namespace FraudMonitoringSystem.Migrations
                     table.PrimaryKey("PK_Notifications", x => x.NotificationID);
                     table.ForeignKey(
                         name: "FK_Notifications_PersonalDetails_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "PersonalDetails",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transaction",
+                columns: table => new
+                {
+                    TransactionID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountID = table.Column<int>(type: "int", nullable: false),
+                    CounterpartyAccount = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Currency = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
+                    TransactionType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Channel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SourceType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GeoLocation = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transaction", x => x.TransactionID);
+                    table.ForeignKey(
+                        name: "FK_Transaction_PersonalDetails_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "PersonalDetails",
                         principalColumn: "CustomerId",
@@ -302,6 +370,52 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Control_Checklist",
+                columns: table => new
+                {
+                    ChecklistID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CaseID = table.Column<int>(type: "int", nullable: false),
+                    CheckedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Result = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Control_Checklist", x => x.ChecklistID);
+                    table.ForeignKey(
+                        name: "FK_Control_Checklist_Cases_CaseID",
+                        column: x => x.CaseID,
+                        principalTable: "Cases",
+                        principalColumn: "CaseID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Regulatory_Report",
+                columns: table => new
+                {
+                    ReportID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CaseID = table.Column<int>(type: "int", nullable: false),
+                    ReportType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Period = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SubmittedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Regulatory_Report", x => x.ReportID);
+                    table.ForeignKey(
+                        name: "FK_Regulatory_Report_Cases_CaseID",
+                        column: x => x.CaseID,
+                        principalTable: "Cases",
+                        principalColumn: "CaseID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RiskScore",
                 columns: table => new
                 {
@@ -323,10 +437,75 @@ namespace FraudMonitoringSystem.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Alerts",
+                columns: table => new
+                {
+                    AlertID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RuleID = table.Column<int>(type: "int", nullable: false),
+                    CaseID = table.Column<int>(type: "int", nullable: true),
+                    Severity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TransactionID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Alerts", x => x.AlertID);
+                    table.ForeignKey(
+                        name: "FK_Alerts_Cases_CaseID",
+                        column: x => x.CaseID,
+                        principalTable: "Cases",
+                        principalColumn: "CaseID");
+                    table.ForeignKey(
+                        name: "FK_Alerts_DetectionRule_RuleID",
+                        column: x => x.RuleID,
+                        principalTable: "DetectionRule",
+                        principalColumn: "RuleId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Alerts_Transaction_TransactionID",
+                        column: x => x.TransactionID,
+                        principalTable: "Transaction",
+                        principalColumn: "TransactionID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Accounts_CustomerId",
+                table: "Accounts",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Alerts_CaseID",
+                table: "Alerts",
+                column: "CaseID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Alerts_RuleID",
+                table: "Alerts",
+                column: "RuleID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Alerts_TransactionID",
+                table: "Alerts",
+                column: "TransactionID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cases_CustomerId",
+                table: "Cases",
+                column: "CustomerId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_ChatMessages_CustomerId",
                 table: "ChatMessages",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Control_Checklist_CaseID",
+                table: "Control_Checklist",
+                column: "CaseID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetectionRule_ScenarioId",
@@ -342,6 +521,11 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_Notifications_CustomerId",
                 table: "Notifications",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Regulatory_Report_CaseID",
+                table: "Regulatory_Report",
+                column: "CaseID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RiskScore_TransactionID",
@@ -373,6 +557,11 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_SystemUsers_RoleId",
                 table: "SystemUsers",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transaction_CustomerId",
+                table: "Transaction",
+                column: "CustomerId");
         }
 
         /// <inheritdoc />
@@ -382,10 +571,13 @@ namespace FraudMonitoringSystem.Migrations
                 name: "Accounts");
 
             migrationBuilder.DropTable(
+                name: "Alerts");
+
+            migrationBuilder.DropTable(
                 name: "ChatMessages");
 
             migrationBuilder.DropTable(
-                name: "DetectionRule");
+                name: "Control_Checklist");
 
             migrationBuilder.DropTable(
                 name: "KYCProfile");
@@ -394,19 +586,28 @@ namespace FraudMonitoringSystem.Migrations
                 name: "Notifications");
 
             migrationBuilder.DropTable(
+                name: "PEPList");
+
+            migrationBuilder.DropTable(
+                name: "Regulatory_Report");
+
+            migrationBuilder.DropTable(
                 name: "RiskScore");
 
             migrationBuilder.DropTable(
                 name: "RolePermissions");
 
             migrationBuilder.DropTable(
+                name: "Sanctions");
+
+            migrationBuilder.DropTable(
                 name: "SystemUsers");
 
             migrationBuilder.DropTable(
-                name: "Scenarios");
+                name: "DetectionRule");
 
             migrationBuilder.DropTable(
-                name: "PersonalDetails");
+                name: "Cases");
 
             migrationBuilder.DropTable(
                 name: "Transaction");
@@ -419,6 +620,12 @@ namespace FraudMonitoringSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Scenarios");
+
+            migrationBuilder.DropTable(
+                name: "PersonalDetails");
         }
     }
 }

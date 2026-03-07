@@ -22,6 +22,45 @@ namespace FraudMonitoringSystem.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Alert", b =>
+                {
+                    b.Property<int>("AlertID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlertID"));
+
+                    b.Property<int?>("CaseID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RuleID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Severity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TransactionID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AlertID");
+
+                    b.HasIndex("CaseID");
+
+                    b.HasIndex("RuleID");
+
+                    b.HasIndex("TransactionID");
+
+                    b.ToTable("Alerts");
+                });
+
             modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.Permission", b =>
                 {
                     b.Property<int>("PermissionId")
@@ -182,6 +221,160 @@ namespace FraudMonitoringSystem.Migrations
                     b.ToTable("SystemUsers");
                 });
 
+            modelBuilder.Entity("FraudMonitoringSystem.Models.AlertCase.Case", b =>
+                {
+                    b.Property<int>("CaseID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CaseID"));
+
+                    b.Property<string>("CaseType")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("CustomerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Priority")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("CaseID");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Cases");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.ComplianceOfficer.PEPListModel", b =>
+                {
+                    b.Property<long>("PepId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("PepId"));
+
+                    b.Property<DateOnly>("DOB")
+                        .HasColumnType("date");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PermanentAddress")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("PepId");
+
+                    b.ToTable("PEPList");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.ComplianceOfficer.Regulatory_Report", b =>
+                {
+                    b.Property<int>("ReportID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReportID"));
+
+                    b.Property<int>("CaseID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Period")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReportType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("SubmittedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ReportID");
+
+                    b.HasIndex("CaseID");
+
+                    b.ToTable("Regulatory_Report");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.ComplianceOfficer.Sanction", b =>
+                {
+                    b.Property<long>("SanctionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("SanctionId"));
+
+                    b.Property<DateOnly>("DOB")
+                        .HasColumnType("date");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PermanentAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SanctionId");
+
+                    b.ToTable("Sanctions");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.ControlChecklist", b =>
+                {
+                    b.Property<int>("ChecklistID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChecklistID"));
+
+                    b.Property<int>("CaseID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CheckedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CheckedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ChecklistID");
+
+                    b.HasIndex("CaseID");
+
+                    b.ToTable("Control_Checklist");
+                });
+
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.Account", b =>
                 {
                     b.Property<long>("AccountId")
@@ -214,6 +407,8 @@ namespace FraudMonitoringSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AccountId");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Accounts");
                 });
@@ -261,6 +456,11 @@ namespace FraudMonitoringSystem.Migrations
                     b.Property<string>("DocumentRefsJSON")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("KYCId");
 
@@ -325,8 +525,8 @@ namespace FraudMonitoringSystem.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime?>("DOB")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly?>("DOB")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -483,10 +683,17 @@ namespace FraudMonitoringSystem.Migrations
                         .HasMaxLength(3)
                         .HasColumnType("nvarchar(3)");
 
+                    b.Property<long>("CustomerId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("GeoLocation")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("SourceType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -500,6 +707,8 @@ namespace FraudMonitoringSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TransactionID");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Transaction");
                 });
@@ -571,6 +780,31 @@ namespace FraudMonitoringSystem.Migrations
                     b.ToTable("Scenarios");
                 });
 
+            modelBuilder.Entity("Alert", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
+                        .WithMany("Alerts")
+                        .HasForeignKey("CaseID");
+
+                    b.HasOne("FraudMonitoringSystem.Models.Rules.DetectionRule", "DetectionRule")
+                        .WithMany()
+                        .HasForeignKey("RuleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FraudMonitoringSystem.Models.Investigator.Transaction", "Transaction")
+                        .WithMany()
+                        .HasForeignKey("TransactionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Case");
+
+                    b.Navigation("DetectionRule");
+
+                    b.Navigation("Transaction");
+                });
+
             modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.RolePermission", b =>
                 {
                     b.HasOne("FraudMonitoringSystem.Models.Admin.Permission", "Permission")
@@ -607,6 +841,50 @@ namespace FraudMonitoringSystem.Migrations
                     b.Navigation("Registration");
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.AlertCase.Case", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.Customer.PersonalDetails", "PrimaryCustomer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PrimaryCustomer");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.ComplianceOfficer.Regulatory_Report", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Case");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.ControlChecklist", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Case");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.Account", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.Customer.PersonalDetails", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.ChatMessage", b =>
@@ -653,6 +931,17 @@ namespace FraudMonitoringSystem.Migrations
                     b.Navigation("Transaction");
                 });
 
+            modelBuilder.Entity("FraudMonitoringSystem.Models.Investigator.Transaction", b =>
+                {
+                    b.HasOne("FraudMonitoringSystem.Models.Customer.PersonalDetails", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
             modelBuilder.Entity("FraudMonitoringSystem.Models.Rules.DetectionRule", b =>
                 {
                     b.HasOne("FraudMonitoringSystem.Models.Rules.Scenario", "Scenario")
@@ -674,6 +963,11 @@ namespace FraudMonitoringSystem.Migrations
                     b.Navigation("RolePermissions");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.AlertCase.Case", b =>
+                {
+                    b.Navigation("Alerts");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Customer.PersonalDetails", b =>

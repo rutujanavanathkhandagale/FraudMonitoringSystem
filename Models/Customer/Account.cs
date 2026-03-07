@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FraudMonitoringSystem.Models.Customer
 {
@@ -11,6 +12,8 @@ namespace FraudMonitoringSystem.Models.Customer
 
         [Required(ErrorMessage = "CustomerId is required")]
         public long CustomerId { get; set; }
+        [JsonIgnore]
+        public PersonalDetails? Customer { get; set; }
 
         [ForeignKey("CustomerId")]
 
@@ -31,7 +34,6 @@ namespace FraudMonitoringSystem.Models.Customer
         public decimal Balance { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
-        [RegularExpression("Active|Inactive", ErrorMessage = "Status must be Active or Inactive")]
         public string Status { get; set; }
     }
 }

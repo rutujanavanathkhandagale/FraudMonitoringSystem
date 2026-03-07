@@ -1,4 +1,6 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Interfaces
 {
@@ -7,5 +9,8 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces
         Task<int> AddAsync(Account account);
         Task<Account> PatchAsync(Account account);
         Task<Account> GetByIdAsync(long id);
+
+        // ✅ New: fetch accounts by CustomerId
+        Task<IEnumerable<Account>> GetByCustomerIdAsync(long customerId);
     }
 }

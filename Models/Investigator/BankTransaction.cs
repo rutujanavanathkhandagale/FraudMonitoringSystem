@@ -1,21 +1,34 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FraudMonitoringSystem.Models.Customer;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FraudMonitoringSystem.Models.Investigator
 {
+
     public class Transaction
     {
+
+
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int TransactionID { get; set; }
 
         [Required(ErrorMessage = "AccountID is required.")]
+
         [Range(1, int.MaxValue, ErrorMessage = "AccountID must be greater than zero.")]
         public int AccountID { get; set; }
 
         [Required(ErrorMessage = "CounterpartyAccount is required.")]
         [StringLength(50, ErrorMessage = "CounterpartyAccount cannot exceed 50 characters.")]
         public string CounterpartyAccount { get; set; }
+
+        [Required]
+        
+        public long CustomerId { get; set; }
+        [JsonIgnore]
+        public PersonalDetails? Customer { get; set; }
 
         [Required(ErrorMessage = "Amount is required.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be greater than zero.")]
@@ -32,6 +45,8 @@ namespace FraudMonitoringSystem.Models.Investigator
         [Required(ErrorMessage = "Channel is required.")]
         [RegularExpression("^(Branch|ATM|Online|Card|Wire|Wallet)$", ErrorMessage = "Invalid channel type.")]
         public string Channel { get; set; }
+        [Required]
+        public string? SourceType { get; set; }
 
         [Required(ErrorMessage = "Timestamp is required.")]
         public DateTime Timestamp { get; set; }
