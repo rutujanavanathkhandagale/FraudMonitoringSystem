@@ -4,7 +4,6 @@ using FraudMonitoringSystem.Repositories;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.AlertsCase;
-using FraudMonitoringSystem.Repositories.Customer.Implementations.ComplianceOfficer;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Investigator;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;

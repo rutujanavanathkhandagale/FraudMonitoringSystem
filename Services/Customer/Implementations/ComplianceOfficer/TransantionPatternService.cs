@@ -1,6 +1,6 @@
-﻿using FraudMonitoringSystem.Repositories.Customer.Interfaces.ComplianceOfficer;
+﻿using System.Threading.Tasks;
+using FraudMonitoringSystem.Repositories.Customer.Interfaces.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Interfaces.ComplianceOfficer;
-
 namespace FraudMonitoringSystem.Services.Customer.Implementations.ComplianceOfficer
 {
     public class TransactionPatternService : ITransactionPatternService
@@ -10,9 +10,9 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.ComplianceOffi
         {
             _repository = repository;
         }
-        public string CheckCustomerTransactionPattern(int customerId)
+        public async Task<string> CheckCustomerTransactionPattern(int customerId)
         {
-            return _repository.CheckCustomerTransactionPattern(customerId);
+            return await _repository.CheckCustomerTransactionPattern(customerId);
         }
     }
 }

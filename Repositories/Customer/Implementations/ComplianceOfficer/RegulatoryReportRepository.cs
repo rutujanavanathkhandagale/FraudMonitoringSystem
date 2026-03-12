@@ -1,15 +1,6 @@
 ﻿using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
-using System;
-
-using System.Collections.Generic;
-
-using System.Linq;
-
-using System.Threading.Tasks;
-
-using FraudMonitoringSystem.Models.ComplianceOfficer;
 
 public class RegulatoryReportRepository : IRegulatoryReportRepository
 
@@ -61,7 +52,7 @@ public class RegulatoryReportRepository : IRegulatoryReportRepository
 
         // Control Checklist Logic
 
-        if (checklist != null && checklist.Status == "Pass")
+        if (checklist != null && checklist.Result == "Pass")
 
             status = "Pass";
 

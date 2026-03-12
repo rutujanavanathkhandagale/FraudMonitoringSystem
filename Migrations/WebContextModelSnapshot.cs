@@ -364,13 +364,7 @@ namespace FraudMonitoringSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ChecklistID");
-
-                    b.HasIndex("CaseID");
 
                     b.ToTable("Control_Checklist");
                 });
@@ -855,17 +849,6 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.ComplianceOfficer.Regulatory_Report", b =>
-                {
-                    b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
-                        .WithMany()
-                        .HasForeignKey("CaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Case");
-                });
-
-            modelBuilder.Entity("FraudMonitoringSystem.Models.ControlChecklist", b =>
                 {
                     b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
                         .WithMany()

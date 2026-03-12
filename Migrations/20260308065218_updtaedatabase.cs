@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FraudMonitoringSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class finaldata : Migration
+    public partial class updtaedatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Control_Checklist",
+                columns: table => new
+                {
+                    ChecklistID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CaseID = table.Column<int>(type: "int", nullable: false),
+                    CheckedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Result = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Control_Checklist", x => x.ChecklistID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "PEPList",
                 columns: table => new
@@ -370,29 +386,6 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Control_Checklist",
-                columns: table => new
-                {
-                    ChecklistID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CaseID = table.Column<int>(type: "int", nullable: false),
-                    CheckedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CheckedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Result = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Control_Checklist", x => x.ChecklistID);
-                    table.ForeignKey(
-                        name: "FK_Control_Checklist_Cases_CaseID",
-                        column: x => x.CaseID,
-                        principalTable: "Cases",
-                        principalColumn: "CaseID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Regulatory_Report",
                 columns: table => new
                 {
@@ -501,11 +494,6 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_ChatMessages_CustomerId",
                 table: "ChatMessages",
                 column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Control_Checklist_CaseID",
-                table: "Control_Checklist",
-                column: "CaseID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetectionRule_ScenarioId",

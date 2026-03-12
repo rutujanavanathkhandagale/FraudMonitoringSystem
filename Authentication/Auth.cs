@@ -1,8 +1,6 @@
 ﻿using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.DTOs;
-using FraudMonitoringSystem.Models.Customer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

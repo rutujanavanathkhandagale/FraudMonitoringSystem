@@ -1,6 +1,6 @@
 ﻿using FraudMonitoringSystem.Models;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 public class ControlChecklistService : IControlChecklistService
 {
     private readonly IControlChecklistRepository _repository;
@@ -8,28 +8,16 @@ public class ControlChecklistService : IControlChecklistService
     {
         _repository = repository;
     }
-    public ControlChecklist Add(ControlChecklist checklist)
+    public async Task<ControlChecklist> ExecuteChecklist(int caseId, string checkedBy)
     {
-        return _repository.Add(checklist);
+        return await _repository.ExecuteChecklist(caseId, checkedBy);
     }
-    public IEnumerable<ControlChecklist> GetAll()
+    public async Task<List<ControlChecklist>> GetAllAsync()
     {
-        return _repository.GetAll();
+        return await _repository.GetAllAsync();
     }
-    public ControlChecklist GetByCaseId(int caseId)
+    public async Task<List<ControlChecklist>> GetByResultAsync(string result)
     {
-        return _repository.GetByCaseId(caseId);
-    }
-    public IEnumerable<ControlChecklist> GetByStatus(string status)
-    {
-        return _repository.GetByStatus(status);
-    }
-    public ControlChecklist Update(ControlChecklist checklist)
-    {
-        return _repository.Update(checklist);
-    }
-    public bool Delete(int checklistId)
-    {
-        return _repository.Delete(checklistId);
+        return await _repository.GetByResultAsync(result);
     }
 }

@@ -1,7 +1,8 @@
-﻿namespace FraudMonitoringSystem.Services.Customer.Interfaces.ComplianceOfficer
+﻿using System.Threading.Tasks;
+namespace FraudMonitoringSystem.Services.Customer.Interfaces.ComplianceOfficer
 {
     public interface ITransactionPatternService
     {
-        string CheckCustomerTransactionPattern(int customerId);
+        Task<string> CheckCustomerTransactionPattern(int customerId);
     }
 }

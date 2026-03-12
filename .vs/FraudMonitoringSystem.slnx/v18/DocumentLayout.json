@@ -1,12 +1,1351 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2471813\\source\\repos\\FraudMonitoringSystem\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\authentication\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:authentication\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\authentication\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:authentication\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\complianceofficer\\transactionpatternrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\complianceofficer\\transactionpatternrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\complianceofficer\\transantionpatternservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\complianceofficer\\transantionpatternservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\transactionpatterncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\transactionpatterncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\complianceofficer\\itransactionpatternrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\complianceofficer\\itransactionpatternrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\complianceofficer\\icontrol_checklistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\complianceofficer\\icontrol_checklistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\complianceofficer\\itransantionpatternservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\complianceofficer\\itransantionpatternservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\customer\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\complianceofficer\\icontrolchecklistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\complianceofficer\\icontrolchecklistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\complianceofficer\\controlchecklistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\complianceofficer\\controlchecklistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\controlchecklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\controlchecklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\complianceofficer\\control_checklist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\complianceofficer\\control_checklist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\compliancenotificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\compliancenotificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\complianceofficer\\iregulatoryreportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\complianceofficer\\iregulatoryreportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\alertscase\\icaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\alertscase\\icaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\complianceofficer\\peplist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\complianceofficer\\peplist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\kycrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\kycrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\complianceofficer\\kycrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\complianceofficer\\kycrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\complianceofficer\\kycrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\complianceofficer\\kycrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\data\\webcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:data\\webcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\personaldetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\personaldetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\complianceofficer\\regulatoryreportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\complianceofficer\\regulatoryreportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\complianceofficer\\peplistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\complianceofficer\\peplistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\dtos\\complianceofficer\\regulatoryreportupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\complianceofficer\\regulatoryreportupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\customer\\registerrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\registerrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\customer\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\investigator\\banktransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\investigator\\banktransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\customer\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\regulatory_reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\regulatory_reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\complianceofficer\\iregulatoryreportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\complianceofficer\\iregulatoryreportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\complianceofficer\\regulatoryreportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\complianceofficer\\regulatoryreportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\complianceofficer\\regulator_report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\complianceofficer\\regulator_report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\customer\\personaldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\personaldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\rules\\detectionruleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\rules\\detectionruleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\complianceofficer\\peplistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\complianceofficer\\peplistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\customer\\personaldetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\personaldetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\rules\\detectionrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\rules\\detectionrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\investigator\\riskscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\investigator\\riskscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\exceptions\\complianceofficer\\controlchecklistalreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\complianceofficer\\controlchecklistalreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\alertscase\\caseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\alertscase\\caseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\alertscase\\case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\alertscase\\case.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\alertscase\\alertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\alertscase\\alertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\alertscase\\alertrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\alertscase\\alertrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\alertscase\\alertcaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\alertscase\\alertcaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\alertscase\\alert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\alertscase\\alert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\exceptions\\complianceofficer\\invalidregulatoryreportexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\complianceofficer\\invalidregulatoryreportexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\exceptions\\complianceofficer\\invalidcontrolchecklistexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\complianceofficer\\invalidcontrolchecklistexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\alertscase\\ialertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\alertscase\\ialertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\alertscase\\ialertrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\alertscase\\ialertrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260304065133_FinalUpdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260304065133_FinalUpdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\investigator\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\investigator\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\investigator\\riskscoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\investigator\\riskscoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303233645_Final.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260303233645_Final.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\ikycrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\ikycrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\rules\\scenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\rules\\scenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\investigator\\riskscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\investigator\\riskscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\implementations\\complianceofficer\\santionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\complianceofficer\\santionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\models\\complianceofficer\\santion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\complianceofficer\\santion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\ipersonaldetailsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\ipersonaldetailsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180515_kyc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260302180515_kyc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303155912_IntialUpdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260303155912_IntialUpdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302174445_KYCUpdtae.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260302174445_KYCUpdtae.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180706_kyc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260302180706_kyc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303095822_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260303095822_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\santioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\santioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\implementations\\complianceofficer\\santionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\complianceofficer\\santionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\complianceofficer\\isantionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\complianceofficer\\isantionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\complianceofficer\\isantionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\complianceofficer\\isantionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\controllers\\compliance\\peplistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\peplistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\complianceofficer\\ipeplistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\complianceofficer\\ipeplistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\services\\customer\\interfaces\\complianceofficer\\ipeplistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\complianceofficer\\ipeplistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\repositories\\customer\\interfaces\\complianceofficer\\ikycrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\complianceofficer\\ikycrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303160325_first.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260303160325_first.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180237_KYCStatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260302180237_KYCStatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471813\\source\\repos\\fradu_sheild_final\\migrations\\20260308065218_updtaedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:migrations\\20260308065218_updtaedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "VerticalTabListWidth": 265,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionPatternController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\TransactionPatternController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\TransactionPatternController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\TransactionPatternController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\TransactionPatternController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:06:14.072Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TransactionPatternRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:05:34.42Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ITransantionPatternService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\ITransantionPatternService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\ComplianceOfficer\\ITransantionPatternService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\ITransantionPatternService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\ComplianceOfficer\\ITransantionPatternService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:03:36.898Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ITransactionPatternRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ITransactionPatternRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ITransactionPatternRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ITransactionPatternRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ITransactionPatternRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:05:13.865Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IControlChecklistRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IControlChecklistRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IControlChecklistRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IControlChecklistRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IControlChecklistRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:30:03.172Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IControl_ChecklistService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\IControl_ChecklistService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\ComplianceOfficer\\IControl_ChecklistService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\IControl_ChecklistService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\ComplianceOfficer\\IControl_ChecklistService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:31:58.88Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Control_Checklist.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\Control_Checklist.cs",
+              "RelativeDocumentMoniker": "Models\\ComplianceOfficer\\Control_Checklist.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\Control_Checklist.cs",
+              "RelativeToolTip": "Models\\ComplianceOfficer\\Control_Checklist.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:04:59.573Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ControlChecklistController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\ControlChecklistController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\ControlChecklistController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\ControlChecklistController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\ControlChecklistController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T11:55:32.838Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "webContext.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Data\\webContext.cs",
+              "RelativeDocumentMoniker": "Data\\webContext.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Data\\webContext.cs",
+              "RelativeToolTip": "Data\\webContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA3wBQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:23:22.694Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T21:12:02.157Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T09:59:24.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAuth.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Authentication\\IAuth.cs",
+              "RelativeDocumentMoniker": "Authentication\\IAuth.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Authentication\\IAuth.cs",
+              "RelativeToolTip": "Authentication\\IAuth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T09:57:14.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Auth.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Authentication\\Auth.cs",
+              "RelativeDocumentMoniker": "Authentication\\Auth.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Authentication\\Auth.cs",
+              "RelativeToolTip": "Authentication\\Auth.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T09:57:05.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TransantionPatternService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\TransantionPatternService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\ComplianceOfficer\\TransantionPatternService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\TransantionPatternService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\ComplianceOfficer\\TransantionPatternService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T06:33:36.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "20260308065218_updtaedatabase.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260308065218_updtaedatabase.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260308065218_updtaedatabase.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260308065218_updtaedatabase.cs",
+              "RelativeToolTip": "Migrations\\20260308065218_updtaedatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T06:52:20.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RegulatoryReportUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\DTOs\\ComplianceOfficer\\RegulatoryReportUpdateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\ComplianceOfficer\\RegulatoryReportUpdateDto.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\DTOs\\ComplianceOfficer\\RegulatoryReportUpdateDto.cs",
+              "RelativeToolTip": "DTOs\\ComplianceOfficer\\RegulatoryReportUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T05:45:48.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Investigator\\TransactionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Investigator\\TransactionController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Investigator\\TransactionController.cs",
+              "RelativeToolTip": "Controllers\\Investigator\\TransactionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:36:15.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Scenario.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Rules\\Scenario.cs",
+              "RelativeDocumentMoniker": "Models\\Rules\\Scenario.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Rules\\Scenario.cs",
+              "RelativeToolTip": "Models\\Rules\\Scenario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:35:02.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "RiskScoreService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T08:50:31.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Regulator_Report.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\Regulator_Report.cs",
+              "RelativeDocumentMoniker": "Models\\ComplianceOfficer\\Regulator_Report.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\Regulator_Report.cs",
+              "RelativeToolTip": "Models\\ComplianceOfficer\\Regulator_Report.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T22:50:53.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Regulatory_ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\Regulatory_ReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\Regulatory_ReportController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\Regulatory_ReportController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\Regulatory_ReportController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAawFAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T23:16:46.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RegulatoryReportService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T12:45:50.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "RegulatoryReportRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\RegulatoryReportRepository.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwDwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T12:46:57.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IRegulatoryReportService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T23:10:55.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IRegulatoryReportRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IRegulatoryReportRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T23:11:20.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "BankTransaction.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Investigator\\BankTransaction.cs",
+              "RelativeDocumentMoniker": "Models\\Investigator\\BankTransaction.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Investigator\\BankTransaction.cs",
+              "RelativeToolTip": "Models\\Investigator\\BankTransaction.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAqwB0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T12:32:57.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\Account.cs",
+              "RelativeDocumentMoniker": "Models\\Customer\\Account.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\Account.cs",
+              "RelativeToolTip": "Models\\Customer\\Account.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:34:21.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-05T06:05:36.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Registration.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\Registration.cs",
+              "RelativeDocumentMoniker": "Models\\Customer\\Registration.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\Registration.cs",
+              "RelativeToolTip": "Models\\Customer\\Registration.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T05:49:52.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "RiskScoreRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAqwCgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T11:18:58.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "InvalidRegulatoryReportException.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Exceptions\\ComplianceOfficer\\InvalidRegulatoryReportException.cs",
+              "RelativeDocumentMoniker": "Exceptions\\ComplianceOfficer\\InvalidRegulatoryReportException.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Exceptions\\ComplianceOfficer\\InvalidRegulatoryReportException.cs",
+              "RelativeToolTip": "Exceptions\\ComplianceOfficer\\InvalidRegulatoryReportException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T10:02:30.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "InvalidControlChecklistException.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Exceptions\\ComplianceOfficer\\InvalidControlChecklistException.cs",
+              "RelativeDocumentMoniker": "Exceptions\\ComplianceOfficer\\InvalidControlChecklistException.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Exceptions\\ComplianceOfficer\\InvalidControlChecklistException.cs",
+              "RelativeToolTip": "Exceptions\\ComplianceOfficer\\InvalidControlChecklistException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T10:00:51.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ControlChecklistAlreadyExistsException.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Exceptions\\ComplianceOfficer\\ControlChecklistAlreadyExistsException.cs",
+              "RelativeDocumentMoniker": "Exceptions\\ComplianceOfficer\\ControlChecklistAlreadyExistsException.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Exceptions\\ComplianceOfficer\\ControlChecklistAlreadyExistsException.cs",
+              "RelativeToolTip": "Exceptions\\ComplianceOfficer\\ControlChecklistAlreadyExistsException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T10:00:15.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "IAlertService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\AlertsCase\\IAlertService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\AlertsCase\\IAlertService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\AlertsCase\\IAlertService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\AlertsCase\\IAlertService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T08:33:08.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "IAlertRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\AlertsCase\\IAlertRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\AlertsCase\\IAlertRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\AlertsCase\\IAlertRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\AlertsCase\\IAlertRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T08:32:55.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "AlertService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\AlertsCase\\AlertService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\AlertsCase\\AlertService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\AlertsCase\\AlertService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\AlertsCase\\AlertService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T07:01:27.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Alert.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\AlertsCase\\Alert.cs",
+              "RelativeDocumentMoniker": "Models\\AlertsCase\\Alert.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\AlertsCase\\Alert.cs",
+              "RelativeToolTip": "Models\\AlertsCase\\Alert.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T06:55:04.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "20260304065133_FinalUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260304065133_FinalUpdate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260304065133_FinalUpdate.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260304065133_FinalUpdate.cs",
+              "RelativeToolTip": "Migrations\\20260304065133_FinalUpdate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T06:51:33.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "AlertCaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\AlertsCase\\AlertCaseRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\AlertsCase\\AlertCaseRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\AlertsCase\\AlertCaseRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\AlertsCase\\AlertCaseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T04:47:15.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "AlertRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\AlertsCase\\AlertRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\AlertsCase\\AlertRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\AlertsCase\\AlertRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\AlertsCase\\AlertRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T04:35:36.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20260303233645_Final.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303233645_Final.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260303233645_Final.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303233645_Final.cs",
+              "RelativeToolTip": "Migrations\\20260303233645_Final.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T23:36:46.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ComplianceNotificationController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\ComplianceNotificationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\ComplianceNotificationController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\ComplianceNotificationController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\ComplianceNotificationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T23:01:53.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Customer\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Customer\\AccountController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Customer\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\Customer\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T22:10:40.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "RiskScore.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Investigator\\RiskScore.cs",
+              "RelativeDocumentMoniker": "Models\\Investigator\\RiskScore.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Investigator\\RiskScore.cs",
+              "RelativeToolTip": "Models\\Investigator\\RiskScore.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:27:42.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DetectionRuleController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Rules\\DetectionRuleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Rules\\DetectionRuleController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Rules\\DetectionRuleController.cs",
+              "RelativeToolTip": "Controllers\\Rules\\DetectionRuleController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:25:55.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:25:51.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "DetectionRuleService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\Rules\\DetectionRuleService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Rules\\DetectionRuleService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\Rules\\DetectionRuleService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\Rules\\DetectionRuleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:25:00.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ICaseService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\AlertsCase\\ICaseService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\AlertsCase\\ICaseService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\AlertsCase\\ICaseService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\AlertsCase\\ICaseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T20:02:32.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "CaseService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\AlertsCase\\CaseService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\AlertsCase\\CaseService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\AlertsCase\\CaseService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\AlertsCase\\CaseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:59:37.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "IPersonalDetailsService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:41:03.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-03T19:39:57.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "RegisterRole.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\RegisterRole.cs",
+              "RelativeDocumentMoniker": "Models\\Customer\\RegisterRole.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\RegisterRole.cs",
+              "RelativeToolTip": "Models\\Customer\\RegisterRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:37:38.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "PersonalDetailsController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Customer\\PersonalDetailsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Customer\\PersonalDetailsController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Customer\\PersonalDetailsController.cs",
+              "RelativeToolTip": "Controllers\\Customer\\PersonalDetailsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:37:24.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "Santion.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\Santion.cs",
+              "RelativeDocumentMoniker": "Models\\ComplianceOfficer\\Santion.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\Santion.cs",
+              "RelativeToolTip": "Models\\ComplianceOfficer\\Santion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:32:56.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "SantionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\SantionRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\SantionRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\SantionRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\SantionRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAtwBsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:31:08.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "SantionController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\SantionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\SantionController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\SantionController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\SantionController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwC4AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:29:03.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "PEPListController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\PEPListController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\PEPListController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\PEPListController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\PEPListController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwCoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:23:48.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "IKYCRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:15:46.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "IPEPListRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:16:06.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PEPListRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\PEPListRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\PEPListRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\PEPListRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\PEPListRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwBAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:15:34.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PEPListService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\PEPListService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\ComplianceOfficer\\PEPListService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\PEPListService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\ComplianceOfficer\\PEPListService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA1wBUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:12:45.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "IPEPListService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\ComplianceOfficer\\IPEPListService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:12:40.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PEPList.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\PEPList.cs",
+              "RelativeDocumentMoniker": "Models\\ComplianceOfficer\\PEPList.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\ComplianceOfficer\\PEPList.cs",
+              "RelativeToolTip": "Models\\ComplianceOfficer\\PEPList.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T19:09:39.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "PersonalDetails.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\PersonalDetails.cs",
+              "RelativeDocumentMoniker": "Models\\Customer\\PersonalDetails.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\Customer\\PersonalDetails.cs",
+              "RelativeToolTip": "Models\\Customer\\PersonalDetails.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:51:27.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PersonalDetailsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAswBcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:50:40.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "SantionService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\SantionService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\ComplianceOfficer\\SantionService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\SantionService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\ComplianceOfficer\\SantionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:46:39.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\AccountRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\AccountRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\AccountRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:33:56.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "KYCRequestRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:06:05.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "IKYCRequestRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IKYCRequestRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IKYCRequestRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IKYCRequestRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\IKYCRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T18:05:07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "KYCRequestController.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\KYCRequestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Compliance\\KYCRequestController.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Controllers\\Compliance\\KYCRequestController.cs",
+              "RelativeToolTip": "Controllers\\Compliance\\KYCRequestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T17:57:39.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "KYCRequestService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\ComplianceOfficer\\KYCRequestService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T17:55:50.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Case.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\AlertsCase\\Case.cs",
+              "RelativeDocumentMoniker": "Models\\AlertsCase\\Case.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Models\\AlertsCase\\Case.cs",
+              "RelativeToolTip": "Models\\AlertsCase\\Case.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T17:28:24.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ControlChecklistService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\ControlChecklistService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\ComplianceOfficer\\ControlChecklistService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Implementations\\ComplianceOfficer\\ControlChecklistService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\ComplianceOfficer\\ControlChecklistService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T17:20:32.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "20260303160325_first.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303160325_first.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260303160325_first.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303160325_first.cs",
+              "RelativeToolTip": "Migrations\\20260303160325_first.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T16:03:26.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "20260303155912_IntialUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303155912_IntialUpdate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260303155912_IntialUpdate.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303155912_IntialUpdate.cs",
+              "RelativeToolTip": "Migrations\\20260303155912_IntialUpdate.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T15:59:13.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "ISantionService.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\ISantionService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\ComplianceOfficer\\ISantionService.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Services\\Customer\\Interfaces\\ComplianceOfficer\\ISantionService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\ComplianceOfficer\\ISantionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T15:47:58.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "ISantionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ISantionRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ISantionRepository.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ISantionRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\ComplianceOfficer\\ISantionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T15:43:17.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "20260303095822_data.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303095822_data.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260303095822_data.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260303095822_data.cs",
+              "RelativeToolTip": "Migrations\\20260303095822_data.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T09:58:24.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "20260302180706_kyc.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180706_kyc.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302180706_kyc.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180706_kyc.cs",
+              "RelativeToolTip": "Migrations\\20260302180706_kyc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T18:07:07.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "20260302180515_kyc.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180515_kyc.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302180515_kyc.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180515_kyc.cs",
+              "RelativeToolTip": "Migrations\\20260302180515_kyc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T18:05:15.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "20260302180237_KYCStatus.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180237_KYCStatus.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302180237_KYCStatus.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302180237_KYCStatus.cs",
+              "RelativeToolTip": "Migrations\\20260302180237_KYCStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T18:02:38.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "20260302174445_KYCUpdtae.cs",
+              "DocumentMoniker": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302174445_KYCUpdtae.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302174445_KYCUpdtae.cs",
+              "ToolTip": "C:\\Users\\2471813\\source\\repos\\Fradu_sheild_Final\\Migrations\\20260302174445_KYCUpdtae.cs",
+              "RelativeToolTip": "Migrations\\20260302174445_KYCUpdtae.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:44:46.979Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

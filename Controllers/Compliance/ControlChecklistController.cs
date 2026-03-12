@@ -1,99 +1,26 @@
-﻿using FraudMonitoringSystem.Models;
-using Microsoft.AspNetCore.Mvc;
-
+﻿using Microsoft.AspNetCore.Mvc;
 [ApiController]
-
 [Route("api/[controller]")]
-
 public class ControlChecklistController : ControllerBase
-
 {
-
     private readonly IControlChecklistService _service;
-
     public ControlChecklistController(IControlChecklistService service)
-
     {
-
         _service = service;
-
     }
-
-    [HttpPost]
-
-    public IActionResult Create(ControlChecklist checklist)
-
+    [HttpPost("execute")]
+    public async Task<IActionResult> Execute(int caseId, string checkedBy)
     {
-
-        return Ok(_service.Add(checklist));
-
+        return Ok(await _service.ExecuteChecklist(caseId, checkedBy));
     }
-
     [HttpGet]
-
-    public IActionResult GetAll()
-
+    public async Task<IActionResult> GetAll()
     {
-
-        return Ok(_service.GetAll());
-
+        return Ok(await _service.GetAllAsync());
     }
-
-    [HttpGet("case/{caseId}")]
-
-    public IActionResult GetByCaseId(int caseId)
-
+    [HttpGet("result/{result}")]
+    public async Task<IActionResult> GetByResult(string result)
     {
-
-        var result = _service.GetByCaseId(caseId);
-
-        if (result == null)
-
-            return NotFound();
-
-        return Ok(result);
-
+        return Ok(await _service.GetByResultAsync(result));
     }
-
-    [HttpGet("status/{status}")]
-
-    public IActionResult GetByStatus(string status)
-
-    {
-
-        return Ok(_service.GetByStatus(status));
-
-    }
-
-    [HttpPut]
-
-    public IActionResult Update(ControlChecklist checklist)
-
-    {
-
-        var result = _service.Update(checklist);
-
-        if (result == null)
-
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-    [HttpDelete("{checklistId}")]
-
-    public IActionResult Delete(int checklistId)
-
-    {
-
-        if (!_service.Delete(checklistId))
-
-            return NotFound();
-
-        return Ok("Deleted Successfully");
-
-    }
-
 }
-

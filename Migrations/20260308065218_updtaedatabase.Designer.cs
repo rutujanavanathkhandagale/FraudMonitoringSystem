@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FraudMonitoringSystem.Migrations
 {
     [DbContext(typeof(WebContext))]
-    [Migration("20260304090753_finaldata")]
-    partial class finaldata
+    [Migration("20260308065218_updtaedatabase")]
+    partial class updtaedatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -367,13 +367,7 @@ namespace FraudMonitoringSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ChecklistID");
-
-                    b.HasIndex("CaseID");
 
                     b.ToTable("Control_Checklist");
                 });
@@ -858,17 +852,6 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.ComplianceOfficer.Regulatory_Report", b =>
-                {
-                    b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
-                        .WithMany()
-                        .HasForeignKey("CaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Case");
-                });
-
-            modelBuilder.Entity("FraudMonitoringSystem.Models.ControlChecklist", b =>
                 {
                     b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", "Case")
                         .WithMany()
