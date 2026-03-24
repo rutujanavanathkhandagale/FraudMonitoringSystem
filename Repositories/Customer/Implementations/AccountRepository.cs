@@ -1,10 +1,7 @@
-﻿using FraudMonitoringSystem.Data;
-using FraudMonitoringSystem.Models.Customer;
+﻿using FraudMonitoringSystem.Models.Customer;
+using FraudMonitoringSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Implementations
 {
@@ -17,30 +14,53 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             _context = context;
         }
 
-        public async Task<int> AddAsync(Account account)
+        public async Task<IEnumerable<Account>> GetAllAsync() =>
+            await _context.Accounts.Include(a => a.Customer).AsNoTracking().ToListAsync();
+
+        public async Task<Account?> GetByIdAsync(long id) =>
+            await _context.Accounts.Include(a => a.Customer)
+                                   .AsNoTracking()
+                                   .FirstOrDefaultAsync(a => a.AccountId == id);
+
+        public async Task<IEnumerable<Account>> GetByCustomerIdAsync(long customerId) =>
+            await _context.Accounts.Include(a => a.Customer)
+                                   .AsNoTracking()
+                                   .Where(a => a.CustomerId == customerId)
+                                   .ToListAsync();
+
+        public async Task<int> GetAccountCountAsync()
         {
-            await _context.Accounts.AddAsync(account);
-            return await _context.SaveChangesAsync();
+            return await _context.Accounts.CountAsync();
         }
 
-        public async Task<Account> PatchAsync(Account account)
+        public async Task<Account> AddAsync(Account account)
         {
-            _context.Accounts.Update(account);
+            _context.Accounts.Add(account);
             await _context.SaveChangesAsync();
             return account;
         }
 
-        public async Task<Account> GetByIdAsync(long id)
+        public async Task<Account> UpdateAsync(Account account)
         {
-            return await _context.Accounts.FirstOrDefaultAsync(a => a.AccountId == id);
+            var existing = await _context.Accounts.FindAsync(account.AccountId);
+            if (existing == null) return null;
+
+            existing.ProductType = account.ProductType;
+            existing.Currency = account.Currency;
+            existing.Status = account.Status;
+
+            await _context.SaveChangesAsync();
+            return existing;
         }
 
-   
-        public async Task<IEnumerable<Account>> GetByCustomerIdAsync(long customerId)
+        public async Task<bool> DeleteAsync(long id)
         {
-            return await _context.Accounts
-                                 .Where(a => a.CustomerId == customerId)
-                                 .ToListAsync();
+            var account = await _context.Accounts.FindAsync(id);
+            if (account == null) return false;
+
+            _context.Accounts.Remove(account);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

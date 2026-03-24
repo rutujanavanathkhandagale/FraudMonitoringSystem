@@ -20,30 +20,36 @@ namespace FraudMonitoringSystem.Repositories.Implementations
         public async Task<int> RegisterAsync(Registration registration)
         {
             await _context.Registrations.AddAsync(registration);
+
             return await _context.SaveChangesAsync();
         }
 
         public async Task<Registration?> GetByEmailAsync(string email)
         {
             return await _context.Registrations
-                                 .FirstOrDefaultAsync(r => r.Email == email);
+                .AsNoTracking() // optional, since we’re just reading
+                .FirstOrDefaultAsync(r => r.Email == email);
         }
-
-        public async Task<Registration?> GetByRoleAsync(RegisterRole role)
-        {
-            return await _context.Registrations
-                                 .FirstOrDefaultAsync(r => r.Role == role);
-        }
-
-     
-
-       
         public async Task<Registration?> GetByIdAsync(int id)
         {
             return await _context.Registrations
                 .FirstOrDefaultAsync(r => r.RegistrationId == id);
         }
-        // Admin
+
+        public async Task<Registration?> GetByRoleAsync(RegisterRole role)
+        {
+            return await _context.Registrations
+
+             .FirstOrDefaultAsync(r => r.Role == role);
+        }
+
+     
+
+       
+     
+
+        //Admin Part
+      
         public async Task AddSystemUserAsync(Registration registration)
         {
            
@@ -51,28 +57,28 @@ namespace FraudMonitoringSystem.Repositories.Implementations
                 .AnyAsync(u => u.RegistrationId == registration.RegistrationId);
             if (exists)
             {
-                return; // or throw new InvalidOperationException("System user already exists for this registration.");
+                return; 
             }
 
-            // 2) Map RegisterRole enum -> Role.RoleName (must be seeded/created)
-            var roleName = registration.Role.ToString(); // e.g., "Analyst", "Investigator", etc.
+           
+            var roleName = registration.Role.ToString(); 
             var role = await _context.Roles
                 .AsNoTracking()
                 .FirstOrDefaultAsync(r => r.RoleName == roleName);
 
             if (role == null)
             {
-                // Fail fast (or auto-create role if that's your policy)
+              
                 throw new InvalidOperationException(
                     $"Role '{roleName}' not found in Roles table. Seed/create the role first.");
             }
 
-            // 3) Create SystemUser with RoleId FK
+           
             var systemUser = new SystemUser
             {
                 RegistrationId = registration.RegistrationId,
                 RoleId = role.RoleId
-                // BaseEntity fields (CreatedAt/IsActive/IsDeleted) will use defaults
+            
             };
 
             await _context.SystemUsers.AddAsync(systemUser);

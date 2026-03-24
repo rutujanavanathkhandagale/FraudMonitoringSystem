@@ -1,14 +1,11 @@
-﻿using FraudMonitoringSystem.Models.Customer;
+﻿using FraudMonitoringSystem.DTOs.Customer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FraudMonitoringSystem.Controllers.Customer
 {
-    
-
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class PersonalDetailsController : ControllerBase
     {
         private readonly IPersonalDetailsService _service;
@@ -18,49 +15,43 @@ namespace FraudMonitoringSystem.Controllers.Customer
             _service = service;
         }
 
-        [HttpPost("Add")]
-        
-        public async Task<IActionResult> Add([FromBody] PersonalDetails details)
-        {
-            var result = await _service.AddAsync(details);
-            return Ok(result);
-        }
-
         [HttpGet("{id}")]
-        
-        public async Task<IActionResult> GetById(long id)
+        public async Task<IActionResult> Get(long id) => Ok(await _service.GetByIdAsync(id));
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll() => Ok(await _service.GetAllAsync());
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CustomerDto dto) => Ok(await _service.CreateAsync(dto));
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchByName([FromQuery] string name)
         {
-            var result = await _service.GetByIdAsync(id);
+            var result = await _service.SearchByNameAsync(name);
             return Ok(result);
         }
 
-        [HttpGet("All")]
-       
-        public async Task<IActionResult> GetAll()
+        [HttpGet("email/{email}")]
+        public async Task<IActionResult> GetByEmail(string email)
         {
-            var result = await _service.GetAllAsync();
+            var result = await _service.GetByEmailAsync(email);
+            if (result == null) return NotFound();
             return Ok(result);
         }
+
+
         [HttpPut("{id}")]
-   
-        public async Task<IActionResult> Update(long id, [FromBody] PersonalDetails details)
+        public async Task<IActionResult> Update(long id, CustomerDto dto)
         {
-            if (id != details.CustomerId) return BadRequest("ID in URL and body must match");
-            var result = await _service.UpdateAsync(details); return Ok(result);
+            dto.CustomerId = id;
+            return Ok(await _service.UpdateAsync(dto));
         }
 
-        [HttpDelete("Delete/{id}")]
-     
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            var result = await _service.DeleteAsync(id);
-            return Ok(result);
-        }
-        [HttpPatch("{id}")]
-      
-        public async Task<IActionResult> Patch(long id, [FromBody] PersonalDetails details)
-        {
-            var result = await _service.PatchAsync(id, details); return Ok(result);
+            await _service.DeleteAsync(id);
+            return Ok(new { Message = $"Customer {id} deleted successfully" });
         }
     }
 }

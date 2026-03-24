@@ -1,0 +1,10 @@
+﻿namespace FraudMonitoringSystem.Exceptions.Watchlist
+{
+    namespace FraudMonitoringSystem.Exceptions
+    {
+        public class BusinessRuleException : Exception
+        {
+            public BusinessRuleException(string message) : base(message) { }
+        }
+    }
+}

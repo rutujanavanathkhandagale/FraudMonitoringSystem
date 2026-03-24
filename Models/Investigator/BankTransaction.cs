@@ -5,60 +5,56 @@ using System.Text.Json.Serialization;
 
 namespace FraudMonitoringSystem.Models.Investigator
 {
-
     public class Transaction
     {
-
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int TransactionID { get; set; }
 
-        [Required(ErrorMessage = "AccountID is required.")]
-
-        [Range(1, int.MaxValue, ErrorMessage = "AccountID must be greater than zero.")]
-        public int AccountID { get; set; }
-
         [Required(ErrorMessage = "CounterpartyAccount is required.")]
-        [StringLength(50, ErrorMessage = "CounterpartyAccount cannot exceed 50 characters.")]
+        [StringLength(50)]
         public string CounterpartyAccount { get; set; }
 
         [Required]
-        
         public long CustomerId { get; set; }
-        [JsonIgnore]
+
+        [JsonIgnore]   // 👈 prevents Swagger from requiring Customer JSON
         public PersonalDetails? Customer { get; set; }
 
-        [Required(ErrorMessage = "Amount is required.")]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be greater than zero.")]
+        [Required]
+        [Range(0.01, double.MaxValue)]
         public decimal Amount { get; set; }
 
-        [Required(ErrorMessage = "Currency is required.")]
-        [StringLength(3, ErrorMessage = "Currency must be a valid 3-letter ISO code.")]
+        [Required]
+        [StringLength(3)]
         public string Currency { get; set; }
 
-        [Required(ErrorMessage = "TransactionType is required.")]
-        [RegularExpression("^(Credit|Debit)$", ErrorMessage = "TransactionType must be either Credit or Debit.")]
+        [Required]
+        [RegularExpression("^(Credit|Debit)$")]
         public string TransactionType { get; set; }
 
-        [Required(ErrorMessage = "Channel is required.")]
-        [RegularExpression("^(Branch|ATM|Online|Card|Wire|Wallet)$", ErrorMessage = "Invalid channel type.")]
-        public string Channel { get; set; }
         [Required]
-        public string? SourceType { get; set; }
+        [RegularExpression("^(Branch|ATM|Online|Card|Wire|Wallet)$")]
+        public string Channel { get; set; }
 
-        [Required(ErrorMessage = "Timestamp is required.")]
+        [Required]
+        public string SourceType { get; set; }
+
+        [Required]
         public DateTime Timestamp { get; set; }
 
-        [StringLength(100, ErrorMessage = "GeoLocation cannot exceed 100 characters.")]
+        [StringLength(100)]
         public string GeoLocation { get; set; }
 
-        [Required(ErrorMessage = "Status is required.")]
-        [RegularExpression("^(Posted|Reversed)$", ErrorMessage = "Status must be Posted or Reversed.")]
+        [Required]
+        [RegularExpression("^(Posted|Reversed)$")]
         public string Status { get; set; }
 
+        // Foreign key to Account
+        [Required]
+        public long AccountId { get; set; }
 
-
+        [JsonIgnore]   // 👈 prevents Swagger from requiring Account JSON
+        public Account? Account { get; set; }  // make nullable, remove [Required]
     }
 }

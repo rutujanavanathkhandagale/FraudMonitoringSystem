@@ -9,7 +9,7 @@ namespace FraudMonitoringSystem.Repositories.Interfaces
         Task<int> RegisterAsync(Registration registration);
         Task<Registration?> GetByEmailAsync(string email);
         Task<Registration?> GetByRoleAsync(RegisterRole role);
-        //Task<List<Registration>> GetSystemUsersAsync();
+       
 
         Task AddSystemUserAsync(Registration registration);
            

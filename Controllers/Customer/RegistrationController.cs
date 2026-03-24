@@ -4,9 +4,7 @@ using FraudMonitoringSystem.Services.Interfaces;
 
 namespace FraudMonitoringSystem.Controllers
 {
-    /// <summary>
-    /// API Controller for registration endpoints.
-    /// </summary>
+    
     [ApiController]
     [Route("api/[controller]")]
     public class RegistrationController : ControllerBase
@@ -25,6 +23,23 @@ namespace FraudMonitoringSystem.Controllers
             return Ok(response);
         }
 
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var profile = await _service.GetByIdAsync(id);
+            if (profile == null) return NotFound();
+
+            return Ok(new
+            {
+                profile.RegistrationId,
+                profile.FirstName,
+                profile.LastName,
+                profile.Email
+            });
+        }
+
+
         [HttpGet("role/{role}")]
         public async Task<IActionResult> GetUserByRole(RegisterRole role)
         {
@@ -37,13 +52,8 @@ namespace FraudMonitoringSystem.Controllers
         {
             var roles = Enum.GetNames(typeof(RegisterRole));
             return Ok(roles);
-            // Returns ["Analyst","Investigator","Compliance","Modeler","Admin"]
+            
         }
-        //[HttpGet("admin/system-users")]
-        //public async Task<IActionResult> GetSystemUsers()
-        //{
-        //    var users = await _service.GetSystemUsersAsync();
-        //    return Ok(users);
-        //}
+     
     }
 }

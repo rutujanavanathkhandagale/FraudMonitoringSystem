@@ -1,27 +1,21 @@
-﻿namespace FraudMonitoringSystem.Exceptions.Customer
+﻿using System;
+
+namespace FraudMonitoringSystem.Exceptions
 {
-    public class AccountAlreadyExistsException : Exception
+    public class AccountException : Exception
     {
-        public AccountAlreadyExistsException(string message) : base(message) { }
-    }
+        public int StatusCode { get; }
 
-    public class AccountNotFoundException : Exception
-    {
-        public AccountNotFoundException(string message) : base(message) { }
-    }
+        public AccountException(string message, int statusCode = 400) : base(message)
+        {
+            StatusCode = statusCode;
+        }
 
-    public class AccountValidationException : Exception
-    {
-        public AccountValidationException(string message) : base(message) { }
-    }
+        // Factory methods for clarity
+        public static AccountException NotFound(string message) =>
+            new AccountException(message, 404);
 
-    public class AccountDatabaseException : Exception
-    {
-        public AccountDatabaseException(string message, Exception inner = null) : base(message, inner) { }
-    }
-
-    public class DuplicateAccountException : Exception
-    {
-        public DuplicateAccountException(string message) : base(message) { }
+        public static AccountException Validation(string message) =>
+            new AccountException(message, 400);
     }
 }

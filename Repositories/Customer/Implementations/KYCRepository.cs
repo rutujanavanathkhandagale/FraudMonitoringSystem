@@ -17,6 +17,41 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
                 .Include(k => k.Customer)
                 .FirstOrDefaultAsync(k => k.KYCId == id);
         }
+
+        public async Task<int> GetPendingKycCountAsync()
+        {
+            return await _context.KYCProfile.CountAsync(k => k.Status == "Pending");
+        }
+
+        public async Task<int> GetVerifiedKycCountAsync()
+        {
+            return await _context.KYCProfile.CountAsync(k => k.Status == "Verified");
+        }
+
+
+
+        public async Task<KYCProfile?> GetByCustomerIdAsync(long customerId)
+        {
+            return await _context.KYCProfile
+                .Include(k => k.Customer)
+                .FirstOrDefaultAsync(k => k.CustomerId == customerId);
+        }
+
+        public async Task<KYCProfile?> VerifyByCustomerIdAsync(long customerId)
+        {
+            var profile = await _context.KYCProfile
+                                        .FirstOrDefaultAsync(p => p.CustomerId == customerId);
+
+            if (profile == null) return null;
+
+            profile.Status = "Verified";
+            _context.KYCProfile.Update(profile);
+            await _context.SaveChangesAsync();
+
+            return profile;
+        }
+
+
         public async Task<List<KYCProfile>> SearchAsync(string query)
         {
             return await _context.KYCProfile
@@ -30,8 +65,9 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             await _context.SaveChangesAsync();
             return profile;
         }
-        public async Task<KYCProfile> UpdateAsync(KYCProfile profile)
+        public async Task<KYCProfile?> VerifyAsync(KYCProfile profile)
         {
+            profile.Status = "Verified";
             _context.KYCProfile.Update(profile);
             await _context.SaveChangesAsync();
             return profile;

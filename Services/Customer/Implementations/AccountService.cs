@@ -1,4 +1,5 @@
-﻿using FraudMonitoringSystem.Exceptions.Customer;
+﻿using FraudMonitoringSystem.Exceptions;
+using FraudMonitoringSystem.Exceptions.Admin;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
@@ -8,85 +9,64 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository _repository;
-        private readonly ILogger<AccountService> _logger;
 
-        public AccountService(IAccountRepository repository, ILogger<AccountService> logger)
+        public AccountService(IAccountRepository repository)
         {
             _repository = repository;
-            _logger = logger;
         }
 
-        public async Task<int> CreateAccountAsync(Account account)
+        public async Task<IEnumerable<Account>> GetAllAsync() =>
+            await _repository.GetAllAsync();
+
+        public async Task<Account> GetAccountByIdAsync(long id)
         {
-            ValidateAccount(account);
-            try
-            {
-                return await _repository.AddAsync(account);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error creating account for CustomerId {CustomerId}", account.CustomerId);
-                throw new AccountDatabaseException("Failed to create account", ex);
-            }
+            var account = await _repository.GetByIdAsync(id);
+            if (account == null)
+                throw new NotFoundException($"Account with ID {id} not found");
+            return account;
+        }
+
+        public async Task<IEnumerable<Account>> GetAccountsByCustomerIdAsync(long customerId)
+        {
+            var accounts = await _repository.GetByCustomerIdAsync(customerId);
+            if (!accounts.Any())
+                throw new NotFoundException($"No accounts found for Customer ID {customerId}");
+            return accounts;
+        }
+
+        public async Task<Account> CreateAccountAsync(Account account) =>
+            await _repository.AddAsync(account);
+
+        public async Task<Account> UpdateAccountAsync(Account account)
+        {
+            var updated = await _repository.UpdateAsync(account);
+            if (updated == null)
+                throw new NotFoundException($"Account with ID {account.AccountId} not found");
+            return updated;
         }
 
         public async Task<Account> PatchAsync(long id, Account partialAccount)
         {
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null)
-                throw new AccountNotFoundException($"Account with ID {id} not found.");
-
-            if (!string.IsNullOrEmpty(partialAccount.AccountNumber))
-                existing.AccountNumber = partialAccount.AccountNumber;
+                throw new NotFoundException($"Account with ID {id} not found");
 
             if (!string.IsNullOrEmpty(partialAccount.ProductType))
                 existing.ProductType = partialAccount.ProductType;
-
             if (!string.IsNullOrEmpty(partialAccount.Currency))
                 existing.Currency = partialAccount.Currency;
-
             if (!string.IsNullOrEmpty(partialAccount.Status))
                 existing.Status = partialAccount.Status;
 
-            // Balance intentionally skipped
-            return await _repository.PatchAsync(existing);
+            await _repository.UpdateAsync(existing);
+            return existing;
         }
 
-        public async Task<Account> GetAccountByIdAsync(long id)
+        public async Task DeleteAccountAsync(long id)
         {
-            var account = await _repository.GetByIdAsync(id);
-            if (account == null)
-                throw new AccountNotFoundException($"Account with ID {id} not found.");
-            return account;
-        }
-
-        // ✅ New
-        public async Task<IEnumerable<Account>> GetAccountsByCustomerIdAsync(long customerId)
-        {
-            var accounts = await _repository.GetByCustomerIdAsync(customerId);
-
-            // Optional: If you want to throw when none found
-            if (accounts == null || !accounts.Any())
-                throw new AccountNotFoundException($"No accounts found for CustomerId {customerId}.");
-
-            return accounts;
-        }
-
-        private void ValidateAccount(Account account)
-        {
-            if (string.IsNullOrWhiteSpace(account.AccountNumber))
-                throw new AccountValidationException("AccountNumber is required.");
-
-            if (account.Balance < 0)
-                throw new AccountValidationException("Balance cannot be negative.");
-
-            var validTypes = new[] { "Saving", "Salary", "Current" };
-            if (!validTypes.Contains(account.ProductType))
-                throw new AccountValidationException("Invalid ProductType.");
-
-            var validStatus = new[] { "Active", "Inactive" };
-            if (!validStatus.Contains(account.Status))
-                throw new AccountValidationException("Invalid Status.");
+            var deleted = await _repository.DeleteAsync(id);
+            if (!deleted)
+                throw new NotFoundException($"Account with ID {id} not found");
         }
     }
 }

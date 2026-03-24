@@ -7,33 +7,34 @@ namespace FraudMonitoringSystem.Models.Customer
     public class Account
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long AccountId { get; set; }
 
         [Required(ErrorMessage = "CustomerId is required")]
+        [ForeignKey("Customer")]
         public long CustomerId { get; set; }
+
         [JsonIgnore]
         public PersonalDetails? Customer { get; set; }
 
-        [ForeignKey("CustomerId")]
-
         [Required(ErrorMessage = "Account Number is required")]
-        [MaxLength(30)]
-        [RegularExpression(@"^[A-Z0-9]+$", ErrorMessage = "Account Number must be alphanumeric")]
+        [StringLength(20, ErrorMessage = "Account Number cannot exceed 20 characters")]
         public string AccountNumber { get; set; }
 
         [Required(ErrorMessage = "Product Type is required")]
-        [RegularExpression("Saving|Salary|Current", ErrorMessage = "Product Type must be Saving, Salary, or Current")]
+        [RegularExpression("Savings|Current|Card|Loan|Wallet",
+            ErrorMessage = "Product Type must be Savings, Current, Card, Loan, or Wallet")]
         public string ProductType { get; set; }
 
         [Required(ErrorMessage = "Currency is required")]
-        [RegularExpression("USD|EUR|INR|GBP|JPY|AUD|CAD|CHF|CNY|NZD", ErrorMessage = "Currency must be valid")]
+        [RegularExpression("USD|EUR|INR|GBP|JPY|AUD|CAD|CHF|CNY|NZD",
+            ErrorMessage = "Currency must be valid")]
         public string Currency { get; set; }
 
-        [Range(0, double.MaxValue, ErrorMessage = "Balance must be non-negative")]
-        public decimal Balance { get; set; }
-
+       
         [Required(ErrorMessage = "Status is required")]
-        public string Status { get; set; }
+        [RegularExpression("Active|Frozen|Closed",
+            ErrorMessage = "Status must be Active, Frozen, or Closed")]
+        public string Status { get; set; } = "Active";
     }
 }

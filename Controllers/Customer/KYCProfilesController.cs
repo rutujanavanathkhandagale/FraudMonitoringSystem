@@ -1,4 +1,6 @@
-﻿using FraudMonitoringSystem.Services.Customer.Interfaces;
+﻿using FraudMonitoringSystem.Models.Customer;
+using FraudMonitoringSystem.Services.Customer.Implementations;
+using FraudMonitoringSystem.Services.Customer.Interfaces;
 
 using Microsoft.AspNetCore.Authorization;
 
@@ -42,7 +44,29 @@ namespace FraudMonitoringSystem.Controllers.Customer
 
             return Ok(profile);
 
+
         }
+
+        [HttpGet("customer/{customerId}")]
+        public async Task<ActionResult<KYCProfile>> GetByCustomerId(long customerId)
+        {
+            var kyc = await _service.GetByCustomerIdAsync(customerId);
+            if (kyc == null)
+                return NotFound();
+
+            return Ok(kyc);
+        }
+
+        [HttpPut("verify/customer/{customerId}")]
+        public async Task<IActionResult> VerifyByCustomerId(long customerId)
+        {
+            var result = await _service.VerifyAsync(customerId);
+            if (result == null)
+                return NotFound($"No KYC profile found for CustomerId {customerId}");
+
+            return Ok(result);
+        }
+
 
         [HttpPost]
 
@@ -76,38 +100,29 @@ namespace FraudMonitoringSystem.Controllers.Customer
 
         [HttpPut("{id}")]
 
+
+
+        [HttpPut("{id}/verify")]
        
-
-        public async Task<IActionResult> Update(
-
-            long id,
-
-            [FromForm] List<IFormFile> documents,
-
-            [FromForm] List<string> requiredDocs)
-
+        public async Task<IActionResult> Verify(long id)
         {
-
-            var profile = await _service.UpdateAsync(id, documents, requiredDocs);
-
+            var profile = await _service.VerifyAsync(id);
             if (profile == null)
-
                 return NotFound(new { Message = "KYC profile not found" });
 
             return Ok(new
-
             {
-
-                Message = "KYC updated successfully",
-
+                Message = "KYC verified successfully",
                 Status = profile.Status,
-
                 Profile = profile
-
             });
-
         }
 
     }
 
+
 }
+
+
+
+

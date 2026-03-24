@@ -3,6 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FraudMonitoringSystem.Models.Customer
 
@@ -39,7 +40,7 @@ namespace FraudMonitoringSystem.Models.Customer
         [ForeignKey("CustomerId")]
 
         [ValidateNever]
-
+        [JsonIgnore]
         public PersonalDetails? Customer { get; set; }
 
     }

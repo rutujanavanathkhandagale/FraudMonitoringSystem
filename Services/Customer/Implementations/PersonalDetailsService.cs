@@ -1,4 +1,5 @@
-﻿using FraudMonitoringSystem.Exceptions.Customer;
+﻿using FraudMonitoringSystem.DTOs.Customer;
+using FraudMonitoringSystem.Exceptions;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
@@ -7,55 +8,104 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
 {
     public class PersonalDetailsService : IPersonalDetailsService
     {
-        private readonly IPersonalDetailsRepository repo;
+        private readonly IPersonalDetailsRepository _repo;
 
-        public PersonalDetailsService(IPersonalDetailsRepository repository)
+        public PersonalDetailsService(IPersonalDetailsRepository repo)
         {
-            repo = repository;
-        }
-
-        public async Task<string> AddAsync(PersonalDetails details)
-        {
-            var existing = await repo.GetByIdAsync(details.CustomerId);
-            if (existing != null)
-                throw new DuplicateRecordException($"Customer {details.CustomerId} already exists");
-
-            await repo.AddAsync(details);
-            return $"Personal details added for Customer ID {details.CustomerId}";
+            _repo = repo;
         }
 
-        public async Task<PersonalDetails> GetByIdAsync(long id)
+        public async Task<CustomerDto> GetByIdAsync(long id)
         {
-            var details = await repo.GetByIdAsync(id);
-            if (details == null)
-                throw new UserNotFoundException($"Customer {id} not found");
-            return details;
+            var entity = await _repo.GetByIdAsync(id);
+            if (entity == null)
+                throw PersonalDetailsException.NotFound($"Customer {id} not found");
+
+            return MapToDto(entity);
         }
 
-        public async Task<List<PersonalDetails>> GetAllAsync()
+        public async Task<List<CustomerDto>> GetAllAsync()
         {
-            return await repo.GetAllAsync();
+            var list = await _repo.GetAllAsync();
+            return list.Select(MapToDto).ToList();
         }
 
-        public async Task<string> UpdateAsync(PersonalDetails details)
+        public async Task<CustomerDto> CreateAsync(CustomerDto dto)
         {
-            var updated = await repo.UpdateAsync(details);
-            if (updated == 0) throw new UserNotFoundException($"Customer {details.CustomerId} not found");
-            return $"Personal details updated for Customer ID {details.CustomerId}";
+            var entity = MapToEntity(dto);
+            var result = await _repo.AddAsync(entity);
+
+            if (result == 0)
+                throw PersonalDetailsException.Validation("Failed to create customer");
+
+            return MapToDto(entity);
         }
-        public async Task<string> DeleteAsync(long id)
+
+        public async Task<List<CustomerDto>> SearchByNameAsync(string name)
         {
-            var deleted = await repo.DeleteAsync(id);
-            if (deleted == 0)
-                throw new UserNotFoundException($"Customer {id} not found");
-            return $"Personal details deleted for Customer ID {id}";
+            var list = await _repo.SearchByNameAsync(name);
+            return list.Select(MapToDto).ToList();
         }
-        public async Task<string> PatchAsync(long id, PersonalDetails details)
+
+        public async Task<CustomerDto?> GetByEmailAsync(string email)
         {
-            details.CustomerId = id; // ensure ID is set
-            var patched = await repo.PatchAsync(details);
-            if (patched == 0) throw new UserNotFoundException($"Customer {id} not found");
-            return $"Personal details patched for Customer ID {id}";
+            var entity = await _repo.GetByEmailAsync(email);
+            return entity == null ? null : MapToDto(entity);
         }
+
+
+        public async Task<CustomerDto> UpdateAsync(CustomerDto dto)
+        {
+            var entity = MapToEntity(dto);
+            var result = await _repo.UpdateAsync(entity);
+
+            if (result == 0)
+                throw PersonalDetailsException.NotFound($"Customer {dto.CustomerId} not found");
+
+            return MapToDto(entity);
+        }
+
+        public async Task DeleteAsync(long id)
+        {
+            var result = await _repo.DeleteAsync(id);
+
+            if (result == 0)
+                throw PersonalDetailsException.NotFound($"Customer {id} not found");
+        }
+
+        // ✅ Corrected mapping: includes ALL fields
+        private CustomerDto MapToDto(PersonalDetails e) => new CustomerDto
+        {
+            CustomerId = e.CustomerId,
+            FirstName = e.FirstName,
+            MiddleName = e.MiddleName,
+            LastName = e.LastName,
+            FatherName = e.FatherName,
+            MotherName = e.MotherName,
+            CustomerType = e.CustomerType,
+            Email = e.Email,
+            Phone = e.Phone,
+            DOB = e.DOB,
+            PermanentAddress = e.PermanentAddress,
+            CurrentAddress = e.CurrentAddress,
+            ProfileImagePath = e.ProfileImagePath
+        };
+
+        private PersonalDetails MapToEntity(CustomerDto d) => new PersonalDetails
+        {
+            CustomerId = d.CustomerId,
+            FirstName = d.FirstName,
+            MiddleName = d.MiddleName,
+            LastName = d.LastName,
+            FatherName = d.FatherName,
+            MotherName = d.MotherName,
+            CustomerType = d.CustomerType,
+            Email = d.Email,
+            Phone = d.Phone,
+            DOB = d.DOB,
+            PermanentAddress = d.PermanentAddress,
+            CurrentAddress = d.CurrentAddress,
+            ProfileImagePath = d.ProfileImagePath
+        };
     }
 }

@@ -22,6 +22,11 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
         public async Task<KYCProfile?> GetByIdAsync(long id)
             => await _repository.GetByIdAsync(id);
 
+        public async Task<KYCProfile?> GetByCustomerIdAsync(long customerId)
+        {
+            return await _repository.GetByCustomerIdAsync(customerId);
+        }
+
         public async Task<List<KYCProfile>> SearchAsync(string query)
 
             => await _repository.SearchAsync(query);
@@ -31,106 +36,52 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             for (int i = 0; i < requiredDocs.Count; i++)
             {
                 var docType = requiredDocs[i];
-
                 var file = documents.ElementAtOrDefault(i);
 
                 if (file != null && file.Length > 0)
-
                 {
                     var path = Path.Combine("wwwroot/uploads", file.FileName);
-
-                    using (var stream = new FileStream(path, FileMode.Create))
+                    using (var stream = new FileStream(path, FileMode.Create))//“Create a new file at the given path,
+                                                                              //copy the uploaded file’s contents into it,
+                                                                              //and then close the file safely.”
                     {
-                        await file.CopyToAsync(stream); 
+                        await file.CopyToAsync(stream);
                     }
 
                     docMappings.Add(new
-
                     {
-
                         Type = docType,
-
                         FilePath = "/uploads/" + file.FileName
-
                     });
-
                 }
-
             }
 
             var profile = new KYCProfile
-
             {
-
                 CustomerId = customerId,
-
                 DocumentRefsJSON = JsonSerializer.Serialize(docMappings),
 
-                // ✅ AUTOMATIC STATUS
-
-                Status = docMappings.Any() ? "Verified" : "Pending"
-
+               
+                Status = "Pending"
             };
 
             return await _repository.AddAsync(profile);
-
         }
 
-        public async Task<KYCProfile?> UpdateAsync(long id, List<IFormFile> documents, List<string> requiredDocs)
-
+        public async Task<KYCProfile?> VerifyByCustomerIdAsync(long customerId)
         {
+            return await _repository.VerifyByCustomerIdAsync(customerId);
+        }
 
+
+        public async Task<KYCProfile?> VerifyAsync(long id)
+        {
             var profile = await _repository.GetByIdAsync(id);
-
             if (profile == null) return null;
 
-            var docMappings = new List<object>();
-
-            for (int i = 0; i < requiredDocs.Count; i++)
-
-            {
-
-                var docType = requiredDocs[i];
-
-                var file = documents.ElementAtOrDefault(i);
-
-                if (file != null && file.Length > 0)
-
-                {
-
-                    var path = Path.Combine("wwwroot/uploads", file.FileName);
-
-                    using (var stream = new FileStream(path, FileMode.Create))
-
-                    {
-
-                        await file.CopyToAsync(stream);
-
-                    }
-
-                    docMappings.Add(new
-
-                    {
-
-                        Type = docType,
-
-                        FilePath = "/uploads/" + file.FileName
-
-                    });
-
-                }
-
-            }
-
-            profile.DocumentRefsJSON = JsonSerializer.Serialize(docMappings);
-
-           
-
-            profile.Status = docMappings.Any() ? "Verified" : "Pending";
-
-            return await _repository.UpdateAsync(profile);
-
+            return await _repository.VerifyAsync(profile);
         }
+
 
     }
 

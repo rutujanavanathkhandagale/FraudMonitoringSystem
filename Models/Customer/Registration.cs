@@ -2,11 +2,10 @@
 
 namespace FraudMonitoringSystem.Models.Customer
 {
-   
     public class Registration
     {
         [Key]
-        public int RegistrationId { get; set; } 
+        public int RegistrationId { get; set; }
 
         [Required(ErrorMessage = "First name is required")]
         [StringLength(50)]
@@ -36,5 +35,8 @@ namespace FraudMonitoringSystem.Models.Customer
 
         [Required(ErrorMessage = "Role is required")]
         public RegisterRole Role { get; set; }
+
+        [Required(ErrorMessage = "Gender is required")]
+        public Gender Gender { get; set; }
     }
 }

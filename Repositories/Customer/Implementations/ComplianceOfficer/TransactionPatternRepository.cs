@@ -19,7 +19,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Compliance
             var transactions = (
                 from t in _context.Transaction
                 join a in _context.Accounts
-                    on t.AccountID equals a.AccountId
+                    on t.AccountId equals a.AccountId
                 where a.CustomerId == customerId
                 select t);
           
