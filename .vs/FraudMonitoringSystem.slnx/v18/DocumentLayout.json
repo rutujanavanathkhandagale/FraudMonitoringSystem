@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2472062\\onedrive - cognizant\\desktop\\fraudmonitoringsystem\\controllers\\rules\\scenariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\rules\\scenariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2472062\\onedrive - cognizant\\desktop\\fraudmonitoringsystem\\migrations\\20260327115741_fraud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:migrations\\20260327115741_fraud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2472062\\onedrive - cognizant\\desktop\\fraudmonitoringsystem\\services\\customer\\implementations\\rules\\detectionruleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\rules\\detectionruleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2472062\\onedrive - cognizant\\desktop\\fraudmonitoringsystem\\controllers\\rules\\scenariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\rules\\scenariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2472062\\onedrive - cognizant\\desktop\\fraudmonitoringsystem\\controllers\\rules\\detectionrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -410,7 +410,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -418,32 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20260327115741_fraud.cs",
-              "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Migrations\\20260327115741_fraud.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260327115741_fraud.cs",
-              "ToolTip": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Migrations\\20260327115741_fraud.cs",
-              "RelativeToolTip": "Migrations\\20260327115741_fraud.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T11:57:43.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RiskScoreRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
-              "ToolTip": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAIA9wCkAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T11:55:45.216Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ScenarioService.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Rules\\ScenarioService.cs",
               "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Rules\\ScenarioService.cs",
@@ -455,7 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DetectionRule.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Models\\Rules\\DetectionRule.cs",
               "RelativeDocumentMoniker": "Models\\Rules\\DetectionRule.cs",
@@ -467,7 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DetectionExceptionHandler.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Aspects\\Rules\\DetectionExceptionHandler.cs",
               "RelativeDocumentMoniker": "Aspects\\Rules\\DetectionExceptionHandler.cs",
@@ -479,7 +454,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ScenarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Rules\\ScenarioRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Rules\\ScenarioRepository.cs",
@@ -491,7 +466,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
+              "Title": "ScenarioController.cs",
+              "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Controllers\\Rules\\ScenarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Rules\\ScenarioController.cs",
+              "ToolTip": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Controllers\\Rules\\ScenarioController.cs",
+              "RelativeToolTip": "Controllers\\Rules\\ScenarioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T06:33:23.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20260327115741_fraud.cs",
+              "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Migrations\\20260327115741_fraud.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260327115741_fraud.cs",
+              "ToolTip": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Migrations\\20260327115741_fraud.cs",
+              "RelativeToolTip": "Migrations\\20260327115741_fraud.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:57:43.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RiskScoreRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "ToolTip": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAIA9wCkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:55:45.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DetectionRuleRepository.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Rules\\DetectionRuleRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Rules\\DetectionRuleRepository.cs",
@@ -503,7 +516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IScenarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Rules\\IScenarioRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\Rules\\IScenarioRepository.cs",
@@ -515,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "IDetectionRuleRepository.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Rules\\IDetectionRuleRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\Rules\\IDetectionRuleRepository.cs",
@@ -527,7 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DetectionRuleService.cs",
               "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Rules\\DetectionRuleService.cs",
               "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Rules\\DetectionRuleService.cs",
@@ -536,18 +549,6 @@
               "ViewState": "AgIAAAcAAAAAAAAAAAAYwBQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-27T06:54:08.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ScenarioController.cs",
-              "DocumentMoniker": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Controllers\\Rules\\ScenarioController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Rules\\ScenarioController.cs",
-              "ToolTip": "C:\\Users\\2472062\\OneDrive - Cognizant\\Desktop\\FraudMonitoringSystem\\Controllers\\Rules\\ScenarioController.cs",
-              "RelativeToolTip": "Controllers\\Rules\\ScenarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T06:33:23.858Z"
             },
             {
               "$type": "Document",
