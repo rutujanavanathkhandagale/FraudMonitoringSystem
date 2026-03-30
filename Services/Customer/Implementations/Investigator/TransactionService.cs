@@ -36,7 +36,7 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Investigator
         public async Task<TransactionDto> UpdateAsync(TransactionDto dto)
         {
             var transaction = MapToEntity(dto);
-            transaction.TransactionID = dto.TransactionID; // ensure ID is mapped
+            transaction.TransactionID = dto.TransactionID;
             var updated = await _transactionRepo.UpdateAsync(transaction);
             return MapToDto(updated);
         }
@@ -44,31 +44,40 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Investigator
         public async Task DeleteAsync(int transactionId) =>
             await _transactionRepo.DeleteAsync(transactionId);
 
-        // Mapping Logic: aligned with Transaction entity
+        // Fixed Mapping Logic: Updated to match your new Model and DTO structure
         private Transaction MapToEntity(TransactionDto dto) =>
-            new Transaction
-            {
-                CustomerId = dto.CustId,                     // DTO → Entity
-                CounterpartyAccount = dto.CounterAccount,    // DTO → Entity
-                Amount = dto.Amount,
-                GeoLocation = dto.Location,                  // DTO.Location → Entity.GeoLocation
-                Timestamp = dto.TransactionDateTime,         // DTO.TransactionDateTime → Entity.Timestamp
-                Channel = dto.Channel,
-                TransactionType = dto.TransactionType,
-                SourceType = dto.SourceType
-            };
+      new Transaction
+      {
+          TransactionID = dto.TransactionID,
+          AccountID = dto.AccountID,
+          CustomerId = dto.CustomerId,
+          CustomerType = dto.CustomerType,
+          CounterpartyAccount = dto.CounterpartyAccount,
+          Amount = dto.Amount,
+          Currency = dto.Currency,
+          TransactionType = dto.TransactionType,
+          Channel = dto.Channel,
+          Timestamp = dto.Timestamp,
+          GeoLocation = dto.GeoLocation,
+          Status = dto.Status,
+          SourceType = dto.SourceType
+      };
 
         private TransactionDto MapToDto(Transaction t) =>
             new TransactionDto
             {
                 TransactionID = t.TransactionID,
-                CustId = (int)t.CustomerId,                  // Entity → DTO
-                CounterAccount = t.CounterpartyAccount,      // Entity.CounterpartyAccount → DTO.CounterAccount
+                AccountID = t.AccountID,
+                CustomerId = t.CustomerId,
+                CustomerType = t.CustomerType,
+                CounterpartyAccount = t.CounterpartyAccount,
                 Amount = t.Amount,
-                Location = t.GeoLocation,                    // Entity.GeoLocation → DTO.Location
-                TransactionDateTime = t.Timestamp,           // Entity.Timestamp → DTO.TransactionDateTime
-                Channel = t.Channel,
+                Currency = t.Currency,
                 TransactionType = t.TransactionType,
+                Channel = t.Channel,
+                Timestamp = t.Timestamp,
+                GeoLocation = t.GeoLocation,
+                Status = t.Status,
                 SourceType = t.SourceType
             };
     }

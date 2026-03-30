@@ -17,9 +17,9 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Compliance
         public string CheckCustomerTransactionPattern(int customerId)
         {
             var transactions = (
-                from t in _context.Transaction
+                from t in _context.Transactions
                 join a in _context.Accounts
-                    on t.AccountId equals a.AccountId
+                    on t.AccountID equals a.AccountId
                 where a.CustomerId == customerId
                 select t);
           

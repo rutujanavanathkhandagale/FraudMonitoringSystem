@@ -41,7 +41,7 @@ public class RegulatoryReportRepository : IRegulatoryReportRepository
 
             .FirstOrDefault(c => c.CaseID == caseData.CaseID);
 
-        var transaction = _context.Transaction
+        var transaction = _context.Transactions
 
             .FirstOrDefault(t => t.CustomerId == customerId);
 

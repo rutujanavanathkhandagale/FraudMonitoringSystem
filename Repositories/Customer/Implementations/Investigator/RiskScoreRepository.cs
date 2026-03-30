@@ -109,7 +109,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Investigat
             {
                 riskScore = new RiskScore
                 {
-                    ScoreId = Guid.NewGuid().ToString(),
+                    //ScoreID = Guid.NewGuid().ToString(),
                     TransactionID = transaction.TransactionID,
                     ScoreValue = score,
                     ReasonsJSON = JsonSerializer.Serialize(reasons),
@@ -136,7 +136,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Investigat
 
         public async Task<RiskScore> UpdateAsync(RiskScore updated)
         {
-            var existing = await _context.RiskScores.FindAsync(updated.ScoreId) ?? throw new NotFoundException("RiskScore not found");
+            var existing = await _context.RiskScores.FindAsync(updated.ScoreID) ?? throw new NotFoundException("RiskScore not found");
             existing.ScoreValue = Math.Clamp(updated.ScoreValue, 0, 100);
             existing.ReasonsJSON = updated.ReasonsJSON;
             existing.EvaluatedAt = DateTime.UtcNow;

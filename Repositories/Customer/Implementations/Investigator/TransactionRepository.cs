@@ -2,6 +2,8 @@
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
 using FraudMonitoringSystem.Models.Investigator;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Investigator
 {

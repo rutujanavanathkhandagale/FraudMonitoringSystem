@@ -2,14 +2,18 @@
 {
     public class TransactionDto
     {
-        public int TransactionID { get; set; }   // ✅ Added to match model
-        public int CustId { get; set; }
-        public string CounterAccount { get; set; }
+        public int TransactionID { get; set; }
+        public long AccountID { get; set; }
+        public long CustomerId { get; set; }
+        public string CustomerType { get; set; } = string.Empty;
+        public string CounterpartyAccount { get; set; } = string.Empty;
         public decimal Amount { get; set; }
-        public string Location { get; set; }
-        public DateTime TransactionDateTime { get; set; }
-        public string Channel { get; set; }
-        public string TransactionType { get; set; }
-        public string SourceType { get; set; }
+        public string Currency { get; set; } = string.Empty;
+        public string TransactionType { get; set; } = string.Empty;
+        public string Channel { get; set; } = string.Empty;
+        public DateTime Timestamp { get; set; }
+        public string GeoLocation { get; set; } = string.Empty;
+        public string Status { get; set; } = string.Empty;
+        public string? SourceType { get; set; }
     }
 }

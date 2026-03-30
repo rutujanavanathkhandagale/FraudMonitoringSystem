@@ -583,7 +583,7 @@ namespace FraudMonitoringSystem.Migrations
 
                     b.HasIndex("TransactionID");
 
-                    b.ToTable("RiskScore");
+                    b.ToTable("RiskScores", (string)null);
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Investigator.Transaction", b =>
@@ -594,7 +594,7 @@ namespace FraudMonitoringSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionID"));
 
-                    b.Property<long>("AccountId")
+                    b.Property<long>("AccountID")
                         .HasColumnType("bigint");
 
                     b.Property<decimal>("Amount")
@@ -618,14 +618,18 @@ namespace FraudMonitoringSystem.Migrations
                     b.Property<long>("CustomerId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("CustomerType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("GeoLocation")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("SourceType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -640,11 +644,11 @@ namespace FraudMonitoringSystem.Migrations
 
                     b.HasKey("TransactionID");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("AccountID");
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Transaction");
+                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Notification.ChatMessage", b =>
@@ -778,7 +782,7 @@ namespace FraudMonitoringSystem.Migrations
 
                     b.HasIndex("ScenarioId");
 
-                    b.ToTable("DetectionRule");
+                    b.ToTable("DetectionRules");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Rules.Scenario", b =>
@@ -987,20 +991,18 @@ namespace FraudMonitoringSystem.Migrations
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Investigator.RiskScore", b =>
                 {
-                    b.HasOne("FraudMonitoringSystem.Models.Investigator.Transaction", "Transaction")
+                    b.HasOne("FraudMonitoringSystem.Models.Investigator.Transaction", null)
                         .WithMany()
                         .HasForeignKey("TransactionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Investigator.Transaction", b =>
                 {
                     b.HasOne("FraudMonitoringSystem.Models.Customer.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("AccountId")
+                        .HasForeignKey("AccountID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

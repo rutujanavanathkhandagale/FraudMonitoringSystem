@@ -15,7 +15,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
 
         public async Task<List<DetectionRuleDto>> GetAllRulesAsync()
         {
-            return await _context.DetectionRule
+            return await _context.DetectionRules
                 .Include(r => r.Scenario)
                 .Select(r => MapToDto(r))
                 .ToListAsync();
@@ -23,20 +23,20 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
 
         public async Task<DetectionRuleDto?> GetRuleByIdAsync(int id)
         {
-            var rule = await _context.DetectionRule.Include(r => r.Scenario)
+            var rule = await _context.DetectionRules.Include(r => r.Scenario)
                                                    .FirstOrDefaultAsync(r => r.RuleId == id);
             return rule == null ? null : MapToDto(rule);
         }
 
         public async Task<bool> AddRuleAsync(DetectionRule rule)
         {
-            await _context.DetectionRule.AddAsync(rule);
+            await _context.DetectionRules.AddAsync(rule);
             return await _context.SaveChangesAsync() > 0;
         }
 
         public async Task<DetectionRuleDto?> UpdateRuleAsync(DetectionRuleDto dto)
         {
-            var existing = await _context.DetectionRule.FindAsync(dto.RuleId);
+            var existing = await _context.DetectionRules.FindAsync(dto.RuleId);
             if (existing == null) return null;
 
 
@@ -52,18 +52,18 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
 
         public async Task<bool> DeleteRuleAsync(int id)
         {
-            var rule = await _context.DetectionRule.FindAsync(id);
+            var rule = await _context.DetectionRules.FindAsync(id);
             if (rule != null)
             {
-                _context.DetectionRule.Remove(rule);
+                _context.DetectionRules.Remove(rule);
                 return await _context.SaveChangesAsync() > 0;
-            }
+            } 
             return false;
         }
 
         public async Task<List<DetectionRuleDto>> GetRulesByScenarioAsync(int scenarioId)
         {
-            return await _context.DetectionRule.Include(r => r.Scenario)
+            return await _context.DetectionRules.Include(r => r.Scenario)
                 .Where(r => r.ScenarioId == scenarioId && r.Status == "Active")
                 .Select(r => MapToDto(r))
                 .ToListAsync();
@@ -71,7 +71,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
 
         public async Task<List<DetectionRuleDto>> GetAllRulesByScenarioAsync(int scenarioId)
         {
-            return await _context.DetectionRule.Include(r => r.Scenario)
+            return await _context.DetectionRules.Include(r => r.Scenario)
                 .Where(r => r.ScenarioId == scenarioId)
                 .Select(r => MapToDto(r))
                 .ToListAsync();
@@ -79,7 +79,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
 
         public async Task<List<DetectionRuleDto>> GetRulesByStatusAsync(string status)
         {
-            return await _context.DetectionRule
+            return await _context.DetectionRules
                 .Include(r => r.Scenario)
                 .Where(r => r.Status == status)
                 .Select(r => MapToDto(r))

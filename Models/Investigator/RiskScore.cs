@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FraudMonitoringSystem.Models.Investigator
@@ -7,9 +8,7 @@ namespace FraudMonitoringSystem.Models.Investigator
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ScoreID { get; set; }
-        public object? ScoreId { get; internal set; }
-
+        public int ScoreID { get; set; }   // ✅ primary key
 
         [Required(ErrorMessage = "TransactionID is required.")]
         [Range(1, int.MaxValue, ErrorMessage = "TransactionID must be greater than zero.")]
@@ -17,12 +16,12 @@ namespace FraudMonitoringSystem.Models.Investigator
 
         [Required(ErrorMessage = "ScoreValue is required.")]
         [Range(0, 100, ErrorMessage = "ScoreValue must be between 0 and 100.")]
-        [Column(TypeName = "decimal(5,2)")] 
+        [Column(TypeName = "decimal(5,2)")]
         public decimal ScoreValue { get; set; }
 
         [Required(ErrorMessage = "ReasonsJSON is required.")]
         [StringLength(1000, ErrorMessage = "ReasonsJSON cannot exceed 1000 characters.")]
-        public string ReasonsJSON { get; set; }
+        public string ReasonsJSON { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "EvaluatedAt timestamp is required.")]
         public DateTime EvaluatedAt { get; set; }

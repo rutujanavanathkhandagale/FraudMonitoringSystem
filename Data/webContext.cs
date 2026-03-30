@@ -15,36 +15,45 @@ namespace FraudMonitoringSystem.Data
     {
         public WebContext(DbContextOptions<WebContext> options) : base(options) { }
 
-        // Existing DbSets
+        // Customer-related DbSets
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<PersonalDetails> PersonalDetails { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<KYCProfile> KYCProfile { get; set; }
+            
+        // Messaging/Notification
         public DbSet<ChatMessage> ChatMessages { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<DocumentAttachment> DocumentAttachments { get; set; }
+
+        // Security/Admin
         public DbSet<SystemUser> SystemUsers { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
-        public DbSet<Scenario> Scenarios { get; set; }
 
-        // ✅ Fixed naming: plural DbSet
+        // Rules/Scenarios
+        public DbSet<Scenario> Scenarios { get; set; }
         public DbSet<DetectionRule> DetectionRules { get; set; }
 
+        // Transactions & Risk
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<RiskScore> RiskScores { get; set; }
-        public DbSet<Regulatory_Report> Regulatory_Report { get; set; } = default!;
-        public DbSet<ControlChecklist> Control_Checklist { get; set; } = default!;
+
+        // Regulatory & Compliance
+        public DbSet<Regulatory_Report> Regulatory_Report { get; set; }
+        public DbSet<ControlChecklist> Control_Checklist { get; set; }
+
+        // Alerts & Cases
         public DbSet<Alert> Alerts { get; set; }
         public DbSet<Case> Cases { get; set; }
+
+        // Watchlist
         public DbSet<Sanction> Sanctions { get; set; }
         public DbSet<PEPListModel> PEPList { get; set; }
-
-        // New FraudShield DbSets
         public DbSet<WatchlistEntry> WatchlistEntries { get; set; }
 
-        // Add EntityLink table
+        // Entity Links
         public DbSet<EntityLink> EntityLinks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -76,7 +85,7 @@ namespace FraudMonitoringSystem.Data
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.Account)
                 .WithMany()
-                .HasForeignKey(t => t.AccountId)
+                .HasForeignKey(t => t.AccountID)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Transaction → Customer
@@ -95,9 +104,10 @@ namespace FraudMonitoringSystem.Data
                 .ToTable("Transactions")
                 .HasKey(t => t.TransactionID);
 
+            // RiskScore mapping
             modelBuilder.Entity<RiskScore>()
                 .ToTable("RiskScores")
-                .HasKey(rs => rs.ScoreId);
+                .HasKey(rs => rs.ScoreID);   // ✅ use ScoreID (int)
 
             modelBuilder.Entity<RiskScore>()
                 .HasOne<Transaction>()
