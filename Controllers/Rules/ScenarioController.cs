@@ -2,6 +2,7 @@
 using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace FraudMonitoringSystem.Controllers.Rules
 {
     [ApiController]
@@ -10,42 +11,57 @@ namespace FraudMonitoringSystem.Controllers.Rules
     {
         private readonly IScenarioService _service;
 
-        public ScenarioController(IScenarioService service)
+        public ScenarioController(IScenarioService service) => _service = service;
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetScenario(int id)
         {
-            _service = service;
+            if (id <= 0) return BadRequest(new { message = "Invalid Scenario ID." });
+
+            var scenario = await _service.GetScenarioByIdAsync(id);
+            if (scenario == null) return NotFound(new { message = $"Scenario with ID {id} not found." });
+
+            return Ok(scenario);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetScenario(int id) => Ok(_service.GetScenarioById(id));
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllScenarios() =>
+            Ok(await _service.GetAllScenariosAsync());
 
-        [HttpGet]
-        public IActionResult GetAllScenarios() => Ok(_service.GetAllScenarios());
-
-        [HttpPost]
-        public IActionResult CreateScenario([FromBody] Scenario scenario)
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateScenario([FromBody] Scenario scenario)
         {
-            _service.CreateScenario(scenario);
-            return Ok("Scenario created successfully.");
+            if (string.IsNullOrWhiteSpace(scenario.Name))
+                return BadRequest(new { message = "Scenario Name cannot be empty." });
+
+            var id = await _service.CreateScenarioAsync(scenario);
+            if (id <= 0) return BadRequest(new { message = "Failed to create Scenario." });
+
+            return Ok(new { success = true, scenarioId = id });
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateScenario(int id, [FromBody] Scenario scenario)
+        [HttpPut("update/{id:int}")]
+        public async Task<IActionResult> UpdateScenario(int id, [FromBody] Scenario scenario)
         {
-            if (id != scenario.ScenarioId)
-            {
-                return BadRequest("Scenario ID mismatch.");
-            }
+            if (id <= 0) return BadRequest(new { message = "Invalid Scenario ID." });
+            if (id != scenario.ScenarioId) return BadRequest(new { message = "Scenario ID mismatch." });
 
-            _service.UpdateScenario(scenario);
-            return Ok("Scenario updated successfully.");
+            var updated = await _service.UpdateScenarioAsync(scenario);
+            if (!updated) return NotFound(new { message = $"Scenario with ID {id} not found." });
+
+            return Ok(new { success = true, message = "Scenario updated successfully." });
         }
 
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteScenario(int id)
+        [HttpDelete("delete/{id:int}")]
+        public async Task<IActionResult> DeleteScenario(int id)
         {
-            _service.DeleteScenario(id);
-            return Ok("Scenario deleted successfully.");
+            if (id <= 0) return BadRequest(new { message = "Invalid Scenario ID." });
+
+            var deleted = await _service.DeleteScenarioAsync(id);
+            if (!deleted) return NotFound(new { message = $"Scenario with ID {id} not found." });
+
+            return Ok(new { success = true, message = "Scenario deleted successfully." });
         }
+        
     }
 }

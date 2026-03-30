@@ -1,4 +1,4 @@
-﻿using FraudMonitoringSystem.Exceptions.Admin;
+﻿using FraudMonitoringSystem.Exceptions.Rules;
 using FraudMonitoringSystem.Models.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
@@ -9,52 +9,71 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Rules
     public class ScenarioService : IScenarioService
     {
         private readonly IScenarioRepository _repository;
+        private readonly IDetectionRuleRepository _ruleRepository;
 
-        public ScenarioService(IScenarioRepository repository)
+        public ScenarioService(IScenarioRepository repository, IDetectionRuleRepository ruleRepository)
         {
             _repository = repository;
+            _ruleRepository = ruleRepository;
         }
 
-        public Scenario GetScenarioById(int id)
+        public async Task<Scenario?> GetScenarioByIdAsync(int id)
         {
-            var scenario = _repository.GetById(id);
+            if (id <= 0)
+                throw new BadRequestException("Invalid Scenario ID.");
+
+            var scenario = await _repository.GetByIdAsync(id);
             if (scenario == null)
                 throw new NotFoundException($"Scenario with ID {id} not found.");
+
             return scenario;
         }
 
-        public IEnumerable<Scenario> GetAllScenarios() => _repository.GetAll();
+        public async Task<IEnumerable<Scenario>> GetAllScenariosAsync() =>
+            await _repository.GetAllAsync();
 
-        public void CreateScenario(Scenario scenario)
+        public async Task<int> CreateScenarioAsync(Scenario scenario)
         {
-            if (string.IsNullOrEmpty(scenario.Name))
-                throw new ValidationException("Scenario name cannot be empty.");
-            _repository.Add(scenario);
+            if (string.IsNullOrWhiteSpace(scenario.Name))
+                throw new BadRequestException("Scenario Name cannot be empty.");
+
+            var id = await _repository.AddAsync(scenario);
+            if (id <= 0)
+                throw new BadRequestException("Failed to create Scenario.");
+
+            return id;
         }
 
-        public void UpdateScenario(Scenario scenario)
+        public async Task<bool> UpdateScenarioAsync(Scenario scenario)
         {
-            if (scenario.ScenarioId == 0)
-                throw new ValidationException("Scenario ID must be provided.");
+            if (scenario.ScenarioId <= 0)
+                throw new BadRequestException("Invalid Scenario ID.");
 
-            var existingScenario = _repository.GetById(scenario.ScenarioId);
-            if (existingScenario == null)
+            var existing = await _repository.GetByIdAsync(scenario.ScenarioId);
+            if (existing == null)
                 throw new NotFoundException($"Scenario with ID {scenario.ScenarioId} not found.");
 
-            existingScenario.Name = scenario.Name;
-            existingScenario.Description = scenario.Description;
-            existingScenario.RiskDomain = scenario.RiskDomain;
-            existingScenario.IsActive = scenario.IsActive;
+            existing.Name = scenario.Name;
+            existing.Description = scenario.Description;
+            existing.RiskDomain = scenario.RiskDomain;
+            existing.Status = scenario.Status;
 
-            _repository.Update(existingScenario);
+            await _repository.UpdateAsync(existing);
+            return true;
         }
 
-
-        public void DeleteScenario(int id)
+        public async Task<bool> DeleteScenarioAsync(int id)
         {
-            if (id == 0)
-                throw new ValidationException("Invalid Scenario ID.");
-            _repository.Delete(id);
+            if (id <= 0)
+                throw new BadRequestException("Invalid Scenario ID.");
+
+            var existing = await _repository.GetByIdAsync(id);
+            if (existing == null)
+                throw new NotFoundException($"Scenario with ID {id} not found.");
+
+            await _repository.DeleteAsync(id);
+            return true;
         }
+        
     }
 }

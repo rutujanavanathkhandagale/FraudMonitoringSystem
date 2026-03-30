@@ -4,10 +4,11 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules
 {
     public interface IScenarioRepository
     {
-        Scenario GetById(int id);
-        IEnumerable<Scenario> GetAll();
-        void Add(Scenario scenario);
-        void Update(Scenario scenario);
-        void Delete(int id);
+        Task<Scenario?> GetByIdAsync(int id);
+        Task<IEnumerable<Scenario>> GetAllAsync();
+        Task<int> AddAsync(Scenario scenario);
+        Task UpdateAsync(Scenario scenario);
+        Task DeleteAsync(int id);
+        
     }
 }

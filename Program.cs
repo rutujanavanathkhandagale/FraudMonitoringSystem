@@ -1,5 +1,6 @@
 //using FraudMonitoringSystem.Authentication;
 using FraudMonitoringSystem.Data;
+using FraudMonitoringSystem.Exceptions;
 using FraudMonitoringSystem.Models.Notification;
 using FraudMonitoringSystem.Repositories;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
