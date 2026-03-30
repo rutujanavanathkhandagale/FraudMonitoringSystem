@@ -1,6 +1,7 @@
 ﻿using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
+using Microsoft.EntityFrameworkCore;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
 {
@@ -8,35 +9,34 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
     {
         private readonly WebContext _context;
 
-        public ScenarioRepository(WebContext context)
+        public ScenarioRepository(WebContext context) => _context = context;
+
+        public async Task<Scenario?> GetByIdAsync(int id) =>
+            await _context.Scenarios.FindAsync(id);
+
+        public async Task<IEnumerable<Scenario>> GetAllAsync() =>
+            await _context.Scenarios.ToListAsync();
+
+        public async Task<int> AddAsync(Scenario scenario)
         {
-            _context = context;
+            await _context.Scenarios.AddAsync(scenario);
+            await _context.SaveChangesAsync();
+            return scenario.ScenarioId;
         }
 
-        public Scenario GetById(int id) => _context.Scenarios.Find(id);
-
-        public IEnumerable<Scenario> GetAll() => _context.Scenarios.ToList();
-
-        public void Add(Scenario scenario)
-        {
-            _context.Scenarios.Add(scenario);
-            _context.SaveChanges();
-        }
-
-        public void Update(Scenario scenario)
+        public async Task UpdateAsync(Scenario scenario)
         {
             _context.Scenarios.Update(scenario);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var scenario = _context.Scenarios.Find(id);
+            var scenario = await _context.Scenarios.FindAsync(id);
             if (scenario != null)
             {
                 _context.Scenarios.Remove(scenario);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
     }

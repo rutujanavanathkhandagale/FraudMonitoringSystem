@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FraudMonitoringSystem.Models.Rules
 {
@@ -7,27 +8,33 @@ namespace FraudMonitoringSystem.Models.Rules
         [Key]
         public int RuleId { get; set; }
 
-        [Required(ErrorMessage = "ScenarioId is required")]
-        public int ScenarioId { get; set; }
 
-        [Required(ErrorMessage = "Rule expression is required")]
-        [StringLength(250)]
-        public required string Expression { get; set; }
+        [Required, StringLength(100)]
+        public string Name { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Threshold is required")]
+
+        [Required, StringLength(200)]
+        public string Expression { get; set; } = string.Empty;
+
+
+        [Range(1, int.MaxValue)]
         public decimal Threshold { get; set; }
 
-        [StringLength(20)]
-        public string? Version { get; set; }
+        [Required]
+        public string CustomerType { get; set; } = string.Empty;
 
-        [StringLength(50)]
-        public string? CustomerType { get; set; }
 
-        public bool IsActive { get; set; } = true;
+        [Required, StringLength(20)]
+        public string Version { get; set; } = string.Empty;
 
-     
-        public Scenario? Scenario { get; set; }
-        public string Status { get; internal set; }
-        public string? Name { get; internal set; }
+
+        [Required, StringLength(20)]
+        public string Status { get; set; } = string.Empty;
+
+
+        [ForeignKey("Scenario")]
+        public int ScenarioId { get; set; }
+        public Scenario Scenario { get; set; } = null!;
+        public bool IsActive { get; internal set; }
     }
 }

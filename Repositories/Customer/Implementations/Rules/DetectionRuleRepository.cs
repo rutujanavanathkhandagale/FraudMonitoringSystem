@@ -1,4 +1,6 @@
 ﻿using FraudMonitoringSystem.Data;
+using FraudMonitoringSystem.DTOs;
+using FraudMonitoringSystem.DTOs.Rules;
 using FraudMonitoringSystem.Models.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
 using Microsoft.EntityFrameworkCore;
@@ -9,46 +11,103 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Rules
     {
         private readonly WebContext _context;
 
-        public DetectionRuleRepository(WebContext context)
+        public DetectionRuleRepository(WebContext context) => _context = context;
+
+        public async Task<List<DetectionRuleDto>> GetAllRulesAsync()
         {
-            _context = context;
+            return await _context.DetectionRule
+                .Include(r => r.Scenario)
+                .Select(r => MapToDto(r))
+                .ToListAsync();
         }
 
-        public DetectionRule GetById(int id)
+        public async Task<DetectionRuleDto?> GetRuleByIdAsync(int id)
         {
-            return _context.DetectionRule
-                           .Include(r => r.Scenario)            // <-- load Scenario details
-                           .FirstOrDefault(r => r.RuleId == id);
+            var rule = await _context.DetectionRule.Include(r => r.Scenario)
+                                                   .FirstOrDefaultAsync(r => r.RuleId == id);
+            return rule == null ? null : MapToDto(rule);
         }
 
-        public IEnumerable<DetectionRule> GetAll()
+        public async Task<bool> AddRuleAsync(DetectionRule rule)
         {
-            return _context.DetectionRule
-                           .Include(r => r.Scenario)   // <-- load Scenario details
-                           .ToList();
+            await _context.DetectionRule.AddAsync(rule);
+            return await _context.SaveChangesAsync() > 0;
         }
 
-        public void Add(DetectionRule rule)
+        public async Task<DetectionRuleDto?> UpdateRuleAsync(DetectionRuleDto dto)
         {
-            _context.DetectionRule.Add(rule);
-            _context.SaveChanges();
+            var existing = await _context.DetectionRule.FindAsync(dto.RuleId);
+            if (existing == null) return null;
+
+
+            existing.Expression = dto.Expression;
+            existing.Threshold = dto.Threshold;
+            existing.Version = dto.Version;
+            existing.Status = dto.Status;
+            existing.ScenarioId = dto.ScenarioId;
+
+            await _context.SaveChangesAsync();
+            return await GetRuleByIdAsync(dto.RuleId);
         }
 
-        public void Update(DetectionRule rule)
+        public async Task<bool> DeleteRuleAsync(int id)
         {
-            _context.DetectionRule.Update(rule);
-            _context.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var rule = _context.DetectionRule.Find(id);
+            var rule = await _context.DetectionRule.FindAsync(id);
             if (rule != null)
             {
                 _context.DetectionRule.Remove(rule);
-                _context.SaveChanges();
+                return await _context.SaveChangesAsync() > 0;
             }
+            return false;
         }
+
+        public async Task<List<DetectionRuleDto>> GetRulesByScenarioAsync(int scenarioId)
+        {
+            return await _context.DetectionRule.Include(r => r.Scenario)
+                .Where(r => r.ScenarioId == scenarioId && r.Status == "Active")
+                .Select(r => MapToDto(r))
+                .ToListAsync();
+        }
+
+        public async Task<List<DetectionRuleDto>> GetAllRulesByScenarioAsync(int scenarioId)
+        {
+            return await _context.DetectionRule.Include(r => r.Scenario)
+                .Where(r => r.ScenarioId == scenarioId)
+                .Select(r => MapToDto(r))
+                .ToListAsync();
+        }
+
+        public async Task<List<DetectionRuleDto>> GetRulesByStatusAsync(string status)
+        {
+            return await _context.DetectionRule
+                .Include(r => r.Scenario)
+                .Where(r => r.Status == status)
+                .Select(r => MapToDto(r))
+                .ToListAsync();
+        }
+
+
+        private static DetectionRuleDto MapToDto(DetectionRule r) =>
+     new DetectionRuleDto
+     {
+         RuleId = r.RuleId,
+         Expression = r.Expression,
+         Threshold = r.Threshold,
+         Version = r.Version,
+         CustomerType = r.CustomerType,
+         Status = r.Status,
+         ScenarioId = r.ScenarioId,
+         Scenario = new ScenarioDto
+         {
+             ScenarioId = r.Scenario.ScenarioId,
+             Name = r.Scenario.Name,
+             Description = r.Scenario.Description,
+             RiskDomain = r.Scenario.RiskDomain,
+             Status = r.Scenario.Status
+         }
+     };
+
+        
     }
 }
 

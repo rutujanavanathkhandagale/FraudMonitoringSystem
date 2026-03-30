@@ -7,17 +7,17 @@ namespace FraudMonitoringSystem.Models.Rules
         [Key]
         public int ScenarioId { get; set; }
 
-        [Required(ErrorMessage = "Scenario Name is required")]
-        [StringLength(100)]
-        public required string Name { get; set; }
+        [Required, StringLength(100)]
+        public string Name { get; set; } = string.Empty;
 
         [StringLength(250)]
         public string? Description { get; set; }
 
-        [Required(ErrorMessage = "Risk Domain is required")]
-        [StringLength(50)]
-        public required string RiskDomain { get; set; }
+        [Required, StringLength(50)]
+        public string RiskDomain { get; set; } = string.Empty;
 
-        public bool IsActive { get; set; } = true;
+        [Required, StringLength(20)]
+        public string Status { get; set; }  // Active/Inactive
+       
     }
 }

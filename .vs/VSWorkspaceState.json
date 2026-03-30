@@ -1,4 +1,14 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\Aspects\\Rules",
+    "\\DTOs",
+    "\\DTOs\\Rules",
+    "\\Exceptions\\Rules",
+    "\\Models",
+    "\\Models\\Notification",
+    "\\Models\\Rules"
+  ],
+  "SelectedNode": "\\Enums",
   "PreviewInSolutionExplorer": false
 }
