@@ -1,13 +1,14 @@
-﻿using FraudMonitoringSystem.Models.Investigator; 
+﻿using FraudMonitoringSystem.DTOs.Investigator;
+using FraudMonitoringSystem.Models.Investigator; 
 
 namespace FraudMonitoringSystem.Services.Customer.Interfaces.Investigator
 {
     public interface ITransactionService
     {
-        IEnumerable<Transaction> GetAllTransactions();
-        Transaction GetTransactionById(int id);
-        void CreateTransaction(Transaction transaction);
-        void UpdateTransaction(Transaction transaction);
-        void DeleteTransaction(int id);
+        Task<TransactionDto> AddTransactionAsync(TransactionDto dto);
+        Task<TransactionDto> GetByIdAsync(int transactionId);
+        Task<IEnumerable<TransactionDto>> GetAllAsync();
+        Task<TransactionDto> UpdateAsync(TransactionDto dto);
+        Task DeleteAsync(int transactionId);
     }
 }

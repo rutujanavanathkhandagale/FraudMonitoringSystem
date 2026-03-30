@@ -1,4 +1,5 @@
-﻿using FraudMonitoringSystem.Models.Investigator;
+﻿using FraudMonitoringSystem.DTOs.Investigator;
+using FraudMonitoringSystem.Models.Investigator;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
 
@@ -6,38 +7,33 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Investigator
 {
     public class RiskScoreService : IRiskScoreService
     {
-        private readonly IRiskScoreRepository _repo;
+        private readonly IRiskScoreRepository _riskScoreRepository;
 
-        public RiskScoreService(IRiskScoreRepository repo)
+        public RiskScoreService(IRiskScoreRepository riskScoreRepository)
         {
-            _repo = repo;
+            _riskScoreRepository = riskScoreRepository;
         }
 
-        public IEnumerable<RiskScore> GetAllRiskScores()
+        // Triggers the complex repository evaluation logic
+        public async Task<RiskScoreDto> GenerateRiskScoreAsync(int transactionId)
         {
-            return _repo.GetAll();
+            return await _riskScoreRepository.EvaluateRiskScoreAsync(transactionId);
         }
 
-        public RiskScore GetRiskScoreByScoreId(int id)
-        {
-            return _repo.GetByScoreId(id);
-        }
+        public async Task<IEnumerable<RiskScore>> GetAllAsync() =>
+            await _riskScoreRepository.GetAllAsync();
 
-        public RiskScore GetRiskScoreByTransactionId(int txnId)
-        {
-            return _repo.GetByTransactionId(txnId);
-        }
+        public async Task<RiskScore> GetByIdAsync(string id) =>
+            await _riskScoreRepository.GetByIdAsync(id);
 
-        public void GenerateRiskScores()
-        {
-            _repo.GenerateRiskScores();
-        }
+        public async Task<RiskScore> UpdateAsync(RiskScore updated) =>
+            await _riskScoreRepository.UpdateAsync(updated);
 
-        public Transaction GetTransactionById(int txnId)
-        {
-            // Implement repository call if you have Transaction persistence
-            throw new NotImplementedException();
-        }
+        public async Task DeleteAsync(string id) =>
+            await _riskScoreRepository.DeleteAsync(id);
+
+        public async Task<IEnumerable<RiskScore>> SearchAsync(int transactionId) =>
+            await _riskScoreRepository.SearchAsync(transactionId);
     }
 }
 

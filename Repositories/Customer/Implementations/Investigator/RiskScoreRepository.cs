@@ -1,6 +1,9 @@
-﻿using FraudMonitoringSystem.Data;
+﻿using FraudMonitoringSystem.DTOs.Investigator;
+using FraudMonitoringSystem.Exceptions.Investigator;
 using FraudMonitoringSystem.Models.Investigator;
+using FraudMonitoringSystem.Models.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
+using FraudMonitoringSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -15,112 +18,142 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Investigat
             _context = context;
         }
 
-        public IEnumerable<RiskScore> GetAll()
+        public async Task<RiskScoreDto> EvaluateRiskScoreAsync(int transactionId)
         {
-            return _context.RiskScore
-                           .Include(r => r.Transaction)
-                           .ToList();
-        }
+            var transaction = await _context.Transactions.FindAsync(transactionId);
+            if (transaction == null) throw new NotFoundException("Transaction not found");
 
-        public RiskScore GetByScoreId(int id)
-        {
-            return _context.RiskScore
-                           .Include(r => r.Transaction)
-                           .FirstOrDefault(r => r.ScoreID == id);
-        }
+            var rules = await _context.DetectionRules
+                                      .Include(r => r.Scenario)
+                                      .Where(r => r.IsActive || r.Status == "Active")
+                                      .ToListAsync();
 
-        public RiskScore GetByTransactionId(int txnId)
-        {
-            return _context.RiskScore
-                           .Include(r => r.Transaction)
-                           .FirstOrDefault(r => r.TransactionID == txnId);
-        }
+            if (!rules.Any()) throw new AppException("No active detection rules found");
 
-        public void GenerateRiskScores()
-        {
-            var transactions = _context.Transaction.ToList();
-            var rules = _context.DetectionRule.Where(r => r.IsActive).ToList();
+            var reasons = new List<string>();
+            decimal score = 0;
 
-            var riskScores = new List<RiskScore>();
-
-            foreach (var txn in transactions)
+            foreach (var rule in rules)
             {
-                if (_context.RiskScore.Any(r => r.TransactionID == txn.TransactionID))
-                    continue;
+                bool isTriggered = false;
+                string reason = string.Empty;
 
-                decimal scoreValue = 0;
-                var reasons = new List<string>();
-
-                // ✅ Group all amount thresholds exceeded
-                var amountThresholds = rules
-                    .Where(r => r.Expression.Contains("Amount") && txn.Amount > r.Threshold)
-                    .Select(r => r.Threshold)
-                    .ToList();
-
-                if (amountThresholds.Any())
+                if (rule.Expression.Contains("amount >", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Adjust scoring logic if needed
-                    scoreValue += 30; // flat severity, or scale based on highest threshold
-                    reasons.Add($"Transaction amount {txn.Amount} exceeded thresholds: {string.Join(", ", amountThresholds)}.");
-                }
-
-                // ✅ Currency rule
-                foreach (var rule in rules.Where(r => r.Expression.Contains("Currency")))
-                {
-                    if (txn.Currency == rule.Expression.Split('=')[1].Trim())
+                    if (transaction.Amount > rule.Threshold)
                     {
-                        scoreValue += 20;
-                        reasons.Add($"Transaction used currency {txn.Currency}, which may be considered risky.");
+                        isTriggered = true;
+                        score += 10;
+                        reason = $"Rule '{rule.Scenario?.Name ?? rule.Name}': Transaction amount ({transaction.Amount}) exceeds {rule.Threshold}. (+10 Points)";
+                    }
+                }
+                else if (rule.Expression.Contains("TransactionTime BETWEEN", StringComparison.OrdinalIgnoreCase))
+                {
+                    var hour = transaction.Timestamp.Hour;   // ✅ use Timestamp
+                    if (hour >= 23 || hour < 5)
+                    {
+                        isTriggered = true;
+                        score += 15;
+                        reason = $"Rule '{rule.Scenario?.Name ?? rule.Name}': Transaction occurred at an odd hour ({transaction.Timestamp:HH:mm}). (+15 Points)";
+                    }
+                }
+                else if (rule.Expression.Contains("Count(Transactions", StringComparison.OrdinalIgnoreCase))
+                {
+                    var fiveMinsAgo = transaction.Timestamp.AddMinutes(-5);
+                    var recentTransactionsCount = await _context.Transactions
+                        .CountAsync(t => t.CustomerId == transaction.CustomerId &&   // ✅ use CustomerId
+                                         t.Timestamp >= fiveMinsAgo &&
+                                         t.Timestamp <= transaction.Timestamp);
+
+                    if (recentTransactionsCount > rule.Threshold)
+                    {
+                        isTriggered = true;
+                        score += 25;
+                        reason = $"Rule '{rule.Scenario?.Name ?? rule.Name}': Rapid velocity detected. (+25 Points)";
+                    }
+                }
+                else if (rule.Expression.Contains("Country IN", StringComparison.OrdinalIgnoreCase))
+                {
+                    var highRiskLocations = new List<string> { "Russia", "Syria", "North Korea", "Iran" };
+                    if (highRiskLocations.Contains(transaction.GeoLocation, StringComparer.OrdinalIgnoreCase))   // ✅ use GeoLocation
+                    {
+                        isTriggered = true;
+                        score += 30;
+                        reason = $"Rule '{rule.Scenario?.Name ?? rule.Name}': Transaction originated from a monitored location ({transaction.GeoLocation}). (+30 Points)";
                     }
                 }
 
-                // ✅ Status rule
-                foreach (var rule in rules.Where(r => r.Expression.Contains("Status")))
-                {
-                    if (txn.Status == rule.Expression.Split('=')[1].Trim())
-                    {
-                        scoreValue += 15;
-                        reasons.Add($"Transaction status is {txn.Status}, which may indicate suspicious activity.");
-                    }
-                }
+                if (isTriggered) reasons.Add(reason);
+            }
 
-                // ✅ Channel rule
-                foreach (var rule in rules.Where(r => r.Expression.Contains("Channel")))
-                {
-                    if (txn.Channel == rule.Expression.Split('=')[1].Trim())
-                    {
-                        scoreValue += 10;
-                        reasons.Add($"Transaction was made using {txn.Channel}, which is more prone to fraud.");
-                    }
-                }
+            score = Math.Clamp(score, 0, 100);
 
-                if (scoreValue > 100) scoreValue = 100;
+            if (score == 0 || !reasons.Any())
+            {
+                reasons.Add("Transaction is safe: No high-risk rules were triggered. Score is 0.");
+            }
 
-                var riskScore = new RiskScore
+            var existingScore = await _context.RiskScores.FirstOrDefaultAsync(rs => rs.TransactionID == transactionId);
+            RiskScore riskScore;
+
+            if (existingScore != null)
+            {
+                existingScore.ScoreValue = score;
+                existingScore.ReasonsJSON = JsonSerializer.Serialize(reasons);
+                existingScore.EvaluatedAt = DateTime.UtcNow;
+
+                _context.RiskScores.Update(existingScore);
+                riskScore = existingScore;
+            }
+            else
+            {
+                riskScore = new RiskScore
                 {
-                    TransactionID = txn.TransactionID,
-                    Transaction = txn,
-                    ScoreValue = scoreValue,
-                    ReasonsJSON = JsonSerializer.Serialize(reasons.Distinct()),
+                    ScoreId = Guid.NewGuid().ToString(),
+                    TransactionID = transaction.TransactionID,
+                    ScoreValue = score,
+                    ReasonsJSON = JsonSerializer.Serialize(reasons),
                     EvaluatedAt = DateTime.UtcNow
                 };
 
-                riskScores.Add(riskScore);
+                _context.RiskScores.Add(riskScore);
             }
 
-            if (riskScores.Any())
+            await _context.SaveChangesAsync();
+
+            return new RiskScoreDto
             {
-                _context.RiskScore.AddRange(riskScores);
-                _context.SaveChanges();
-            }
+                TransactionID = transaction.TransactionID,
+                ScoreValue = riskScore.ScoreValue,
+                ReasonsJSON = riskScore.ReasonsJSON
+            };
         }
 
-        public RiskScore GetById(int id)
+        public async Task<IEnumerable<RiskScore>> GetAllAsync() => await _context.RiskScores.ToListAsync();
+
+        public async Task<RiskScore> GetByIdAsync(string id) =>
+            await _context.RiskScores.FindAsync(id) ?? throw new NotFoundException("RiskScore not found");
+
+        public async Task<RiskScore> UpdateAsync(RiskScore updated)
         {
-            return _context.RiskScore
-                           .Include(r => r.Transaction)
-                           .FirstOrDefault(r => r.ScoreID == id);
+            var existing = await _context.RiskScores.FindAsync(updated.ScoreId) ?? throw new NotFoundException("RiskScore not found");
+            existing.ScoreValue = Math.Clamp(updated.ScoreValue, 0, 100);
+            existing.ReasonsJSON = updated.ReasonsJSON;
+            existing.EvaluatedAt = DateTime.UtcNow;
+
+            _context.RiskScores.Update(existing);
+            await _context.SaveChangesAsync();
+            return existing;
         }
+
+        public async Task DeleteAsync(string id)
+        {
+            var score = await _context.RiskScores.FindAsync(id) ?? throw new NotFoundException("RiskScore not found");
+            _context.RiskScores.Remove(score);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<RiskScore>> SearchAsync(int transactionId) =>
+            await _context.RiskScores.Where(r => r.TransactionID == transactionId).ToListAsync();
     }
 }
-

@@ -1,6 +1,7 @@
-﻿using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
-using Microsoft.AspNetCore.Mvc;
+﻿using FraudMonitoringSystem.DTOs.Investigator;
 using FraudMonitoringSystem.Models.Investigator;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace FraudMonitoringSystem.Controllers.Investigator
@@ -9,38 +10,52 @@ namespace FraudMonitoringSystem.Controllers.Investigator
     [Route("api/[controller]")]
     public class TransactionController : ControllerBase
     {
-        private readonly ITransactionService _service;
+        private readonly ITransactionService _transactionService;
 
-        public TransactionController(ITransactionService service)
+        public TransactionController(ITransactionService transactionService)
         {
-            _service = service;
+            _transactionService = transactionService;
         }
 
-        [HttpGet]
-        public IActionResult GetAll() => Ok(_service.GetAllTransactions());
-
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id) => Ok(_service.GetTransactionById(id));
-
+        // POST: api/transaction
         [HttpPost]
-        public IActionResult Create([FromBody] Transaction transaction)
+        public async Task<IActionResult> AddTransaction([FromBody] TransactionDto dto)
         {
-            _service.CreateTransaction(transaction);
-            return Ok("Transaction created successfully.");
+            var result = await _transactionService.AddTransactionAsync(dto);
+            return Ok(result);
         }
 
+        // GET: api/transaction/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _transactionService.GetByIdAsync(id);
+            if (result == null) return NotFound();
+            return Ok(result);
+        }
+
+        // GET: api/transaction
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _transactionService.GetAllAsync();
+            return Ok(result);
+        }
+
+        // PUT: api/transaction
         [HttpPut]
-        public IActionResult Update([FromBody] Transaction transaction)
+        public async Task<IActionResult> Update([FromBody] TransactionDto dto)
         {
-            _service.UpdateTransaction(transaction);
-            return Ok("Transaction updated successfully.");
+            var result = await _transactionService.UpdateAsync(dto);
+            return Ok(result);
         }
 
+        // DELETE: api/transaction/{id}
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _service.DeleteTransaction(id);
-            return Ok("Transaction deleted successfully.");
+            await _transactionService.DeleteAsync(id);
+            return NoContent();
         }
     }
 }

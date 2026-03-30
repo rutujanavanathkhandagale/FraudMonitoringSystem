@@ -8,17 +8,12 @@ namespace FraudMonitoringSystem.Models.Investigator
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ScoreID { get; set; }
+        public object? ScoreId { get; internal set; }
 
 
-       
         [Required(ErrorMessage = "TransactionID is required.")]
         [Range(1, int.MaxValue, ErrorMessage = "TransactionID must be greater than zero.")]
         public int TransactionID { get; set; }
-
-        [ForeignKey(nameof(TransactionID))]
-        public Transaction Transaction { get; set; }  
-
-
 
         [Required(ErrorMessage = "ScoreValue is required.")]
         [Range(0, 100, ErrorMessage = "ScoreValue must be between 0 and 100.")]

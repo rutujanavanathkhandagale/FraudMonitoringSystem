@@ -1,58 +1,75 @@
-﻿using FraudMonitoringSystem.Exceptions.Admin;
-using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
+﻿using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
-using System.ComponentModel.DataAnnotations;
 using FraudMonitoringSystem.Models.Investigator;
-
-
+using FraudMonitoringSystem.DTOs.Investigator;
 
 namespace FraudMonitoringSystem.Services.Customer.Implementations.Investigator
 {
     public class TransactionService : ITransactionService
     {
-        private readonly ITransactionRepository _repository;
+        private readonly ITransactionRepository _transactionRepo;
 
-        public TransactionService(ITransactionRepository repository)
+        public TransactionService(ITransactionRepository transactionRepo)
         {
-            _repository = repository;
+            _transactionRepo = transactionRepo;
         }
 
-        public IEnumerable<Transaction> GetAllTransactions()
+        public async Task<TransactionDto> AddTransactionAsync(TransactionDto dto)
         {
-            var transactions = _repository.GetAll();
-            if (transactions == null || !transactions.Any())
-                throw new NotFoundException("No transactions found.");
-            return transactions;
+            var transaction = MapToEntity(dto);
+            var saved = await _transactionRepo.AddTransactionAsync(transaction);
+            return MapToDto(saved);
         }
 
-        public Transaction GetTransactionById(int id)
+        public async Task<TransactionDto?> GetByIdAsync(int transactionId)
         {
-            var transaction = _repository.GetById(id);
-            if (transaction == null)
-                throw new NotFoundException($"Transaction with ID {id} not found.");
-            return transaction;
+            var transaction = await _transactionRepo.GetByIdAsync(transactionId);
+            return transaction == null ? null : MapToDto(transaction);
         }
 
-        public void CreateTransaction(Transaction transaction)
+        public async Task<IEnumerable<TransactionDto>> GetAllAsync()
         {
-            if (transaction.Amount <= 0)
-                throw new ValidationException("Amount must be greater than zero.");
-            _repository.Add(transaction);
+            var transactions = await _transactionRepo.GetAllAsync();
+            return transactions.Select(MapToDto);
         }
 
-        public void UpdateTransaction(Transaction transaction)
+        public async Task<TransactionDto> UpdateAsync(TransactionDto dto)
         {
-            if (transaction.TransactionID == 0)
-                throw new ValidationException("Transaction ID is required for update.");
-            _repository.Update(transaction);
+            var transaction = MapToEntity(dto);
+            transaction.TransactionID = dto.TransactionID; // ensure ID is mapped
+            var updated = await _transactionRepo.UpdateAsync(transaction);
+            return MapToDto(updated);
         }
 
-        public void DeleteTransaction(int id)
-        {
-            if (id == 0)
-                throw new ValidationException("Transaction ID cannot be zero.");
-            _repository.Delete(id);
-        }
+        public async Task DeleteAsync(int transactionId) =>
+            await _transactionRepo.DeleteAsync(transactionId);
+
+        // Mapping Logic: aligned with Transaction entity
+        private Transaction MapToEntity(TransactionDto dto) =>
+            new Transaction
+            {
+                CustomerId = dto.CustId,                     // DTO → Entity
+                CounterpartyAccount = dto.CounterAccount,    // DTO → Entity
+                Amount = dto.Amount,
+                GeoLocation = dto.Location,                  // DTO.Location → Entity.GeoLocation
+                Timestamp = dto.TransactionDateTime,         // DTO.TransactionDateTime → Entity.Timestamp
+                Channel = dto.Channel,
+                TransactionType = dto.TransactionType,
+                SourceType = dto.SourceType
+            };
+
+        private TransactionDto MapToDto(Transaction t) =>
+            new TransactionDto
+            {
+                TransactionID = t.TransactionID,
+                CustId = (int)t.CustomerId,                  // Entity → DTO
+                CounterAccount = t.CounterpartyAccount,      // Entity.CounterpartyAccount → DTO.CounterAccount
+                Amount = t.Amount,
+                Location = t.GeoLocation,                    // Entity.GeoLocation → DTO.Location
+                TransactionDateTime = t.Timestamp,           // Entity.Timestamp → DTO.TransactionDateTime
+                Channel = t.Channel,
+                TransactionType = t.TransactionType,
+                SourceType = t.SourceType
+            };
     }
 }
-

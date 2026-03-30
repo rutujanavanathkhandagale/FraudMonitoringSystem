@@ -1,44 +1,70 @@
-﻿using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
+﻿using FraudMonitoringSystem.Models.Investigator;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FraudMonitoringSystem.Controllers.Investigator
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class RiskScoreController : ControllerBase
     {
-        private readonly IRiskScoreService _service;
+        private readonly IRiskScoreService _riskScoreService;
 
-        public RiskScoreController(IRiskScoreService service)
+        public RiskScoreController(IRiskScoreService riskScoreService)
         {
-            _service = service;
+            _riskScoreService = riskScoreService;
         }
 
-        [HttpGet]
-        public IActionResult GetAll() => Ok(_service.GetAllRiskScores());
+        // =========================================================================
+        // NEW METHOD: Generate Risk Score based on Transaction ID
+        // Route: POST api/riskscore/generate/5
+        // =========================================================================
+        [HttpPost("generate/{transactionId}")]
+        public async Task<IActionResult> GenerateRiskScore(int transactionId)
+        {
+            var result = await _riskScoreService.GenerateRiskScoreAsync(transactionId);
+            return Ok(result);
+        }
 
-
-        // ✅ Fetch by ScoreID
+        // GET: api/riskscore/{id}
         [HttpGet("{id}")]
-        public IActionResult GetByScoreId(int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            var score = _service.GetRiskScoreByScoreId(id);
-            if (score == null) return NotFound($"RiskScore with ScoreID {id} not found.");
-            return Ok(score);
+            var result = await _riskScoreService.GetByIdAsync(id);
+            if (result == null) return NotFound();
+            return Ok(result);
         }
 
-        // ✅ Fetch by TransactionID
-        [HttpGet("transaction/{txnId}")]
-        public IActionResult GetByTransactionId(int txnId)
+        // GET: api/riskscore
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
-            var score = _service.GetRiskScoreByTransactionId(txnId);
-            if (score == null) return NotFound($"RiskScore for Transaction {txnId} not found.");
-            return Ok(score);
+            var result = await _riskScoreService.GetAllAsync();
+            return Ok(result);
         }
 
-        [HttpPost("generate")]
-        public IActionResult Generate()
+        // PUT: api/riskscore
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] RiskScore score)
         {
-            _service.GenerateRiskScores();
-            return Ok("Risk scores generated successfully.");
+            var result = await _riskScoreService.UpdateAsync(score);
+            return Ok(result);
+        }
+
+        // DELETE: api/riskscore/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _riskScoreService.DeleteAsync(id);
+            return NoContent();
+        }
+
+        // GET: api/riskscore/search/{transactionId}
+        [HttpGet("search/{transactionId}")]
+        public async Task<IActionResult> Search(int transactionId)
+        {
+            var result = await _riskScoreService.SearchAsync(transactionId);
+            return Ok(result);
         }
     }
 }

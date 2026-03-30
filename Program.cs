@@ -66,6 +66,7 @@ builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 
 
 
+
 builder.Services.AddScoped<IPersonalDetailsRepository, PersonalDetailsRepository>();
 builder.Services.AddScoped<IPersonalDetailsService, PersonalDetailsService>();
 

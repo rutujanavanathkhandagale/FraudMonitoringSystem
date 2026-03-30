@@ -1,13 +1,15 @@
-﻿using FraudMonitoringSystem.Models.Investigator;
+﻿using FraudMonitoringSystem.DTOs.Investigator;
+using FraudMonitoringSystem.Models.Investigator;
 
 namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator
 {
     public interface IRiskScoreRepository
     {
-        IEnumerable<RiskScore> GetAll();
-        RiskScore GetById(int id);
-        void GenerateRiskScores();
-        RiskScore GetByTransactionId(int txnId);
-        RiskScore GetByScoreId(int id);
+        Task<RiskScoreDto> EvaluateRiskScoreAsync(int transactionId);
+        Task<IEnumerable<RiskScore>> GetAllAsync();
+        Task<RiskScore> GetByIdAsync(string id);
+        Task<RiskScore> UpdateAsync(RiskScore updated);
+        Task DeleteAsync(string id);
+        Task<IEnumerable<RiskScore>> SearchAsync(int transactionId);
     }
 }

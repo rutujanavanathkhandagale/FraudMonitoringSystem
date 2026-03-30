@@ -28,9 +28,12 @@ namespace FraudMonitoringSystem.Data
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
         public DbSet<Scenario> Scenarios { get; set; }
-        public DbSet<DetectionRule> DetectionRule { get; set; }
-        public DbSet<Transaction> Transaction { get; set; }
-        public DbSet<RiskScore> RiskScore { get; set; }
+
+        // ✅ Fixed naming: plural DbSet
+        public DbSet<DetectionRule> DetectionRules { get; set; }
+
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<RiskScore> RiskScores { get; set; }
         public DbSet<Regulatory_Report> Regulatory_Report { get; set; } = default!;
         public DbSet<ControlChecklist> Control_Checklist { get; set; } = default!;
         public DbSet<Alert> Alerts { get; set; }
@@ -46,24 +49,6 @@ namespace FraudMonitoringSystem.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //// Notification config
-            //modelBuilder.Entity<Notification>()
-            //    .HasKey(n => n.NotificationID);
-
-            //modelBuilder.Entity<Notification>()
-            //    .Property(n => n.Message)
-            //    .IsRequired()
-            //    .HasMaxLength(500);
-
-            //modelBuilder.Entity<Notification>()
-            //    .Property(n => n.Status)
-            //    .HasMaxLength(50);
-
-            //modelBuilder.Entity<Notification>()
-            //    .HasOne(n => n.Customer)
-            //    .WithMany(c => c.Notifications)
-            //    .HasForeignKey(n => n.CustomerId);
-
             base.OnModelCreating(modelBuilder);
 
             // Role config
@@ -106,29 +91,28 @@ namespace FraudMonitoringSystem.Data
                 .Property(t => t.Amount)
                 .HasPrecision(18, 2);
 
+            modelBuilder.Entity<Transaction>()
+                .ToTable("Transactions")
+                .HasKey(t => t.TransactionID);
+
+            modelBuilder.Entity<RiskScore>()
+                .ToTable("RiskScores")
+                .HasKey(rs => rs.ScoreId);
+
+            modelBuilder.Entity<RiskScore>()
+                .HasOne<Transaction>()
+                .WithMany()
+                .HasForeignKey(rs => rs.TransactionID)
+                .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<DetectionRule>()
                 .Property(d => d.Threshold)
                 .HasPrecision(18, 2);
 
-            // FraudShield relationships
-           
-            // EntityResolutionRecord → Account
-          
-
             modelBuilder.Entity<DocumentAttachment>()
-           .HasOne(d => d.ChatMessage)
-           .WithMany(c => c.Attachments)
-           .HasForeignKey(d => d.ChatMessageId);
-
-            base.OnModelCreating(modelBuilder);
-
-            base.OnModelCreating(modelBuilder);
-
-            // Optional: configure relationships if needed
-            modelBuilder.Entity<Account>()
-                .HasOne(a => a.Customer)
-                .WithMany(c => c.Accounts)
-                .HasForeignKey(a => a.CustomerId);
+                .HasOne(d => d.ChatMessage)
+                .WithMany(c => c.Attachments)
+                .HasForeignKey(d => d.ChatMessageId);
 
             modelBuilder.Entity<EntityLink>()
                 .HasKey(e => e.LinkId);

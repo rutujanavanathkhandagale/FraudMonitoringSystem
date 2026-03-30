@@ -9,37 +9,43 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Investigat
     {
         private readonly WebContext _context;
 
-        public TransactionRepository(WebContext context)
+        public TransactionRepository(WebContext context) => _context = context;
+
+        public async Task<Transaction> AddTransactionAsync(Transaction transaction)
         {
-            _context = context;
+            _context.Transactions.Add(transaction);
+            await _context.SaveChangesAsync();
+            return transaction;
         }
 
-        // Use the singular DbSet name "Transaction"
-        public IEnumerable<Transaction> GetAll() => _context.Transaction.ToList();
+        public async Task<Transaction?> GetByIdAsync(int transactionId) =>
+            await _context.Transactions.FindAsync(transactionId);
 
-        // EF Core's Find works on DbSet<Transaction>
-        public Transaction GetById(int id) => _context.Transaction.Find(id);
+        public async Task<IEnumerable<Transaction>> GetAllAsync() =>
+            await _context.Transactions.ToListAsync();
 
-        public void Add(Transaction transaction)
+        public async Task<Transaction> UpdateAsync(Transaction transaction)
         {
-            _context.Transaction.Add(transaction);
-            _context.SaveChanges();
+            _context.Transactions.Update(transaction);
+            await _context.SaveChangesAsync();
+            return transaction;
         }
 
-        public void Update(Transaction transaction)
+        public async Task DeleteAsync(int transactionId)
         {
-            _context.Transaction.Update(transaction);
-            _context.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var transaction = _context.Transaction.Find(id);
+            var transaction = await _context.Transactions.FindAsync(transactionId);
             if (transaction != null)
             {
-                _context.Transaction.Remove(transaction);
-                _context.SaveChanges();
+                _context.Transactions.Remove(transaction);
+                await _context.SaveChangesAsync();
             }
         }
+
+        public Task<Transaction> AddAsync(Transaction transaction)
+        {
+            throw new NotImplementedException();
+        }
+
+        // REMOVE all the bottom methods that threw NotImplementedException!
     }
 }

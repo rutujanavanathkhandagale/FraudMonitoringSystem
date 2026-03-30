@@ -1,5 +1,6 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
 using System.ComponentModel.DataAnnotations;
+using FraudMonitoringSystem.Models.Investigator;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 

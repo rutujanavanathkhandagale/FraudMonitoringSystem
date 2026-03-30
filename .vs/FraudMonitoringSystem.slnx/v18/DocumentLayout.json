@@ -1,358 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\2471861\\FraudMonitoringSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\admin\\rolepermissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\admin\\rolepermissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\repositories\\customer\\implementations\\rules\\detectionrulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\rules\\detectionrulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\aspects\\admin\\adminexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:aspects\\admin\\adminexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\repositories\\customer\\implementations\\investigator\\riskscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\investigator\\riskscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\aspects\\customer\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:aspects\\customer\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\repositories\\customer\\implementations\\investigator\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\investigator\\transactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\services\\customer\\interfaces\\investigator\\iriskscoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\investigator\\iriskscoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\customer\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\customer\\accountexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\customer\\accountexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\customer\\personaldetailsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\customer\\personaldetailsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\customer\\registervalidationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\customer\\registervalidationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\customer\\registerusernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\customer\\registerusernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\customer\\registeruseralreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\customer\\registeruseralreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\fraudmonitoringsystem.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:fraudmonitoringsystem.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\customer\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\registrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\registrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\iregistrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\iregistrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\registrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\registrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\iregistrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\iregistrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\kycrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\kycrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\customer\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\customer\\registerrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\registerrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\customer\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\personaldetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\personaldetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\ikycservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\ikycservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\kycservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\kycservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\ikycrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\ikycrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\customer\\kycprofilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\kycprofilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\ipersonaldetailsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\ipersonaldetailsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\personaldetailsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\personaldetailsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\customer\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\customer\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\customer\\personaldetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\customer\\personaldetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\customer\\personaldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\personaldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\customer\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\authentication\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:authentication\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\authentication\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:authentication\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\watchlist\\entitylinkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\watchlist\\entitylinkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\watchlist\\entitylinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\watchlist\\entitylinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\watchlist\\ientitylinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\watchlist\\ientitylinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\watchlist\\entitylinkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\watchlist\\entitylinkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\watchlist\\watchlistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\watchlist\\watchlistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\data\\webcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\data\\webcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:data\\webcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\watchlist\\businessruleexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\watchlist\\businessruleexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\services\\customer\\implementations\\investigator\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\investigator\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\watchlist\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\watchlist\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\models\\investigator\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\investigator\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\watchlist\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\watchlist\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\services\\customer\\implementations\\investigator\\riskscoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\investigator\\riskscoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\watchlist\\ientitylinkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\watchlist\\ientitylinkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\services\\customer\\interfaces\\investigator\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\investigator\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\watchlist\\entitylinkdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\watchlist\\entitylinkdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\investigator\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\investigator\\itransactionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\watchlist\\entitylink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\watchlist\\entitylink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\watchlist\\watchlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\watchlist\\watchlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\watchlist\\watchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\watchlist\\watchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\watchlist\\iwatchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\watchlist\\iwatchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\watchlist\\iwatchlistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\watchlist\\iwatchlistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\watchlist\\watchlistentrydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\watchlist\\watchlistentrydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\watchlist\\watchlistentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\watchlist\\watchlistentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\enum\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:enum\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\customer\\kycprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\customer\\kycprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\notification\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\notification\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\notification\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\notification\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\notification\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\notification\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\implementations\\notification\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\implementations\\notification\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\notification\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\notification\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\notification\\documentattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\notification\\documentattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\notification\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\notification\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\models\\notification\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\notification\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\notification\\documentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\notification\\documentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\notification\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\notification\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\notification\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\notification\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\notification\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\notification\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\notification\\customnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\notification\\customnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\enums\\watchliststatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:enums\\watchliststatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\implementations\\complianceofficer\\transactionpatternrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\implementations\\complianceofficer\\transactionpatternrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260315080320_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260315080320_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\investigator\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\investigator\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\enums\\watchlisttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:enums\\watchlisttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260315060117_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260315060117_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\exceptions\\customexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:exceptions\\customexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\services\\customer\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:services\\customer\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\ipersonaldetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\ipersonaldetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260312091653_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260312091653_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260312084309_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260312084309_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\repositories\\customer\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:repositories\\customer\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\compliance\\kycrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\kycrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\controllers\\compliance\\controlchecklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:controllers\\compliance\\controlchecklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\dtos\\customer\\compliancenotificationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:dtos\\customer\\compliancenotificationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471866\\source\\repos\\fraudmonitoringsystem\\migrations\\20260318060924_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:migrations\\20260318060924_data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|c:\\users\\2471861\\fraudmonitoringsystem\\models\\investigator\\riskscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BFF500E-720F-BE6C-222F-D2F765FD464F}|FraudMonitoringSystem.csproj|solutionrelative:models\\investigator\\riskscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -367,1070 +59,135 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RolePermissionController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Admin\\RolePermissionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Admin\\RolePermissionController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Admin\\RolePermissionController.cs",
-              "RelativeToolTip": "Controllers\\Admin\\RolePermissionController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Title": "DetectionRuleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Rules\\DetectionRuleRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Rules\\DetectionRuleRepository.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Rules\\DetectionRuleRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Rules\\DetectionRuleRepository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwDEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T03:22:10.533Z",
+              "WhenOpened": "2026-03-29T06:09:19.6Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\AccountService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\AccountService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\AccountService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\AccountService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAjwBsAAAAAAAAAAAAAAA==",
+              "Title": "IRiskScoreService.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Investigator\\IRiskScoreService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\Investigator\\IRiskScoreService.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Investigator\\IRiskScoreService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\Investigator\\IRiskScoreService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwA0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:20:44.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T09:30:01.263Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Customer\\AccountController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\Customer\\AccountController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAkwD0AAAAcAAAAAAAAAA==",
+              "Title": "webContext.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Data\\webContext.cs",
+              "RelativeDocumentMoniker": "Data\\webContext.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Data\\webContext.cs",
+              "RelativeToolTip": "Data\\webContext.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAHkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:21:25.452Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GlobalExceptionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Aspects\\Customer\\GlobalExceptionHandler.cs",
-              "RelativeDocumentMoniker": "Aspects\\Customer\\GlobalExceptionHandler.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Aspects\\Customer\\GlobalExceptionHandler.cs",
-              "RelativeToolTip": "Aspects\\Customer\\GlobalExceptionHandler.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAkwCYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T03:37:32.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAUwPMAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T08:57:43.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AdminExceptions.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Aspects\\Admin\\AdminExceptions.cs",
-              "RelativeDocumentMoniker": "Aspects\\Admin\\AdminExceptions.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Aspects\\Admin\\AdminExceptions.cs",
-              "RelativeToolTip": "Aspects\\Admin\\AdminExceptions.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:38:10.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T09:25:16.2Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "PersonalDetailsException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\PersonalDetailsException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Customer\\PersonalDetailsException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\PersonalDetailsException.cs",
-              "RelativeToolTip": "Exceptions\\Customer\\PersonalDetailsException.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAgAAAAkAAAAAAAAAA==",
+              "Title": "RiskScoreService.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\Investigator\\RiskScoreService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAwwBEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T09:00:24.623Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AccountException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\AccountException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Customer\\AccountException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\AccountException.cs",
-              "RelativeToolTip": "Exceptions\\Customer\\AccountException.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwA4AAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:29:40.036Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RegisterUserAlreadyExistsException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\RegisterUserAlreadyExistsException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Customer\\RegisterUserAlreadyExistsException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\RegisterUserAlreadyExistsException.cs",
-              "RelativeToolTip": "Exceptions\\Customer\\RegisterUserAlreadyExistsException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T02:58:25.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RegisterUserNotFoundException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\RegisterUserNotFoundException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Customer\\RegisterUserNotFoundException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\RegisterUserNotFoundException.cs",
-              "RelativeToolTip": "Exceptions\\Customer\\RegisterUserNotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T02:58:27.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T09:02:39.326Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "RegisterValidationException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\RegisterValidationException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Customer\\RegisterValidationException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Customer\\RegisterValidationException.cs",
-              "RelativeToolTip": "Exceptions\\Customer\\RegisterValidationException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Investigator\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\Investigator\\ITransactionService.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Investigator\\ITransactionService.cs",
+              "RelativeToolTip": "Services\\Customer\\Interfaces\\Investigator\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwAcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T02:58:50.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T09:02:04.16Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RegistrationController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\RegistrationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Customer\\RegistrationController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\RegistrationController.cs",
-              "RelativeToolTip": "Controllers\\Customer\\RegistrationController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAYwDIAAAAnAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Investigator\\TransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Investigator\\TransactionService.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Investigator\\TransactionService.cs",
+              "RelativeToolTip": "Services\\Customer\\Implementations\\Investigator\\TransactionService.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:02:10.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T09:01:05.802Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FraudMonitoringSystem.http",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\FraudMonitoringSystem.http",
-              "RelativeDocumentMoniker": "FraudMonitoringSystem.http",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\FraudMonitoringSystem.http",
-              "RelativeToolTip": "FraudMonitoringSystem.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-03-09T04:16:42.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-16T11:25:48.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "RegistrationRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\RegistrationRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\RegistrationRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\RegistrationRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\RegistrationRepository.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA1wBsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:01:58.972Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "RegistrationService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\RegistrationService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\RegistrationService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\RegistrationService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\RegistrationService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAIwBkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:01:41.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IRegistrationRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IRegistrationRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\IRegistrationRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IRegistrationRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\IRegistrationRepository.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwAgAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:01:50.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IRegistrationService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IRegistrationService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\IRegistrationService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IRegistrationService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\IRegistrationService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwAsAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:01:32.805Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "KYCRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\KYCRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\KYCRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\KYCRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\KYCRepository.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAYwBsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:52:01.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Registration.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\Registration.cs",
-              "RelativeDocumentMoniker": "Models\\Customer\\Registration.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\Registration.cs",
-              "RelativeToolTip": "Models\\Customer\\Registration.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAwwCoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:01:09.875Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RegisterRole.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\RegisterRole.cs",
-              "RelativeDocumentMoniker": "Models\\Customer\\RegisterRole.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\RegisterRole.cs",
-              "RelativeToolTip": "Models\\Customer\\RegisterRole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:01:21.268Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\DashboardController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Customer\\DashboardController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\DashboardController.cs",
-              "RelativeToolTip": "Controllers\\Customer\\DashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T10:45:23.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\AccountRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\AccountRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\AccountRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAMwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:19:48.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "PersonalDetailsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\PersonalDetailsRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAIA5wBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T03:55:55.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "KYCProfilesController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\KYCProfilesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Customer\\KYCProfilesController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\KYCProfilesController.cs",
-              "RelativeToolTip": "Controllers\\Customer\\KYCProfilesController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAA0wEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:52:12.445Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "IKYCRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\IKYCRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:51:53.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IKYCService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IKYCService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\IKYCService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IKYCService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\IKYCService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAA5wAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:51:33.959Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "KYCService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\KYCService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\KYCService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\KYCService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\KYCService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:51:45.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IPersonalDetailsService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\IPersonalDetailsService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA1wBEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T03:02:15.403Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "PersonalDetailsService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\PersonalDetailsService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\PersonalDetailsService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\PersonalDetailsService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\PersonalDetailsService.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAYwDwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T07:01:49.667Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\Account.cs",
-              "RelativeDocumentMoniker": "Models\\Customer\\Account.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\Account.cs",
-              "RelativeToolTip": "Models\\Customer\\Account.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAADwvygAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T10:43:29.546Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "PersonalDetails.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\PersonalDetails.cs",
-              "RelativeDocumentMoniker": "Models\\Customer\\PersonalDetails.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\PersonalDetails.cs",
-              "RelativeToolTip": "Models\\Customer\\PersonalDetails.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAswD8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T07:53:02.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "CustomerDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Customer\\CustomerDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Customer\\CustomerDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Customer\\CustomerDto.cs",
-              "RelativeToolTip": "DTOs\\Customer\\CustomerDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:46:57.483Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "PersonalDetailsController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\PersonalDetailsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Customer\\PersonalDetailsController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Customer\\PersonalDetailsController.cs",
-              "RelativeToolTip": "Controllers\\Customer\\PersonalDetailsController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAUwDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T02:52:41.572Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Auth.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Authentication\\Auth.cs",
-              "RelativeDocumentMoniker": "Authentication\\Auth.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Authentication\\Auth.cs",
-              "RelativeToolTip": "Authentication\\Auth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T08:44:48.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "IAuth.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Authentication\\IAuth.cs",
-              "RelativeDocumentMoniker": "Authentication\\IAuth.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Authentication\\IAuth.cs",
-              "RelativeToolTip": "Authentication\\IAuth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T08:45:00.577Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\LoginDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\LoginDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\LoginDto.cs",
-              "RelativeToolTip": "DTOs\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T08:45:31.248Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "EntityLinkRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Watchlist\\EntityLinkRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Watchlist\\EntityLinkRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Watchlist\\EntityLinkRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Watchlist\\EntityLinkRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:43:10.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "EntityLinkController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\WatchList\\EntityLinkController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WatchList\\EntityLinkController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\WatchList\\EntityLinkController.cs",
-              "RelativeToolTip": "Controllers\\WatchList\\EntityLinkController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:50:48.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "IEntityLinkService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Watchlist\\IEntityLinkService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\Watchlist\\IEntityLinkService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Watchlist\\IEntityLinkService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\Watchlist\\IEntityLinkService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:49:33.621Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "EntityLinkService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Watchlist\\EntityLinkService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Watchlist\\EntityLinkService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Watchlist\\EntityLinkService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\Watchlist\\EntityLinkService.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAIwEkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:50:02.909Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 87,
-              "Title": "20260318060924_data.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260318060924_data.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260318060924_data.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260318060924_data.cs",
-              "RelativeToolTip": "Migrations\\20260318060924_data.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T06:09:27.782Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "WatchlistRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Watchlist\\WatchlistRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Watchlist\\WatchlistRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Watchlist\\WatchlistRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Watchlist\\WatchlistRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:32:10.73Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "webContext.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Data\\webContext.cs",
-              "RelativeDocumentMoniker": "Data\\webContext.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Data\\webContext.cs",
-              "RelativeToolTip": "Data\\webContext.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAkwHsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T10:37:12.209Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "BusinessRuleException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Watchlist\\BusinessRuleException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Watchlist\\BusinessRuleException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Watchlist\\BusinessRuleException.cs",
-              "RelativeToolTip": "Exceptions\\Watchlist\\BusinessRuleException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:52:58.569Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "ValidationException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Watchlist\\ValidationException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Watchlist\\ValidationException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Watchlist\\ValidationException.cs",
-              "RelativeToolTip": "Exceptions\\Watchlist\\ValidationException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:52:34.555Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "NotFoundException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Watchlist\\NotFoundException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Watchlist\\NotFoundException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Watchlist\\NotFoundException.cs",
-              "RelativeToolTip": "Exceptions\\Watchlist\\NotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:52:06.681Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "IEntityLinkRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Watchlist\\IEntityLinkRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\Watchlist\\IEntityLinkRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Watchlist\\IEntityLinkRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\Watchlist\\IEntityLinkRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:42:43.305Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "EntityLinkDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Watchlist\\EntityLinkDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Watchlist\\EntityLinkDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Watchlist\\EntityLinkDto.cs",
-              "RelativeToolTip": "DTOs\\Watchlist\\EntityLinkDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:42:06.765Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "EntityLink.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\WatchList\\EntityLink.cs",
-              "RelativeDocumentMoniker": "Models\\WatchList\\EntityLink.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\WatchList\\EntityLink.cs",
-              "RelativeToolTip": "Models\\WatchList\\EntityLink.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:35:19.336Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "WatchlistController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\WatchList\\WatchlistController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WatchList\\WatchlistController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\WatchList\\WatchlistController.cs",
-              "RelativeToolTip": "Controllers\\WatchList\\WatchlistController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAA5wCwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:34:28.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "WatchlistService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Watchlist\\WatchlistService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Watchlist\\WatchlistService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Watchlist\\WatchlistService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\Watchlist\\WatchlistService.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:33:34.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "IWatchlistService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Watchlist\\IWatchlistService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\Watchlist\\IWatchlistService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Watchlist\\IWatchlistService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\Watchlist\\IWatchlistService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAkwA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:32:55.91Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "IWatchlistRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Watchlist\\IWatchlistRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\Watchlist\\IWatchlistRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Watchlist\\IWatchlistRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\Watchlist\\IWatchlistRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:31:24.752Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "WatchlistEntryDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Watchlist\\WatchlistEntryDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Watchlist\\WatchlistEntryDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Watchlist\\WatchlistEntryDto.cs",
-              "RelativeToolTip": "DTOs\\Watchlist\\WatchlistEntryDto.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA5wAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:30:42.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "WatchlistEntry.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\WatchList\\WatchlistEntry.cs",
-              "RelativeDocumentMoniker": "Models\\WatchList\\WatchlistEntry.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\WatchList\\WatchlistEntry.cs",
-              "RelativeToolTip": "Models\\WatchList\\WatchlistEntry.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T05:29:47.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "Gender.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Enum\\Gender.cs",
-              "RelativeDocumentMoniker": "Enum\\Gender.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Enum\\Gender.cs",
-              "RelativeToolTip": "Enum\\Gender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T03:08:38.573Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "KYCProfile.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\KYCProfile.cs",
-              "RelativeDocumentMoniker": "Models\\Customer\\KYCProfile.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Customer\\KYCProfile.cs",
-              "RelativeToolTip": "Models\\Customer\\KYCProfile.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAYwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:51:20.476Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "ChatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Notification\\ChatRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Notification\\ChatRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Notification\\ChatRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Notification\\ChatRepository.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwB8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:56:22.769Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "IChatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Notification\\IChatRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\Notification\\IChatRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Notification\\IChatRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\Notification\\IChatRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:55:54.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "ChatController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Notification\\ChatController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Notification\\ChatController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Notification\\ChatController.cs",
-              "RelativeToolTip": "Controllers\\Notification\\ChatController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAADwvxAAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:44:20.589Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "ChatHub.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\ChatHub.cs",
-              "RelativeDocumentMoniker": "Models\\Notification\\ChatHub.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\ChatHub.cs",
-              "RelativeToolTip": "Models\\Notification\\ChatHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:45:44.9Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "ChatService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Notification\\ChatService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Implementations\\Notification\\ChatService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Implementations\\Notification\\ChatService.cs",
-              "RelativeToolTip": "Services\\Customer\\Implementations\\Notification\\ChatService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAkwEAAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:43:28.874Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "DocumentAttachment.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\DocumentAttachment.cs",
-              "RelativeDocumentMoniker": "Models\\Notification\\DocumentAttachment.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\DocumentAttachment.cs",
-              "RelativeToolTip": "Models\\Notification\\DocumentAttachment.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:39:59.82Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "Notification.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\Notification.cs",
-              "RelativeDocumentMoniker": "Models\\Notification\\Notification.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\Notification.cs",
-              "RelativeToolTip": "Models\\Notification\\Notification.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:35:18.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "ChatMessage.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\ChatMessage.cs",
-              "RelativeDocumentMoniker": "Models\\Notification\\ChatMessage.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Models\\Notification\\ChatMessage.cs",
-              "RelativeToolTip": "Models\\Notification\\ChatMessage.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:34:44.969Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "DocumentDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Notification\\DocumentDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Notification\\DocumentDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Notification\\DocumentDto.cs",
-              "RelativeToolTip": "DTOs\\Notification\\DocumentDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:41:52.68Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "ChatMessageDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Notification\\ChatMessageDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Notification\\ChatMessageDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Notification\\ChatMessageDto.cs",
-              "RelativeToolTip": "DTOs\\Notification\\ChatMessageDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:35:58.254Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "IChatService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Notification\\IChatService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\Notification\\IChatService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\Notification\\IChatService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\Notification\\IChatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:46:40.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
-              "Title": "ValidationException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Notification\\ValidationException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Notification\\ValidationException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Notification\\ValidationException.cs",
-              "RelativeToolTip": "Exceptions\\Notification\\ValidationException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:53:19.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "CustomNotFoundException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Notification\\CustomNotFoundException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\Notification\\CustomNotFoundException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\Notification\\CustomNotFoundException.cs",
-              "RelativeToolTip": "Exceptions\\Notification\\CustomNotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:52:59.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "NotificationDto.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Notification\\NotificationDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Notification\\NotificationDto.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Notification\\NotificationDto.cs",
-              "RelativeToolTip": "DTOs\\Notification\\NotificationDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T06:36:23.582Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 71,
-              "Title": "WatchlistStatus.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Enums\\WatchlistStatus.cs",
-              "RelativeDocumentMoniker": "Enums\\WatchlistStatus.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Enums\\WatchlistStatus.cs",
-              "RelativeToolTip": "Enums\\WatchlistStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T05:25:57.316Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "TransactionPatternRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Implementations\\ComplianceOfficer\\TransactionPatternRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAUwBUAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T08:11:00.092Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAcwBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-08T09:30:56.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
-              "Title": "20260315080320_data.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260315080320_data.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260315080320_data.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260315080320_data.cs",
-              "RelativeToolTip": "Migrations\\20260315080320_data.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T08:03:26.198Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 75,
-              "Title": "TransactionController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Investigator\\TransactionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Investigator\\TransactionController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Investigator\\TransactionController.cs",
-              "RelativeToolTip": "Controllers\\Investigator\\TransactionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T06:13:35.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 76,
-              "Title": "WatchlistType.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Enums\\WatchlistType.cs",
-              "RelativeDocumentMoniker": "Enums\\WatchlistType.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Enums\\WatchlistType.cs",
-              "RelativeToolTip": "Enums\\WatchlistType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T05:25:11.211Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
-              "Title": "20260315060117_data.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260315060117_data.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260315060117_data.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260315060117_data.cs",
-              "RelativeToolTip": "Migrations\\20260315060117_data.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T06:01:20.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "CustomException.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\CustomException.cs",
-              "RelativeDocumentMoniker": "Exceptions\\CustomException.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Exceptions\\CustomException.cs",
-              "RelativeToolTip": "Exceptions\\CustomException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T05:15:17.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 79,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IAccountService.cs",
-              "RelativeDocumentMoniker": "Services\\Customer\\Interfaces\\IAccountService.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Services\\Customer\\Interfaces\\IAccountService.cs",
-              "RelativeToolTip": "Services\\Customer\\Interfaces\\IAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:20:28.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
-              "Title": "IPersonalDetailsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IPersonalDetailsRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\IPersonalDetailsRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IPersonalDetailsRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\IPersonalDetailsRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T06:48:49.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 81,
-              "Title": "20260312091653_data.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260312091653_data.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260312091653_data.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260312091653_data.cs",
-              "RelativeToolTip": "Migrations\\20260312091653_data.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T09:16:57.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 82,
-              "Title": "20260312084309_data.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260312084309_data.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260312084309_data.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Migrations\\20260312084309_data.cs",
-              "RelativeToolTip": "Migrations\\20260312084309_data.cs",
+              "DocumentIndex": 9,
+              "Title": "ITransactionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Investigator\\ITransactionRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\Investigator\\ITransactionRepository.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\Investigator\\ITransactionRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\Investigator\\ITransactionRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAwwA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:43:12.831Z"
+              "WhenOpened": "2026-03-27T08:45:52.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Customer\\Interfaces\\IAccountRepository.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Repositories\\Customer\\Interfaces\\IAccountRepository.cs",
-              "RelativeToolTip": "Repositories\\Customer\\Interfaces\\IAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAwwA4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RiskScoreRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Investigator\\RiskScoreRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T08:18:46.846Z"
+              "WhenOpened": "2026-03-27T07:14:32.31Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
-              "Title": "ControlChecklistController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Compliance\\ControlChecklistController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Compliance\\ControlChecklistController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Compliance\\ControlChecklistController.cs",
-              "RelativeToolTip": "Controllers\\Compliance\\ControlChecklistController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Models\\Investigator\\Transaction.cs",
+              "RelativeDocumentMoniker": "Models\\Investigator\\Transaction.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Models\\Investigator\\Transaction.cs",
+              "RelativeToolTip": "Models\\Investigator\\Transaction.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAA5wDsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T07:34:56.924Z"
+              "WhenOpened": "2026-03-27T07:13:47.823Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
-              "Title": "KYCRequestController.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Compliance\\KYCRequestController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Compliance\\KYCRequestController.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\Controllers\\Compliance\\KYCRequestController.cs",
-              "RelativeToolTip": "Controllers\\Compliance\\KYCRequestController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "RiskScore.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Models\\Investigator\\RiskScore.cs",
+              "RelativeDocumentMoniker": "Models\\Investigator\\RiskScore.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Models\\Investigator\\RiskScore.cs",
+              "RelativeToolTip": "Models\\Investigator\\RiskScore.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T07:35:03.523Z"
+              "WhenOpened": "2026-03-27T07:13:31.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
-              "Title": "ComplianceNotificationRequest.cs",
-              "DocumentMoniker": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Customer\\ComplianceNotificationRequest.cs",
-              "RelativeDocumentMoniker": "DTOs\\Customer\\ComplianceNotificationRequest.cs",
-              "ToolTip": "C:\\Users\\2471866\\source\\repos\\FraudMonitoringSystem\\DTOs\\Customer\\ComplianceNotificationRequest.cs",
-              "RelativeToolTip": "DTOs\\Customer\\ComplianceNotificationRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "TransactionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\TransactionRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Customer\\Implementations\\Investigator\\TransactionRepository.cs",
+              "ToolTip": "C:\\Users\\2471861\\FraudMonitoringSystem\\Repositories\\Customer\\Implementations\\Investigator\\TransactionRepository.cs",
+              "RelativeToolTip": "Repositories\\Customer\\Implementations\\Investigator\\TransactionRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-08T07:13:34.462Z"
+              "WhenOpened": "2026-03-27T09:02:55.696Z"
             }
           ]
         }

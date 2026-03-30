@@ -27,5 +27,7 @@ namespace FraudMonitoringSystem.Models.Rules
 
      
         public Scenario? Scenario { get; set; }
+        public string Status { get; internal set; }
+        public string? Name { get; internal set; }
     }
 }
