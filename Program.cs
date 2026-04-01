@@ -1,6 +1,5 @@
 //using FraudMonitoringSystem.Authentication;
 using FraudMonitoringSystem.Data;
-using FraudMonitoringSystem.Exceptions;
 using FraudMonitoringSystem.Models.Notification;
 using FraudMonitoringSystem.Repositories;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
@@ -14,16 +13,13 @@ using FraudMonitoringSystem.Repositories.Customer.Implementations.Watchlist;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.AlertsCase;
-using FraudMonitoringSystem.Repositories.Customer.Interfaces.AlertsCase.FraudMonitoringSystem.Services.AlertCase.Interfaces;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.ComplianceOfficer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Notification;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Watchlist;
 using FraudMonitoringSystem.Repositories.Implementations;
-using FraudMonitoringSystem.Repositories.Implementations;
 using FraudMonitoringSystem.Repositories.Interfaces;
-using FraudMonitoringSystem.Services;
 using FraudMonitoringSystem.Services.Customer.Implementations;
 using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
@@ -42,10 +38,9 @@ using FraudMonitoringSystem.Services.Customer.Interfaces.Notification;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Watchlist;
 using FraudMonitoringSystem.Services.Interfaces;
+using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -126,6 +121,22 @@ builder.Services.AddScoped<IRiskScoreService, RiskScoreService>();
 
 builder.Services.AddScoped<IRegulatoryReportRepository, RegulatoryReportRepository>();
 builder.Services.AddScoped<IRegulatoryReportService, RegulatoryReportService>();
+
+
+// Repository Dependency Injection
+builder.Services.AddScoped<IAlertRepository, AlertRepository>();
+builder.Services.AddScoped<ICaseRepository, CaseRepository>();
+builder.Services.AddScoped<IAlertCaseMappingRepository, AlertCaseMappingRepository>();
+builder.Services.AddScoped<ICaseAttachmentRepository, CaseAttachmentRepository>();
+builder.Services.AddScoped<IInvestigationNoteRepository, InvestigationNoteRepository>();
+
+
+// Service Dependency Injection
+builder.Services.AddScoped<IAlertService, AlertService>();
+builder.Services.AddScoped<ICaseService, CaseService>();
+builder.Services.AddScoped<IAlertCaseMappingService, AlertCaseMappingService>();
+builder.Services.AddScoped<ICaseAttachmentService, CaseAttachmentService>();
+builder.Services.AddScoped<IInvestigationNoteService, InvestigationNoteService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

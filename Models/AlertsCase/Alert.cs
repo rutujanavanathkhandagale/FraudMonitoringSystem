@@ -3,28 +3,28 @@ using FraudMonitoringSystem.Models.Rules;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using FraudMonitoringSystem.Models.Investigator;
-
-
-
-public class Alert
+using FraudMonitoringSystem.Models.AlertsCase;
+using FraudMonitoringSystem.Models;
+using System.Text.Json.Serialization;
+namespace FraudMonitoringSystem.Models
 {
-    [Key]
-    public int AlertID { get; set; }
-    
-    
-    public int RuleID { get; set; }
-    public int? CaseID { get; set; }
-    public string Severity { get; set; }
-    public string Status { get; set; }
-    public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-    [ForeignKey("RuleID")]
-    public DetectionRule DetectionRule { get; set; }
-    [ForeignKey("CaseID")]
-    public Case Case { get; set; }
 
+	public class Alert
+	{
+		public int AlertID { get; set; }
 
+		public int TransactionID { get; set; }
 
-    [ForeignKey("TransactionID")]
-    public int TransactionID { get; set; }
-    public Transaction Transaction { get; set; }
+		public int RuleID { get; set; }
+
+		public required string Severity { get; set; }
+
+		public DateTime CreatedDate { get; set; }
+
+		public string Status { get; set; }
+
+		// Navigation Property
+		[JsonIgnore]
+		public ICollection<AlertCaseMapping> AlertCaseMappings { get; set; }
+	}
 }

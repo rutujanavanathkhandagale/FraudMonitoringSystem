@@ -1,64 +1,167 @@
 ﻿
+using FraudMonitoringSystem.Data;
+using FraudMonitoringSystem.DTOs.AlertCase;
+using FraudMonitoringSystem.Models;
+using FraudMonitoringSystem.Models.AlertCase;
+using FraudMonitoringSystem.Models.AlertsCase;
 using FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
     namespace FraudMonitoringSystem.Controllers.AlertCase
 
     {
 
-        [Route("api/[controller]")]
+	[ApiController]
+	[Route("api/[controller]")]
+	public class AlertsController : ControllerBase
+	{
+		private readonly IAlertService _alertService;
+		private readonly WebContext _context;
 
-        [ApiController]
+		public AlertsController(IAlertService alertService, WebContext context)
+		{
+			_alertService = alertService;
+			_context = context;
+		}
 
-        public class AlertController : ControllerBase
+		[HttpPost("generate-from-risk")]
+		public async Task<IActionResult> GenerateFromRisk()
+		{
+			var scores = await _context.RiskScores.ToListAsync();
 
-        {
+			await _alertService.GenerateAlertsFromRiskScores(scores);
 
-            private readonly IAlertService _alertService;
+			return Ok("Alerts and Cases generated successfully");
+		}
 
-            public AlertController(IAlertService alertService)
+		// ✅ GET ALL
+		[HttpGet]
+		public async Task<IActionResult> GetAllAlerts()
+		{
+			try
+			{
+				var alerts = await _alertService.GetAllAlerts();
+				return Ok(alerts);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, ex.Message);
+			}
+		}
 
-            {
+		// ✅ GET BY ID
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetAlert(int id)
+		{
+			try
+			{
+				var alert = await _alertService.GetAlertById(id);
+				return Ok(alert);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
 
-                _alertService = alertService;
+		// ✅ CREATE
+		[HttpPost]
+		public async Task<IActionResult> CreateAlert(AlertDTO dto)
+		{
+			try
+			{
+				var alert = new Alert
+				{
+					TransactionID = dto.TransactionID,
+					RuleID = dto.RuleID,
+					Severity = dto.Severity,
+					Status = dto.Status
+				};
 
-            }
+				var result = await _alertService.CreateAlert(alert);
 
-            [HttpPost("create")]
+				return Ok(result);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
 
-            public async Task<IActionResult> CreateAlert(int transactionId, int ruleId, string severity)
+		[HttpPost("generate-cases")]
+		public IActionResult GenerateCases()
+		{
+			var alerts = _context.Alerts
+				.Where(a => a.Severity == "High" || a.Severity == "Critical")
+				.ToList();
 
-            {
+			foreach (var alert in alerts)
+			{
+				var existingCase = _context.Cases
+					.FirstOrDefault(c => c.TransactionId == alert.TransactionID);
 
-                var result = await _alertService.CreateAlertAsync(transactionId, ruleId, severity);
+				if (existingCase == null)
+				{
+					var newCase = new Case
+					{
+						CustomerId = 1, // temp or fetch properly
+						CaseType = alert.Severity == "Critical" ? "AML" : "Fraud",
+ 
+						Priority = "High",
+						Status = "Open",
+						CreatedDate = DateTime.UtcNow
+					};
 
-                return Ok(result);
+					_context.Cases.Add(newCase);
+					_context.SaveChanges();
 
-            }
+					// 🔗 Mapping
+					var mapping = new AlertCaseMapping
+					{
+						AlertID = alert.AlertID,
+						CaseID = newCase.CaseID
+					};
 
-            [HttpGet("all")]
+					_context.AlertCaseMappings.Add(mapping);
+					_context.SaveChanges();
+				}
+			}
 
-            public async Task<IActionResult> GetAllAlerts()
+			return Ok("Cases generated successfully");
+		}
 
-            {
 
-                var result = await _alertService.GetAllAlertsAsync();
+		// ✅ UPDATE STATUS
+		[HttpPut("{id}/status")]
+		public async Task<IActionResult> UpdateAlertStatus(int id, string status)
+		{
+			try
+			{
+				var updatedAlert = await _alertService.UpdateAlert(id, status);
+				return Ok(updatedAlert);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
 
-                return Ok(result);
+		// ✅ DELETE
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteAlert(int id)
+		{
+			try
+			{
+				await _alertService.DeleteAlert(id);
+				return Ok("Alert deleted successfully ✅");
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
 
-            }
-
-            [HttpPost("assign")]
-
-            public async Task<IActionResult> AssignAlert(int alertId, int caseId)
-
-            {
-
-                var result = await _alertService.AssignAlertToCaseAsync(alertId, caseId);
-
-                return Ok(result);
-
-            }
+		}
 
         }
 

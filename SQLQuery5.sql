@@ -1,0 +1,3 @@
+﻿ALTER TABLE RiskScores
+ADD CONSTRAINT PK_RiskScores PRIMARY KEY (ScoreId);
+ 

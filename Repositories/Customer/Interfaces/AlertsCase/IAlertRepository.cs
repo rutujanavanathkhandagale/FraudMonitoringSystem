@@ -1,14 +1,18 @@
 ﻿
+using FraudMonitoringSystem.Models;
+
 namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.AlertsCase
 {
     public interface IAlertRepository
     {
-        Task<Alert> CreateAlertAsync(Alert alert);
+		Task<IEnumerable<Alert>> GetAllAlerts();
 
-        Task<List<Alert>> GetAllAlertsAsync();
+		Task<Alert> GetAlertById(int id);
 
-        Task<Alert?> GetAlertByIdAsync(int id);
+		Task AddAlert(Alert alert);
 
-        Task UpdateAlertAsync(Alert alert);
-    }
+		Task UpdateAlert(Alert alert);
+
+		Task DeleteAlert(int id);
+	}
 }

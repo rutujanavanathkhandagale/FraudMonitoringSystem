@@ -20,7 +20,7 @@ namespace FraudMonitoringSystem.Models.Investigator
         public decimal ScoreValue { get; set; }
 
         [Required(ErrorMessage = "ReasonsJSON is required.")]
-        [StringLength(1000, ErrorMessage = "ReasonsJSON cannot exceed 1000 characters.")]
+        //[StringLength(1000, ErrorMessage = "ReasonsJSON cannot exceed 1000 characters.")]
         public string ReasonsJSON { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "EvaluatedAt timestamp is required.")]

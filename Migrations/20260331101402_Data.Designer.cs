@@ -4,6 +4,7 @@ using FraudMonitoringSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FraudMonitoringSystem.Migrations
 {
     [DbContext(typeof(WebContext))]
-    partial class WebContextModelSnapshot : ModelSnapshot
+    [Migration("20260331101402_Data")]
+    partial class Data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,9 +228,6 @@ namespace FraudMonitoringSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CaseID"));
 
-                    b.Property<int>("AlertId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CaseType")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -249,9 +249,6 @@ namespace FraudMonitoringSystem.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("TransactionId")
-                        .HasColumnType("int");
-
                     b.HasKey("CaseID");
 
                     b.ToTable("Cases");
@@ -265,12 +262,35 @@ namespace FraudMonitoringSystem.Migrations
                     b.Property<int>("CaseID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
+                    b.Property<int?>("AlertCaseMappingAlertID")
                         .HasColumnType("int");
+
+                    b.Property<int?>("AlertCaseMappingCaseID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CaseType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PrimaryCustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Priority")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AlertID", "CaseID");
 
                     b.HasIndex("CaseID");
+
+                    b.HasIndex("AlertCaseMappingAlertID", "AlertCaseMappingCaseID");
 
                     b.ToTable("AlertCaseMappings");
                 });
@@ -282,6 +302,12 @@ namespace FraudMonitoringSystem.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AttachmentID"));
+
+                    b.Property<int?>("AlertCaseMappingAlertID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AlertCaseMappingCaseID")
+                        .HasColumnType("int");
 
                     b.Property<int>("CaseID")
                         .HasColumnType("int");
@@ -299,6 +325,8 @@ namespace FraudMonitoringSystem.Migrations
 
                     b.HasIndex("CaseID");
 
+                    b.HasIndex("AlertCaseMappingAlertID", "AlertCaseMappingCaseID");
+
                     b.ToTable("CaseAttachments");
                 });
 
@@ -309,6 +337,12 @@ namespace FraudMonitoringSystem.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NoteID"));
+
+                    b.Property<int?>("AlertCaseMappingAlertID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AlertCaseMappingCaseID")
+                        .HasColumnType("int");
 
                     b.Property<int>("AuthorID")
                         .HasColumnType("int");
@@ -325,6 +359,8 @@ namespace FraudMonitoringSystem.Migrations
                     b.HasKey("NoteID");
 
                     b.HasIndex("CaseID");
+
+                    b.HasIndex("AlertCaseMappingAlertID", "AlertCaseMappingCaseID");
 
                     b.ToTable("InvestigationNotes");
                 });
@@ -1001,6 +1037,10 @@ namespace FraudMonitoringSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FraudMonitoringSystem.Models.AlertsCase.AlertCaseMapping", null)
+                        .WithMany("AlertCaseMappings")
+                        .HasForeignKey("AlertCaseMappingAlertID", "AlertCaseMappingCaseID");
+
                     b.Navigation("Alert");
 
                     b.Navigation("Case");
@@ -1014,6 +1054,10 @@ namespace FraudMonitoringSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FraudMonitoringSystem.Models.AlertsCase.AlertCaseMapping", null)
+                        .WithMany("CaseAttachments")
+                        .HasForeignKey("AlertCaseMappingAlertID", "AlertCaseMappingCaseID");
+
                     b.Navigation("Case");
                 });
 
@@ -1024,6 +1068,10 @@ namespace FraudMonitoringSystem.Migrations
                         .HasForeignKey("CaseID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("FraudMonitoringSystem.Models.AlertsCase.AlertCaseMapping", null)
+                        .WithMany("InvestigationNotes")
+                        .HasForeignKey("AlertCaseMappingAlertID", "AlertCaseMappingCaseID");
 
                     b.Navigation("Case");
                 });
@@ -1144,6 +1192,15 @@ namespace FraudMonitoringSystem.Migrations
                     b.Navigation("AlertCaseMappings");
 
                     b.Navigation("Alerts");
+
+                    b.Navigation("CaseAttachments");
+
+                    b.Navigation("InvestigationNotes");
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.AlertsCase.AlertCaseMapping", b =>
+                {
+                    b.Navigation("AlertCaseMappings");
 
                     b.Navigation("CaseAttachments");
 

@@ -1,6 +1,7 @@
 ﻿using FraudMonitoringSystem.Models;
 using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.AlertCase;
+using FraudMonitoringSystem.Models.AlertsCase;
 using FraudMonitoringSystem.Models.ComplianceOfficer;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Models.Investigator;
@@ -8,7 +9,7 @@ using FraudMonitoringSystem.Models.Notification;
 using FraudMonitoringSystem.Models.Rules;
 using FraudMonitoringSystem.Models.WatchList;
 using Microsoft.EntityFrameworkCore;
-
+using System;
 namespace FraudMonitoringSystem.Data
 {
     public class WebContext : DbContext
@@ -44,12 +45,21 @@ namespace FraudMonitoringSystem.Data
         public DbSet<Regulatory_Report> Regulatory_Report { get; set; }
         public DbSet<ControlChecklist> Control_Checklist { get; set; }
 
-        // Alerts & Cases
-        public DbSet<Alert> Alerts { get; set; }
-        public DbSet<Case> Cases { get; set; }
+		// Alerts & Cases
+		public DbSet<Alert> Alerts { get; set; }
 
-        // Watchlist
-        public DbSet<Sanction> Sanctions { get; set; }
+		public DbSet<Case> Cases { get; set; }
+
+		public DbSet<AlertCaseMapping> AlertCaseMappings { get; set; }
+
+		public DbSet<CaseAttachment> CaseAttachments { get; set; }
+
+		public DbSet<InvestigationNote> InvestigationNotes { get; set; }
+
+
+
+		// Watchlist
+		public DbSet<Sanction> Sanctions { get; set; }
         public DbSet<PEPListModel> PEPList { get; set; }
         public DbSet<WatchlistEntry> WatchlistEntries { get; set; }
 
@@ -126,6 +136,46 @@ namespace FraudMonitoringSystem.Data
 
             modelBuilder.Entity<EntityLink>()
                 .HasKey(e => e.LinkId);
+
+
+
+
+                // Primary Keys
+			modelBuilder.Entity<Alert>().HasKey(a => a.AlertID);
+
+			modelBuilder.Entity<Case>().HasKey(c => c.CaseID);
+
+			modelBuilder.Entity<AlertCaseMapping>().HasKey(ac => new{ac.AlertID,ac.CaseID});
+
+			modelBuilder.Entity<CaseAttachment>().HasKey(ca => ca.AttachmentID);
+
+			modelBuilder.Entity<InvestigationNote>().HasKey(n => n.NoteID);
+
+
+			// AlertCaseMapping Relationships
+			modelBuilder.Entity<AlertCaseMapping>()
+				.HasOne(ac => ac.Alert)
+				.WithMany(a => a.AlertCaseMappings)
+				.HasForeignKey(ac => ac.AlertID);
+
+			modelBuilder.Entity<AlertCaseMapping>()
+				.HasOne(ac => ac.Case)
+				.WithMany(c => c.AlertCaseMappings)
+				.HasForeignKey(ac => ac.CaseID);
+
+
+			// Case → InvestigationNotes
+			modelBuilder.Entity<InvestigationNote>()
+				.HasOne(n => n.Case)
+				.WithMany(c => c.InvestigationNotes)
+				.HasForeignKey(n => n.CaseID);
+
+
+			// Case → Attachments
+			modelBuilder.Entity<CaseAttachment>()
+				.HasOne(a => a.Case)
+				.WithMany(c => c.CaseAttachments)
+				.HasForeignKey(a => a.CaseID);
         }
     }
 }
