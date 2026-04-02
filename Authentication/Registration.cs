@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using FraudMonitoringSystem.Models.Customer;
 
-namespace FraudMonitoringSystem.Models.Customer
+namespace FraudMonitoringSystem.Authentication
 {
+
     public class Registration
     {
         [Key]
@@ -34,9 +36,8 @@ namespace FraudMonitoringSystem.Models.Customer
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Role is required")]
-        public RegisterRole Role { get; set; }
+        public UserInfo UserInfo { get; set; }
 
-        [Required(ErrorMessage = "Gender is required")]
-        public Gender Gender { get; set; }
+        public RegisterRole Role { get; set; }
     }
 }

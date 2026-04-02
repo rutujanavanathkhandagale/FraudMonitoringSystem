@@ -2,10 +2,9 @@
 using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.Customer;
-using FraudMonitoringSystem.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace FraudMonitoringSystem.Repositories.Implementations
+namespace FraudMonitoringSystem.Authentication
 {
    
     public class RegistrationRepository : IRegistrationRepository

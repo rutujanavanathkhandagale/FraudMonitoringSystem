@@ -1,11 +1,13 @@
 //using FraudMonitoringSystem.Authentication;
+using System.Text.Json.Serialization;
+using FraudMonitoringSystem.Authentication;
 using FraudMonitoringSystem.Data;
+using FraudMonitoringSystem.Interfaces;
 using FraudMonitoringSystem.Models.Notification;
 using FraudMonitoringSystem.Repositories;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.AlertsCase;
-using FraudMonitoringSystem.Repositories.Customer.Implementations.ComplianceOfficer;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Investigator;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Notification;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Rules;
@@ -18,12 +20,9 @@ using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Notification;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Watchlist;
-using FraudMonitoringSystem.Repositories.Implementations;
-using FraudMonitoringSystem.Repositories.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Implementations;
 using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
-using FraudMonitoringSystem.Services.Customer.Implementations.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Implementations.Investigator;
 using FraudMonitoringSystem.Services.Customer.Implementations.Notification;
 using FraudMonitoringSystem.Services.Customer.Implementations.Rules;
@@ -38,10 +37,8 @@ using FraudMonitoringSystem.Services.Customer.Interfaces.Notification;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Watchlist;
 using FraudMonitoringSystem.Services.Interfaces;
-using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -148,9 +145,10 @@ builder.Services.AddControllers()
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 
+builder.Services.AddScoped<IControlChecklistRepository, ControlChecklistRepository>();
 
-builder.Services.AddScoped<IControlChecklistRepository,ControlChecklistRepository>();
 builder.Services.AddScoped<IControlChecklistService, ControlChecklistService>();
+
 
 
 
@@ -160,12 +158,6 @@ builder.Services.AddScoped<ICaseRepository, CaseRepository>();
 
 builder.Services.AddScoped<IAlertService, AlertService>();
 builder.Services.AddScoped<ICaseService, CaseService>();
-
-builder.Services.AddScoped<ISanctionRepository, SanctionRepository>();
-builder.Services.AddScoped<ISanctionService, SanctionService>();
-
-builder.Services.AddScoped<IPEPListRepository, PEPListRepository>();
-builder.Services.AddScoped<IPEPListService, PEPListService>();
 
 builder.Services.AddScoped<IKYCRequestRepository, KYCRequestRepository>();
 builder.Services.AddScoped<IKYCRequestService, KYCRequestService>();
@@ -192,6 +184,11 @@ builder.Services.AddScoped<IChatService, ChatService>();
 builder.Services.AddScoped<PersonalDetailsRepository>();
 builder.Services.AddScoped<AccountRepository>();
 builder.Services.AddScoped<KYCRepository>();
+builder.Services.AddScoped<IAuth, Auth>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+builder.Services.AddScoped<IAuth, Auth>();
 
 
 

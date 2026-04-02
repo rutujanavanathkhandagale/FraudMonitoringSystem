@@ -1,67 +1,47 @@
-﻿using FraudMonitoringSystem.Data;
-
+﻿using Microsoft.EntityFrameworkCore;
+using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models;
+using FraudMonitoringSystem.Interfaces;
 
-using System;
-
-using System.Collections.Generic;
-
-using System.Linq;
-
-namespace FraudMonitoringSystem.Repositories
-
+public class ControlChecklistRepository : IControlChecklistRepository
 {
-    public class ControlChecklistRepository : IControlChecklistRepository
+    private readonly WebContext _context;
+    public ControlChecklistRepository(WebContext context) => _context = context;
+
+    public async Task<IEnumerable<ControlChecklist>> GetAllAsync() =>
+        await _context.Control_Checklist.Include(c => c.Details).AsNoTracking().ToListAsync();
+
+    public async Task<IEnumerable<ControlChecklist>> GetByStatusAsync(string status) =>
+        await _context.Control_Checklist.Include(c => c.Details)
+            .Where(x => x.OverallResult == status).AsNoTracking().ToListAsync();
+
+    public async Task<ControlChecklist> GetByCaseIdAsync(int caseId) =>
+        await _context.Control_Checklist.Include(c => c.Details)
+            .FirstOrDefaultAsync(x => x.CaseID == caseId);
+
+    public async Task<bool> MasterCaseExistsAsync(int caseId) =>
+        await _context.Cases.AnyAsync(c => c.CaseID == caseId);
+
+    public async Task<ControlChecklist> AddAsync(ControlChecklist checklist)
     {
-        private readonly WebContext _context;
-        public ControlChecklistRepository(WebContext context)
-        {
-            _context = context;
-        }
-        public ControlChecklist Add(ControlChecklist checklist)
-        {
-            checklist.CheckedDate = DateTime.Now;
-            _context.Control_Checklist.Add(checklist);
-            _context.SaveChanges();
-            return checklist;
-        }
-        public IEnumerable<ControlChecklist> GetAll()
-        {
-            return _context.Control_Checklist.ToList();
-        }
-        public ControlChecklist GetByCaseId(int caseId)
-        {
-            return _context.Control_Checklist
-                .FirstOrDefault(c => c.CaseID == caseId);
-        }
-        public IEnumerable<ControlChecklist> GetByStatus(string status)
-        {
-            return _context.Control_Checklist
-                .Where(c => c.Status == status)
-                .ToList();
-        }
-        public ControlChecklist Update(ControlChecklist checklist)
-        {
-            var existing = _context.Control_Checklist
-                .FirstOrDefault(c => c.ChecklistID == checklist.ChecklistID);
-            if (existing == null)
-                return null;
-            existing.CheckedBy = checklist.CheckedBy;
-            existing.CheckedDate = checklist.CheckedDate;
-            existing.Status = checklist.Status;
-            existing.Result = checklist.Result;
-            _context.SaveChanges();
-            return existing;
-        }
-        public bool Delete(int checklistId)
-        {
-            var entity = _context.Control_Checklist
-                .FirstOrDefault(c => c.ChecklistID == checklistId);
-            if (entity == null)
-                return false;
-            _context.Control_Checklist.Remove(entity);
-            _context.SaveChanges();
-            return true;
-        }
+        _context.Control_Checklist.Add(checklist);
+        await _context.SaveChangesAsync();
+        return checklist;
+    }
+
+    public async Task<ControlChecklist> UpdateAsync(ControlChecklist existing)
+    {
+        _context.Control_Checklist.Update(existing);
+        await _context.SaveChangesAsync();
+        return existing;
+    }
+
+    public async Task<bool> DeleteAsync(int caseId)
+    {
+        var record = await _context.Control_Checklist.FirstOrDefaultAsync(x => x.CaseID == caseId);
+        if (record == null) return false;
+        _context.Control_Checklist.Remove(record);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

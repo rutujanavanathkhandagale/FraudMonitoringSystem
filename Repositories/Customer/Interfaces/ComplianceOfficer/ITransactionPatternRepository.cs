@@ -1,7 +1,12 @@
-﻿namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.ComplianceOfficer
+﻿using FraudMonitoringSystem.Models;
+using FraudMonitoringSystem.Models.Customer;
+using FraudMonitoringSystem.Models.Investigator;
+
+public interface ITransactionPatternRepository
 {
-    public interface ITransactionPatternRepository
-    {
-        string CheckCustomerTransactionPattern(int customerId);
-    }
+    Task<PersonalDetails> GetCustomerByIdAsync(int customerId);
+    Task<List<Transaction>> GetTransactionsByCustomerIdAsync(int customerId);
+    Task<int> GetMappedAlertCountAsync(int customerId);
+    Task<Alert> GetHighestSeverityAlertAsync(int customerId);
+    Task SaveRiskScoreAsync(RiskScore score);
 }

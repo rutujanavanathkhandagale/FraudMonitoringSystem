@@ -1,7 +1,7 @@
 ﻿using FraudMonitoringSystem.Models.Customer;
 using System.Threading.Tasks;
 
-namespace FraudMonitoringSystem.Repositories.Interfaces
+namespace FraudMonitoringSystem.Authentication
 {
    
     public interface IRegistrationRepository

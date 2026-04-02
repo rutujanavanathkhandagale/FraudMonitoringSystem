@@ -1,7 +1,6 @@
-﻿namespace FraudMonitoringSystem.Services.Customer.Interfaces.ComplianceOfficer
+﻿using FraudMonitoringSystem.Models.DTOs;
+
+public interface ITransactionPatternService
 {
-    public interface ITransactionPatternService
-    {
-        string CheckCustomerTransactionPattern(int customerId);
-    }
+    Task<TransactionPatternAnalysis> AnalyzePatternAsync(int customerId);
 }

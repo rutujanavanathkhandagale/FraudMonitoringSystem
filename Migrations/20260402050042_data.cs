@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FraudMonitoringSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class Data : Migration
+    public partial class data : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,9 +19,10 @@ namespace FraudMonitoringSystem.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<long>(type: "bigint", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CaseType = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    CaseType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Priority = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TransactionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,21 +75,6 @@ namespace FraudMonitoringSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notifications", x => x.NotificationId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PEPList",
-                columns: table => new
-                {
-                    PepId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    DOB = table.Column<DateOnly>(type: "date", nullable: false),
-                    PermanentAddress = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PEPList", x => x.PepId);
                 });
 
             migrationBuilder.CreateTable(
@@ -149,8 +135,7 @@ namespace FraudMonitoringSystem.Migrations
                     PhoneNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false),
-                    Gender = table.Column<int>(type: "int", nullable: false)
+                    Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -175,21 +160,6 @@ namespace FraudMonitoringSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Roles", x => x.RoleId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Sanctions",
-                columns: table => new
-                {
-                    SanctionId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DOB = table.Column<DateOnly>(type: "date", nullable: false),
-                    PermanentAddress = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sanctions", x => x.SanctionId);
                 });
 
             migrationBuilder.CreateTable(
@@ -248,22 +218,65 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Control_Checklist",
+                name: "CaseAttachments",
                 columns: table => new
                 {
-                    ChecklistID = table.Column<int>(type: "int", nullable: false)
+                    AttachmentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CaseID = table.Column<int>(type: "int", nullable: false),
-                    CheckedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CheckedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Result = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    FileURI = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UploadedBy = table.Column<int>(type: "int", nullable: false),
+                    UploadedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Control_Checklist", x => x.ChecklistID);
+                    table.PrimaryKey("PK_CaseAttachments", x => x.AttachmentID);
+                    table.ForeignKey(
+                        name: "FK_CaseAttachments_Cases_CaseID",
+                        column: x => x.CaseID,
+                        principalTable: "Cases",
+                        principalColumn: "CaseID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Control_Checklist",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CaseID = table.Column<int>(type: "int", nullable: false),
+                    CheckedBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    OverallResult = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Control_Checklist", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Control_Checklist_Cases_CaseID",
+                        column: x => x.CaseID,
+                        principalTable: "Cases",
+                        principalColumn: "CaseID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "InvestigationNotes",
+                columns: table => new
+                {
+                    NoteID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CaseID = table.Column<int>(type: "int", nullable: false),
+                    AuthorID = table.Column<int>(type: "int", nullable: false),
+                    NoteText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InvestigationNotes", x => x.NoteID);
+                    table.ForeignKey(
+                        name: "FK_InvestigationNotes_Cases_CaseID",
                         column: x => x.CaseID,
                         principalTable: "Cases",
                         principalColumn: "CaseID",
@@ -360,6 +373,30 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserInfos",
+                columns: table => new
+                {
+                    UserInfoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RegistrationId = table.Column<int>(type: "int", nullable: false),
+                    IsEmailVerified = table.Column<bool>(type: "bit", nullable: true),
+                    VerificationOtp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OtpExpiry = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ResetToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ResetTokenExpiry = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserInfos", x => x.UserInfoId);
+                    table.ForeignKey(
+                        name: "FK_UserInfos_Registrations_RegistrationId",
+                        column: x => x.RegistrationId,
+                        principalTable: "Registrations",
+                        principalColumn: "RegistrationId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RolePermissions",
                 columns: table => new
                 {
@@ -451,22 +488,11 @@ namespace FraudMonitoringSystem.Migrations
                 {
                     AlertID = table.Column<int>(type: "int", nullable: false),
                     CaseID = table.Column<int>(type: "int", nullable: false),
-                    PrimaryCustomerID = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CaseType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Priority = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AlertCaseMappingAlertID = table.Column<int>(type: "int", nullable: true),
-                    AlertCaseMappingCaseID = table.Column<int>(type: "int", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AlertCaseMappings", x => new { x.AlertID, x.CaseID });
-                    table.ForeignKey(
-                        name: "FK_AlertCaseMappings_AlertCaseMappings_AlertCaseMappingAlertID_AlertCaseMappingCaseID",
-                        columns: x => new { x.AlertCaseMappingAlertID, x.AlertCaseMappingCaseID },
-                        principalTable: "AlertCaseMappings",
-                        principalColumns: new[] { "AlertID", "CaseID" });
                     table.ForeignKey(
                         name: "FK_AlertCaseMappings_Alerts_AlertID",
                         column: x => x.AlertID,
@@ -478,6 +504,27 @@ namespace FraudMonitoringSystem.Migrations
                         column: x => x.CaseID,
                         principalTable: "Cases",
                         principalColumn: "CaseID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Control_Details",
+                columns: table => new
+                {
+                    DetailId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ControlName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ControlChecklistId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Control_Details", x => x.DetailId);
+                    table.ForeignKey(
+                        name: "FK_Control_Details_Control_Checklist_ControlChecklistId",
+                        column: x => x.ControlChecklistId,
+                        principalTable: "Control_Checklist",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -518,64 +565,6 @@ namespace FraudMonitoringSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CaseAttachments",
-                columns: table => new
-                {
-                    AttachmentID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CaseID = table.Column<int>(type: "int", nullable: false),
-                    FileURI = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UploadedBy = table.Column<int>(type: "int", nullable: false),
-                    UploadedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlertCaseMappingAlertID = table.Column<int>(type: "int", nullable: true),
-                    AlertCaseMappingCaseID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CaseAttachments", x => x.AttachmentID);
-                    table.ForeignKey(
-                        name: "FK_CaseAttachments_AlertCaseMappings_AlertCaseMappingAlertID_AlertCaseMappingCaseID",
-                        columns: x => new { x.AlertCaseMappingAlertID, x.AlertCaseMappingCaseID },
-                        principalTable: "AlertCaseMappings",
-                        principalColumns: new[] { "AlertID", "CaseID" });
-                    table.ForeignKey(
-                        name: "FK_CaseAttachments_Cases_CaseID",
-                        column: x => x.CaseID,
-                        principalTable: "Cases",
-                        principalColumn: "CaseID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "InvestigationNotes",
-                columns: table => new
-                {
-                    NoteID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CaseID = table.Column<int>(type: "int", nullable: false),
-                    AuthorID = table.Column<int>(type: "int", nullable: false),
-                    NoteText = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AlertCaseMappingAlertID = table.Column<int>(type: "int", nullable: true),
-                    AlertCaseMappingCaseID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_InvestigationNotes", x => x.NoteID);
-                    table.ForeignKey(
-                        name: "FK_InvestigationNotes_AlertCaseMappings_AlertCaseMappingAlertID_AlertCaseMappingCaseID",
-                        columns: x => new { x.AlertCaseMappingAlertID, x.AlertCaseMappingCaseID },
-                        principalTable: "AlertCaseMappings",
-                        principalColumns: new[] { "AlertID", "CaseID" });
-                    table.ForeignKey(
-                        name: "FK_InvestigationNotes_Cases_CaseID",
-                        column: x => x.CaseID,
-                        principalTable: "Cases",
-                        principalColumn: "CaseID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RiskScores",
                 columns: table => new
                 {
@@ -603,11 +592,6 @@ namespace FraudMonitoringSystem.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AlertCaseMappings_AlertCaseMappingAlertID_AlertCaseMappingCaseID",
-                table: "AlertCaseMappings",
-                columns: new[] { "AlertCaseMappingAlertID", "AlertCaseMappingCaseID" });
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AlertCaseMappings_CaseID",
                 table: "AlertCaseMappings",
                 column: "CaseID");
@@ -616,11 +600,6 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_Alerts_CaseID",
                 table: "Alerts",
                 column: "CaseID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CaseAttachments_AlertCaseMappingAlertID_AlertCaseMappingCaseID",
-                table: "CaseAttachments",
-                columns: new[] { "AlertCaseMappingAlertID", "AlertCaseMappingCaseID" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CaseAttachments_CaseID",
@@ -633,6 +612,11 @@ namespace FraudMonitoringSystem.Migrations
                 column: "CaseID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Control_Details_ControlChecklistId",
+                table: "Control_Details",
+                column: "ControlChecklistId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DetectionRules_ScenarioId",
                 table: "DetectionRules",
                 column: "ScenarioId");
@@ -641,11 +625,6 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_DocumentAttachments_ChatMessageId",
                 table: "DocumentAttachments",
                 column: "ChatMessageId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InvestigationNotes_AlertCaseMappingAlertID_AlertCaseMappingCaseID",
-                table: "InvestigationNotes",
-                columns: new[] { "AlertCaseMappingAlertID", "AlertCaseMappingCaseID" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_InvestigationNotes_CaseID",
@@ -702,16 +681,25 @@ namespace FraudMonitoringSystem.Migrations
                 name: "IX_Transactions_CustomerId",
                 table: "Transactions",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserInfos_RegistrationId",
+                table: "UserInfos",
+                column: "RegistrationId",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AlertCaseMappings");
+
+            migrationBuilder.DropTable(
                 name: "CaseAttachments");
 
             migrationBuilder.DropTable(
-                name: "Control_Checklist");
+                name: "Control_Details");
 
             migrationBuilder.DropTable(
                 name: "DetectionRules");
@@ -732,9 +720,6 @@ namespace FraudMonitoringSystem.Migrations
                 name: "Notifications");
 
             migrationBuilder.DropTable(
-                name: "PEPList");
-
-            migrationBuilder.DropTable(
                 name: "Regulatory_Report");
 
             migrationBuilder.DropTable(
@@ -744,13 +729,19 @@ namespace FraudMonitoringSystem.Migrations
                 name: "RolePermissions");
 
             migrationBuilder.DropTable(
-                name: "Sanctions");
-
-            migrationBuilder.DropTable(
                 name: "SystemUsers");
 
             migrationBuilder.DropTable(
+                name: "UserInfos");
+
+            migrationBuilder.DropTable(
                 name: "WatchlistEntries");
+
+            migrationBuilder.DropTable(
+                name: "Alerts");
+
+            migrationBuilder.DropTable(
+                name: "Control_Checklist");
 
             migrationBuilder.DropTable(
                 name: "Scenarios");
@@ -759,28 +750,22 @@ namespace FraudMonitoringSystem.Migrations
                 name: "ChatMessages");
 
             migrationBuilder.DropTable(
-                name: "AlertCaseMappings");
-
-            migrationBuilder.DropTable(
                 name: "Transactions");
 
             migrationBuilder.DropTable(
                 name: "Permissions");
 
             migrationBuilder.DropTable(
-                name: "Registrations");
-
-            migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Alerts");
-
-            migrationBuilder.DropTable(
-                name: "Accounts");
+                name: "Registrations");
 
             migrationBuilder.DropTable(
                 name: "Cases");
+
+            migrationBuilder.DropTable(
+                name: "Accounts");
 
             migrationBuilder.DropTable(
                 name: "PersonalDetails");

@@ -1,9 +1,9 @@
-﻿using FraudMonitoringSystem.DTOs.Admin;
+﻿using FraudMonitoringSystem.Authentication;
+using FraudMonitoringSystem.DTOs.Admin;
 using FraudMonitoringSystem.Exceptions.Admin;
 using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
-using FraudMonitoringSystem.Repositories.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
 
 namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FraudMonitoringSystem.Models.Customer;
+using FraudMonitoringSystem.DTOs;
 using FraudMonitoringSystem.Services.Interfaces;
+using FraudMonitoringSystem.Models.Customer;
 
 namespace FraudMonitoringSystem.Controllers
 {
-    
     [ApiController]
     [Route("api/[controller]")]
     public class RegistrationController : ControllerBase
@@ -17,34 +17,26 @@ namespace FraudMonitoringSystem.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] Registration registration)
+        public async Task<IActionResult> Register([FromBody] RegistrationDto registration)
         {
-            var response = await _service.RegisterAsync(registration);
-            return Ok(response);
-        }
-
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var profile = await _service.GetByIdAsync(id);
-            if (profile == null) return NotFound();
-
-            return Ok(new
+            try
             {
-                profile.RegistrationId,
-                profile.FirstName,
-                profile.LastName,
-                profile.Email
-            });
+                // Call the service which now contains the 'cleanedRole' logic
+                var dto = await _service.RegisterAsync(registration);
+                return Ok(dto);
+            }
+            catch (Exception ex)
+            {
+                // Return a 400 Bad Request instead of crashing the server
+                return BadRequest(new { message = ex.Message });
+            }
         }
-
 
         [HttpGet("role/{role}")]
         public async Task<IActionResult> GetUserByRole(RegisterRole role)
         {
-            var user = await _service.GetUserByRoleAsync(role);
-            return Ok(user);
+            var dto = await _service.GetUserByRoleAsync(role);
+            return Ok(dto); // ✅ Only DTO fields returned
         }
 
         [HttpGet("roles")]
@@ -52,8 +44,6 @@ namespace FraudMonitoringSystem.Controllers
         {
             var roles = Enum.GetNames(typeof(RegisterRole));
             return Ok(roles);
-            
         }
-     
     }
 }

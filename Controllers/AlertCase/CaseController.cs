@@ -1,7 +1,6 @@
 ﻿using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.DTOs.AlertCase;
 using FraudMonitoringSystem.Models.AlertCase;
-using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
 using FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

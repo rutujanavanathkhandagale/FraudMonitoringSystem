@@ -1,6 +1,7 @@
 ﻿using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Models.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ public class RegulatoryReportRepository : IRegulatoryReportRepository
 
         var checklist = _context.Control_Checklist
 
-            .FirstOrDefault(c => c.CaseID == caseData.CaseID);
+            .FirstOrDefault(c => c.CaseID== caseData.CaseID);
 
         var transaction = _context.Transactions
 
@@ -61,7 +62,7 @@ public class RegulatoryReportRepository : IRegulatoryReportRepository
 
         // Control Checklist Logic
 
-        if (checklist != null && checklist.Status == "Pass")
+        if (checklist != null && checklist.OverallResult == "Pass")
 
             status = "Pass";
 

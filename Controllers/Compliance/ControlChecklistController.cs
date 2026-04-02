@@ -1,99 +1,37 @@
-﻿using FraudMonitoringSystem.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using FraudMonitoringSystem.Models;
 
 [ApiController]
-
 [Route("api/[controller]")]
-
 public class ControlChecklistController : ControllerBase
-
 {
+    private readonly ControlChecklistService _service;
+    public ControlChecklistController(ControlChecklistService service) => _service = service;
 
-    private readonly IControlChecklistService _service;
+    [HttpGet] // GET /api/ControlChecklist?status=PASS
+    public async Task<IActionResult> GetHistory([FromQuery] string status = "ALL") => Ok(await _service.GetHistoryAsync(status));
 
-    public ControlChecklistController(IControlChecklistService service)
-
+    [HttpPost] // POST /api/ControlChecklist
+    public async Task<IActionResult> Create([FromBody] ControlChecklist checklist)
     {
-
-        _service = service;
-
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+        try
+        {
+            var res = await _service.CreateAnalysisAsync(checklist);
+            return CreatedAtAction(nameof(GetHistory), new { id = res.Id }, res);
+        }
+        catch (ArgumentException ex) { return BadRequest(new { m = ex.Message }); }
+        catch (KeyNotFoundException ex) { return NotFound(new { m = ex.Message }); }
     }
 
-    [HttpPost]
-
-    public IActionResult Create(ControlChecklist checklist)
-
+    [HttpPut("{caseId}")] // PUT /api/ControlChecklist/101
+    public async Task<IActionResult> Update(int caseId, [FromBody] List<ControlDetail> details)
     {
-
-        return Ok(_service.Add(checklist));
-
+        var res = await _service.UpdateAnalysisAsync(caseId, details);
+        return res == null ? NotFound() : Ok(res);
     }
 
-    [HttpGet]
-
-    public IActionResult GetAll()
-
-    {
-
-        return Ok(_service.GetAll());
-
-    }
-
-    [HttpGet("case/{caseId}")]
-
-    public IActionResult GetByCaseId(int caseId)
-
-    {
-
-        var result = _service.GetByCaseId(caseId);
-
-        if (result == null)
-
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-    [HttpGet("status/{status}")]
-
-    public IActionResult GetByStatus(string status)
-
-    {
-
-        return Ok(_service.GetByStatus(status));
-
-    }
-
-    [HttpPut]
-
-    public IActionResult Update(ControlChecklist checklist)
-
-    {
-
-        var result = _service.Update(checklist);
-
-        if (result == null)
-
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-    [HttpDelete("{checklistId}")]
-
-    public IActionResult Delete(int checklistId)
-
-    {
-
-        if (!_service.Delete(checklistId))
-
-            return NotFound();
-
-        return Ok("Deleted Successfully");
-
-    }
-
+    [HttpDelete("{caseId}")] // DELETE /api/ControlChecklist/101
+    public async Task<IActionResult> Delete(int caseId) =>
+        await _service.RemoveAnalysisAsync(caseId) ? NoContent() : NotFound();
 }
-

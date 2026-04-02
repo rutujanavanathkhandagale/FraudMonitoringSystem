@@ -1,4 +1,5 @@
-﻿using FraudMonitoringSystem.Models;
+﻿using FraudMonitoringSystem.Authentication;
+using FraudMonitoringSystem.Models;
 using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.AlertCase;
 using FraudMonitoringSystem.Models.AlertsCase;
@@ -53,14 +54,13 @@ namespace FraudMonitoringSystem.Data
 		public DbSet<AlertCaseMapping> AlertCaseMappings { get; set; }
 
 		public DbSet<CaseAttachment> CaseAttachments { get; set; }
+        public DbSet<UserInfo> UserInfos { get; set; }
 
-		public DbSet<InvestigationNote> InvestigationNotes { get; set; }
+        public DbSet<InvestigationNote> InvestigationNotes { get; set; }
 
 
 
-		// Watchlist
-		public DbSet<Sanction> Sanctions { get; set; }
-        public DbSet<PEPListModel> PEPList { get; set; }
+	
         public DbSet<WatchlistEntry> WatchlistEntries { get; set; }
 
         // Entity Links
@@ -150,6 +150,7 @@ namespace FraudMonitoringSystem.Data
 			modelBuilder.Entity<CaseAttachment>().HasKey(ca => ca.AttachmentID);
 
 			modelBuilder.Entity<InvestigationNote>().HasKey(n => n.NoteID);
+
 
 
 			// AlertCaseMapping Relationships
