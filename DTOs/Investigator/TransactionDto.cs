@@ -3,7 +3,7 @@
     public class TransactionDto
     {
         public int TransactionID { get; set; }
-        public long AccountID { get; set; }
+        public string AccountId { get; set; }
         public long CustomerId { get; set; }
         public string CustomerType { get; set; } = string.Empty;
         public string CounterpartyAccount { get; set; } = string.Empty;

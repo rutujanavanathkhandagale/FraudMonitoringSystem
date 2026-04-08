@@ -16,18 +16,42 @@ namespace FraudMonitoringSystem.Controllers.Customer
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(long id) => Ok(await _service.GetByIdAsync(id));
+        public async Task<IActionResult> Get(long id)
+        {
+            var result = await _service.GetByIdAsync(id);
+            if (result == null)
+                return NotFound(new { Message = $"Customer {id} not found" });
+
+            return Ok(result);
+        }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll() => Ok(await _service.GetAllAsync());
+        public async Task<IActionResult> GetAll()
+        {
+            var list = await _service.GetAllAsync();
+            if (list == null || !list.Any())
+                return NotFound(new { Message = "No customers found" });
+
+            return Ok(list);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CustomerDto dto) => Ok(await _service.CreateAsync(dto));
+        public async Task<IActionResult> Create(CustomerDto dto)
+        {
+            var created = await _service.CreateAsync(dto);
+            if (created == null)
+                return BadRequest(new { Message = "Failed to create customer" });
+
+            return Ok(created);
+        }
 
         [HttpGet("search")]
         public async Task<IActionResult> SearchByName([FromQuery] string name)
         {
             var result = await _service.SearchByNameAsync(name);
+            if (result == null || !result.Any())
+                return NotFound(new { Message = $"No customers found with name {name}" });
+
             return Ok(result);
         }
 
@@ -35,22 +59,30 @@ namespace FraudMonitoringSystem.Controllers.Customer
         public async Task<IActionResult> GetByEmail(string email)
         {
             var result = await _service.GetByEmailAsync(email);
-            if (result == null) return NotFound();
+            if (result == null)
+                return NotFound(new { Message = $"Customer with email {email} not found" });
+
             return Ok(result);
         }
-
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(long id, CustomerDto dto)
         {
             dto.CustomerId = id;
-            return Ok(await _service.UpdateAsync(dto));
+            var updated = await _service.UpdateAsync(dto);
+            if (updated == null)
+                return NotFound(new { Message = $"Customer {id} not found" });
+
+            return Ok(updated);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            await _service.DeleteAsync(id);
+            var deleted = await _service.DeleteAsync(id);
+            if (!deleted)
+                return NotFound(new { Message = $"Customer {id} not found" });
+
             return Ok(new { Message = $"Customer {id} deleted successfully" });
         }
     }

@@ -60,12 +60,18 @@ namespace FraudMonitoringSystem.Controllers.Customer
         [HttpPut("verify/customer/{customerId}")]
         public async Task<IActionResult> VerifyByCustomerId(long customerId)
         {
-            var result = await _service.VerifyAsync(customerId);
+            var result = await _service.VerifyByCustomerIdAsync(customerId); // <-- use the right method
             if (result == null)
-                return NotFound($"No KYC profile found for CustomerId {customerId}");
+                return NotFound(new { Message = $"No KYC profile found for CustomerId {customerId}" });
 
-            return Ok(result);
+            return Ok(new
+            {
+                Message = "KYC verified successfully",
+                Status = result.Status,
+                Profile = result
+            });
         }
+
 
 
         [HttpPost]

@@ -17,7 +17,7 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
         public async Task<IEnumerable<Account>> GetAllAsync() =>
             await _context.Accounts.Include(a => a.Customer).AsNoTracking().ToListAsync();
 
-        public async Task<Account?> GetByIdAsync(long id) =>
+        public async Task<Account?> GetByIdAsync(string id) =>
             await _context.Accounts.Include(a => a.Customer)
                                    .AsNoTracking()
                                    .FirstOrDefaultAsync(a => a.AccountId == id);
@@ -35,12 +35,24 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
 
         public async Task<Account> AddAsync(Account account)
         {
+            // Generate next AccountId (ACC001 style)
+            var lastId = await _context.Accounts
+                .OrderByDescending(a => a.AccountId)
+                .Select(a => a.AccountId)
+                .FirstOrDefaultAsync();
+
+            int nextNumber = lastId != null
+                ? int.Parse(lastId.Replace("ACC", "")) + 1
+                : 1;
+
+            account.AccountId = $"ACC{nextNumber:D3}";
+
             _context.Accounts.Add(account);
             await _context.SaveChangesAsync();
             return account;
         }
 
-        public async Task<Account> UpdateAsync(Account account)
+        public async Task<Account?> UpdateAsync(Account account)
         {
             var existing = await _context.Accounts.FindAsync(account.AccountId);
             if (existing == null) return null;
@@ -48,12 +60,13 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
             existing.ProductType = account.ProductType;
             existing.Currency = account.Currency;
             existing.Status = account.Status;
+            existing.AccountNumber = account.AccountNumber;
 
             await _context.SaveChangesAsync();
             return existing;
         }
 
-        public async Task<bool> DeleteAsync(long id)
+        public async Task<bool> DeleteAsync(string id)
         {
             var account = await _context.Accounts.FindAsync(id);
             if (account == null) return false;

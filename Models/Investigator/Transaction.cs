@@ -11,9 +11,9 @@ namespace FraudMonitoringSystem.Models.Investigator
         public int TransactionID { get; set; }
 
         [Required(ErrorMessage = "AccountID is required.")]
-        public long AccountID { get; set; }
+        public string AccountId { get; set; }
 
-        [ForeignKey("AccountID")]
+        [ForeignKey("AccountId")]
         public virtual Account? Account { get; set; }
 
         [Required(ErrorMessage = "CustomerId is required.")]

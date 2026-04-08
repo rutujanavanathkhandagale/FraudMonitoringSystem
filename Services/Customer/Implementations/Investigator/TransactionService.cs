@@ -49,7 +49,7 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Investigator
       new Transaction
       {
           TransactionID = dto.TransactionID,
-          AccountID = dto.AccountID,
+          AccountId = dto.AccountId,
           CustomerId = dto.CustomerId,
           CustomerType = dto.CustomerType,
           CounterpartyAccount = dto.CounterpartyAccount,
@@ -67,7 +67,7 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Investigator
             new TransactionDto
             {
                 TransactionID = t.TransactionID,
-                AccountID = t.AccountID,
+                AccountId = t.AccountId,
                 CustomerId = t.CustomerId,
                 CustomerType = t.CustomerType,
                 CounterpartyAccount = t.CounterpartyAccount,

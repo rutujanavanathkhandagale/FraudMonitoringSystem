@@ -7,8 +7,14 @@ namespace FraudMonitoringSystem.DTOs.Admin
     public class SystemUserCreateDto
     {
         [Required]
+
         public int RegistrationId { get; set; }
+
+
         [Required]
-        public int  RoleId { get; set; }
+
+        public string RoleId { get; set; }
+
     }
+
 }

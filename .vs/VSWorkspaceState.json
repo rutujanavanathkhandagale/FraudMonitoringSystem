@@ -2,13 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\Aspects\\Rules",
-    "\\DTOs",
+    "\\DTOs\\ComplianceOfficer",
     "\\DTOs\\Rules",
-    "\\Exceptions\\Rules",
+    "\\Migrations",
     "\\Models",
     "\\Models\\Notification",
     "\\Models\\Rules"
   ],
-  "SelectedNode": "\\Enums",
+  "SelectedNode": "\\Models\\Notification",
   "PreviewInSolutionExplorer": false
 }

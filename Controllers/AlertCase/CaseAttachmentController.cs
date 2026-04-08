@@ -2,85 +2,137 @@
 using FraudMonitoringSystem.Models.AlertsCase;
 using Microsoft.AspNetCore.Mvc;
 using FraudMonitoringSystem.DTOs.AlertCase;
+using Microsoft.EntityFrameworkCore;
 
 namespace FraudMonitoringSystem.Controllers.AlertCase
 {
-	[ApiController]
-	[Route("api/[controller]")]
-	public class CaseAttachmentsController : ControllerBase
-	{
-		private readonly WebContext _context;
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CaseAttachmentsController : ControllerBase
+    {
+        private readonly WebContext _context;
 
-		public CaseAttachmentsController(WebContext context)
-		{
-			_context = context;
-		}
+        public CaseAttachmentsController(WebContext context)
+        {
+            _context = context;
+        }
 
-		// GET all attachments
-		[HttpGet]
-		public IActionResult GetAttachments()
-		{
-			return Ok(_context.CaseAttachments.ToList());
-		}
+        // ✅ GET ALL ATTACHMENTS
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var data = from a in _context.CaseAttachments
 
-		// POST new attachment
-		[HttpPost]
-		[HttpPost]
-		public IActionResult AddAttachment([FromForm] CaseAttachmentDTO dto)
-		{
-			if (dto.File == null || dto.File.Length == 0)
-				return BadRequest("File is required");
+                       join u in _context.SystemUsers
+                       on a.UploadedBy equals u.Id into userGroup
+                       from u in userGroup.DefaultIfEmpty()
 
-			// 📁 Folder path
-			var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+                       join r in _context.Roles
+                       on (u!=null? u.RoleId.ToString():null) equals r.RoleId into roleGroup
+                       from r in roleGroup.DefaultIfEmpty()
 
-			if (!Directory.Exists(folderPath))
-				Directory.CreateDirectory(folderPath);
+                       select new
+                       {
+                           AttachmentID = a.AttachmentID,
+                           CaseID = a.CaseID,
+                           FileURI = a.FileURI,
+                           UploadedBy = a.UploadedBy,
 
-			// 📄 Unique file name
-			var fileName = Guid.NewGuid().ToString() + Path.GetExtension(dto.File.FileName);
+                           // 🔥 IMPORTANT LINE	
+                             UploadedByRole = r != null && r.RoleName!=null  ? r.RoleName :"Unknown",
 
-			var filePath = Path.Combine(folderPath, fileName);
+                           UploadedDate = a.UploadedDate
+                       };
 
-			// 💾 Save file physically
-			using (var stream = new FileStream(filePath, FileMode.Create))
-			{
-				dto.File.CopyTo(stream);
-			}
+            return Ok(data.ToList());
 
-			// 💾 Save in DB
-			var attachment = new CaseAttachment
-			{
-				CaseID = dto.CaseID,
-				FileURI = fileName,   // store file name or full path
-				UploadedBy = dto.UploadedBy,
-				UploadedDate = DateTime.UtcNow
-			};
+        }
+        [HttpGet("case/{caseId}")]
+        public async Task<IActionResult> GetAttachmentsByCase(int caseId)
+        {
+            var attachments = await _context.CaseAttachments
+                .Where(a => a.CaseID == caseId)
+                .ToListAsync();
 
-			_context.CaseAttachments.Add(attachment);
-			_context.SaveChanges();
-
-			return Ok(new
-			{
-				attachment.AttachmentID,
-				attachment.CaseID,
-				FileURL = $"{Request.Scheme}://{Request.Host}/Uploads/{attachment.FileURI}",
-				attachment.UploadedBy,
-				attachment.UploadedDate
-			});
-		}
+            return Ok(attachments);
+        }
 
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAttachment(int id)
+        {
+            var attachment = _context.CaseAttachments
+                .FirstOrDefault(a => a.AttachmentID == id);
 
-			// GET attachment by CaseID
-			[HttpGet("case/{caseId}")]
-		public IActionResult GetAttachmentsByCase(int caseId)
-		{
-			var attachments = _context.CaseAttachments
-				.Where(a => a.CaseID == caseId)
-				.ToList();
+            if (attachment == null)
+            {
+                return NotFound("Attachment not found");
+            }
 
-			return Ok(attachments);
-		}
-	}
+            // 🔥 Delete file from folder
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", attachment.FileURI);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+
+            // 🔥 Delete from DB			
+            _context.CaseAttachments.Remove(attachment);
+            _context.SaveChanges();
+
+            return Ok("Deleted successfully");
+        }
+
+        // ✅ UPLOAD FILE		
+        [HttpPost]
+        public IActionResult AddAttachment([FromForm] CaseAttachmentDTO dto)
+        {
+            try
+            {
+                if (dto.File == null || dto.File.Length == 0)
+                    return BadRequest("File is required");
+
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(dto.File.FileName)}";
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    dto.File.CopyTo(stream);
+                }
+
+                var attachment = new CaseAttachment
+                {
+                    CaseID = dto.CaseID,
+                    FileURI = fileName,
+                    UploadedBy = 1,
+                    UploadedDate = DateTime.UtcNow
+                };
+
+                _context.CaseAttachments.Add(attachment);
+                _context.SaveChanges();
+
+                return Ok(new
+                {
+                    attachment.AttachmentID,
+                    attachment.CaseID,
+                    FileURL = $"{Request.Scheme}://{Request.Host}/Uploads/{fileName}",
+                    attachment.UploadedBy,
+                    attachment.UploadedDate
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+
+        }
+    }
 }
+
+

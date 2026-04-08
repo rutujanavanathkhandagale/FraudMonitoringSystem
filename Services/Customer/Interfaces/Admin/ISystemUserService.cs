@@ -7,8 +7,18 @@ namespace FraudMonitoringSystem.Services.Customer.Interfaces.Admin
     public interface ISystemUserService
     {
         Task<List<SystemUserResponseDto>> GetAllAsync(int page, int pageSize);
-        Task<List<SystemUserResponseDto>> GetByRoleIdAsync(int roleId);
+
+        Task<List<SystemUserResponseDto>> GetByRoleIdAsync(string roleId);
+
         Task AddAsync(SystemUserCreateDto dto);
+
         Task DeleteAsync(int id);
+
+        //changes
+        Task ApproveAsync(int systemUserId, int adminRegistrationId);
+
+        Task<SystemUserResponseDto> GetByIdAsync(int id);
+
     }
+
 }

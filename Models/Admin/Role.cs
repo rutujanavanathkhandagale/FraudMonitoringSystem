@@ -8,24 +8,23 @@ namespace FraudMonitoringSystem.Models.Admin
 
         [Key]
 
-        public int RoleId { get; set; }
+        public string RoleId { get; set; } = string.Empty; // R101 logic
 
         [Required]
 
         [MaxLength(100)]
 
-        public string RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
+
 
         [MaxLength(255)]
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
 
-
-
-        public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
-        public ICollection<SystemUser> Users { get; set; } = new List<SystemUser>();
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     }
+
 
 }

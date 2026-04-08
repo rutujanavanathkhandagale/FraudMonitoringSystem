@@ -7,12 +7,12 @@ namespace FraudMonitoringSystem.Models.Customer
     public class Account
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long AccountId { get; set; }
+        [StringLength(20, ErrorMessage = "AccountId cannot exceed 20 characters")]
+        public string? AccountId { get; set; }   // optional, generated server-side
 
         [Required(ErrorMessage = "CustomerId is required")]
         [ForeignKey("Customer")]
-        public long CustomerId { get; set; }
+        public long CustomerId { get; set; }   // numeric IDs
 
         [JsonIgnore]
         public PersonalDetails? Customer { get; set; }
@@ -31,7 +31,6 @@ namespace FraudMonitoringSystem.Models.Customer
             ErrorMessage = "Currency must be valid")]
         public string Currency { get; set; }
 
-       
         [Required(ErrorMessage = "Status is required")]
         [RegularExpression("Active|Frozen|Closed",
             ErrorMessage = "Status must be Active, Frozen, or Closed")]

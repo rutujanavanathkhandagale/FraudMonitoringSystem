@@ -1,15 +1,13 @@
 //using FraudMonitoringSystem.Authentication;
-using System.Text.Json.Serialization;
 using FraudMonitoringSystem.Authentication;
 using FraudMonitoringSystem.Data;
+using FraudMonitoringSystem.Hub;
 using FraudMonitoringSystem.Interfaces;
-using FraudMonitoringSystem.Models.Notification;
 using FraudMonitoringSystem.Repositories;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.AlertsCase;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Investigator;
-using FraudMonitoringSystem.Repositories.Customer.Implementations.Notification;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Watchlist;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
@@ -17,14 +15,13 @@ using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.AlertsCase;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.ComplianceOfficer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Investigator;
-using FraudMonitoringSystem.Repositories.Customer.Interfaces.Notification;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Watchlist;
+using FraudMonitoringSystem.Repositories.Notification;
 using FraudMonitoringSystem.Services.Customer.Implementations;
 using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
 using FraudMonitoringSystem.Services.Customer.Implementations.Investigator;
-using FraudMonitoringSystem.Services.Customer.Implementations.Notification;
 using FraudMonitoringSystem.Services.Customer.Implementations.Rules;
 using FraudMonitoringSystem.Services.Customer.Implementations.Watchlist;
 using FraudMonitoringSystem.Services.Customer.Implementations.Watchlist.FraudMonitoringSystem.Services.Implementations;
@@ -33,12 +30,18 @@ using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
 using FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase;
 using FraudMonitoringSystem.Services.Customer.Interfaces.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
-using FraudMonitoringSystem.Services.Customer.Interfaces.Notification;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Watchlist;
 using FraudMonitoringSystem.Services.Interfaces;
-//using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+
+//using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,8 +96,7 @@ builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
 builder.Services.AddScoped<IPermissionService, PermissionService>();
 
 
-builder.Services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
-builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
+
 
 
 builder.Services.AddScoped<ISystemUserRepository, SystemUserRepository>();
@@ -176,10 +178,7 @@ builder.Services.AddScoped<ITransactionPatternService, TransactionPatternService
 
 //builder.Services.AddScoped<INotificationService, NotificationService>();
 //builder.Services.AddScoped<IChatService, ChatService>();
-builder.Services.AddScoped<IChatRepository, ChatRepository>();
 
-// Register services
-builder.Services.AddScoped<IChatService, ChatService>();
 
 builder.Services.AddScoped<PersonalDetailsRepository>();
 builder.Services.AddScoped<AccountRepository>();
@@ -189,73 +188,72 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 
 builder.Services.AddScoped<IAuth, Auth>();
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 
 
 
 
 
-//builder.Services.AddScoped<IAuth, Auth>();
+builder.Services.AddScoped<IAuth, Auth>();
 
 
 
-//var jwtSettings = builder.Configuration.GetSection("Jwt");
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//})
-//.AddJwtBearer(options =>
-//{
-//    options.TokenValidationParameters = new TokenValidationParameters
-//    {
-//        ValidateIssuer = true,
-//        ValidateAudience = true,
-//        ValidateLifetime = true,
-//        ValidateIssuerSigningKey = true,
-//        ValidIssuer = jwtSettings["Issuer"],
-//        ValidAudience = jwtSettings["Audience"],
-//        IssuerSigningKey = new SymmetricSecurityKey(
-//            Encoding.UTF8.GetBytes(jwtSettings["Key"]))
-//    };
-//});
-
-
-
-
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(jwtSettings["Key"]))
+    };
+});
 
 
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
+    options.AddPolicy("AllowFrontend",
+        policy => policy
+            .WithOrigins("http://localhost:5173") // React dev server
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
 });
-
-
 
 var app = builder.Build();
 
 app.UseMiddleware<FraudMonitoringSystem.Aspects.GlobalExceptionHandler>();
 
-
-
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAll");   // apply the policy hereapp.UseAuthentication();
 
-//app.UseAuthorization();
+app.UseCors("AllowFrontend"); // apply the CORS policy
+app.UseAuthentication();
+app.UseAuthorization();
 
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
+    RequestPath = "/Uploads"
+
+});
 
 
 app.MapControllers();
-
-app.MapHub<ChatHub>("/chatHub");
+app.MapHub<NotificationHub>("/notificationHub");
 
 app.Run();

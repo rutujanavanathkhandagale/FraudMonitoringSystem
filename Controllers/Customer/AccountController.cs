@@ -21,49 +21,67 @@ namespace FraudMonitoringSystem.Controllers.Customer
         [HttpPost]
         public async Task<IActionResult> Create(Account account)
         {
-            await _service.CreateAccountAsync(account);
-            return Ok(new { Message = "Account created successfully" });
+            var created = await _service.CreateAccountAsync(account);
+            if (created == null)
+                return BadRequest(new { Message = "Account could not be created" });
+
+            return Ok(created); // return full object with generated ACCxxx ID
         }
 
         // Partial update (PATCH)
         [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch(long id, [FromBody] Account partialAccount)
+        public async Task<IActionResult> Patch(string id, [FromBody] Account partialAccount)
         {
             var updated = await _service.PatchAsync(id, partialAccount);
+            if (updated == null)
+                return NotFound(new { Message = $"Account {id} not found" });
+
             return Ok(updated);
         }
 
         // Get account by ID
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(long id)
+        public async Task<IActionResult> Get(string id)
         {
             var account = await _service.GetAccountByIdAsync(id);
+            if (account == null)
+                return NotFound(new { Message = $"Account {id} not found" });
+
             return Ok(account);
         }
 
         // Get accounts by Customer ID (foreign key)
-        [HttpGet("by-customer/{customerId:long}")]
+        [HttpGet("by-customer/{customerId}")]
         public async Task<IActionResult> GetByCustomerId(long customerId)
         {
             var accounts = await _service.GetAccountsByCustomerIdAsync(customerId);
+            if (accounts == null || !accounts.Any())
+                return NotFound(new { Message = $"No accounts found for CustomerId {customerId}" });
+
             return Ok(accounts);
         }
 
         // Full update (PUT)
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(long id, [FromBody] Account account)
+        public async Task<IActionResult> Update(string id, [FromBody] Account account)
         {
             account.AccountId = id;
             var updated = await _service.UpdateAccountAsync(account);
+            if (updated == null)
+                return NotFound(new { Message = $"Account {id} not found" });
+
             return Ok(updated);
         }
 
-        // Delete account
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(long id)
-        {
-            await _service.DeleteAccountAsync(id);
-            return Ok(new { Message = $"Account {id} deleted successfully" });
-        }
+        //// Delete account
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> Delete(string id)
+        //{
+        //    var deleted = await _service.DeleteAccountAsync(id);
+        //    if (!deleted)
+        //        return NotFound(new { Message = $"Account {id} not found" });
+
+        //    return Ok(new { Message = $"Account {id} deleted successfully" });
+        //}
     }
 }

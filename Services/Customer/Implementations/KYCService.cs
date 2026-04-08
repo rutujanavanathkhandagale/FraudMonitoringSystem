@@ -74,6 +74,7 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
         }
 
 
+
         public async Task<KYCProfile?> VerifyAsync(long id)
         {
             var profile = await _repository.GetByIdAsync(id);

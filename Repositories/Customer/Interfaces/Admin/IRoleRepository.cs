@@ -4,12 +4,21 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin
 {
     public interface IRoleRepository
     {
-        Task<IEnumerable<Role>> GetAllAsync();
-        Task<Role?> GetByIdAsync(int id);
-        Task<Role?> GetByNameAsync(string roleName);
+
+        Task<List<Role>> GetAllAsync();
+
+        Task<Role?> GetByIdAsync(string id);
+
+        Task<Role?> GetByNameAsync(string name);
+
         Task AddAsync(Role role);
-        void Update(Role role);
-        void Delete(Role role);
+
+        Task DeleteAsync(Role role);
+
         Task SaveAsync();
+
+        Task<string?> GetLastRoleIdAsync(); // NEW
+
+
     }
 }

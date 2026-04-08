@@ -1,5 +1,4 @@
 ﻿using FraudMonitoringSystem.DTOs.Customer;
-using FraudMonitoringSystem.Exceptions;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
@@ -15,13 +14,10 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             _repo = repo;
         }
 
-        public async Task<CustomerDto> GetByIdAsync(long id)
+        public async Task<CustomerDto?> GetByIdAsync(long id)
         {
             var entity = await _repo.GetByIdAsync(id);
-            if (entity == null)
-                throw PersonalDetailsException.NotFound($"Customer {id} not found");
-
-            return MapToDto(entity);
+            return entity == null ? null : MapToDto(entity);
         }
 
         public async Task<List<CustomerDto>> GetAllAsync()
@@ -30,13 +26,13 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             return list.Select(MapToDto).ToList();
         }
 
-        public async Task<CustomerDto> CreateAsync(CustomerDto dto)
+        public async Task<CustomerDto?> CreateAsync(CustomerDto dto)
         {
             var entity = MapToEntity(dto);
             var result = await _repo.AddAsync(entity);
 
             if (result == 0)
-                throw PersonalDetailsException.Validation("Failed to create customer");
+                return null; // failed create
 
             return MapToDto(entity);
         }
@@ -53,27 +49,24 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
             return entity == null ? null : MapToDto(entity);
         }
 
-
-        public async Task<CustomerDto> UpdateAsync(CustomerDto dto)
+        public async Task<CustomerDto?> UpdateAsync(CustomerDto dto)
         {
             var entity = MapToEntity(dto);
             var result = await _repo.UpdateAsync(entity);
 
             if (result == 0)
-                throw PersonalDetailsException.NotFound($"Customer {dto.CustomerId} not found");
+                return null; // failed update
 
             return MapToDto(entity);
         }
 
-        public async Task DeleteAsync(long id)
+        public async Task<bool> DeleteAsync(long id)
         {
             var result = await _repo.DeleteAsync(id);
-
-            if (result == 0)
-                throw PersonalDetailsException.NotFound($"Customer {id} not found");
+            return result > 0; // return false if not deleted
         }
 
-        // ✅ Corrected mapping: includes ALL fields
+        // Mapping methods
         private CustomerDto MapToDto(PersonalDetails e) => new CustomerDto
         {
             CustomerId = e.CustomerId,

@@ -9,7 +9,7 @@ namespace FraudMonitoringSystem.Services.Customer.Interfaces
         Task<List<CustomerDto>> GetAllAsync();
         Task<CustomerDto> CreateAsync(CustomerDto dto);
         Task<CustomerDto> UpdateAsync(CustomerDto dto);
-        Task DeleteAsync(long id);
+        Task<bool> DeleteAsync(long id);
 
      
         Task<List<CustomerDto>> SearchByNameAsync(string name);

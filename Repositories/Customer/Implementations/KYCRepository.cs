@@ -52,6 +52,8 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations
         }
 
 
+
+
         public async Task<List<KYCProfile>> SearchAsync(string query)
         {
             return await _context.KYCProfile

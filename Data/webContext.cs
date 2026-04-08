@@ -6,7 +6,6 @@ using FraudMonitoringSystem.Models.AlertsCase;
 using FraudMonitoringSystem.Models.ComplianceOfficer;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Models.Investigator;
-using FraudMonitoringSystem.Models.Notification;
 using FraudMonitoringSystem.Models.Rules;
 using FraudMonitoringSystem.Models.WatchList;
 using Microsoft.EntityFrameworkCore;
@@ -24,15 +23,12 @@ namespace FraudMonitoringSystem.Data
         public DbSet<KYCProfile> KYCProfile { get; set; }
             
         // Messaging/Notification
-        public DbSet<ChatMessage> ChatMessages { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
-        public DbSet<DocumentAttachment> DocumentAttachments { get; set; }
+      
 
         // Security/Admin
         public DbSet<SystemUser> SystemUsers { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Permission> Permissions { get; set; }
-        public DbSet<RolePermission> RolePermissions { get; set; }
 
         // Rules/Scenarios
         public DbSet<Scenario> Scenarios { get; set; }
@@ -63,27 +59,67 @@ namespace FraudMonitoringSystem.Data
 	
         public DbSet<WatchlistEntry> WatchlistEntries { get; set; }
 
+        public DbSet<AuditLog> AuditLogs { get; set; }
+
+
         // Entity Links
         public DbSet<EntityLink> EntityLinks { get; set; }
+
+        public DbSet<NotificationEntity> Notifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Role config
+
+
+
+            //modelBuilder.Entity<RolePermission>()
+            //    .HasOne(rp => rp.Role)
+            //    .WithMany(r => r.RolePermissions)
+            //    .HasForeignKey(rp => rp.RoleId);
+
+            //modelBuilder.Entity<RolePermission>()
+            //    .HasOne(rp => rp.Permission)
+            //    .WithMany(p => p.RolePermissions)
+            //    .HasForeignKey(rp => rp.PermissionId);
+
             modelBuilder.Entity<Role>()
+
+           .HasKey(r => r.RoleId);
+
+
+            modelBuilder.Entity<Role>()
+
+                .Property(r => r.RoleId)
+
+                .HasMaxLength(10)
+
+                .IsRequired();
+
+
+            modelBuilder.Entity<Role>()
+
                 .HasIndex(r => r.RoleName)
+
                 .IsUnique();
 
-            modelBuilder.Entity<RolePermission>()
-                .HasOne(rp => rp.Role)
-                .WithMany(r => r.RolePermissions)
-                .HasForeignKey(rp => rp.RoleId);
 
-            modelBuilder.Entity<RolePermission>()
-                .HasOne(rp => rp.Permission)
-                .WithMany(p => p.RolePermissions)
-                .HasForeignKey(rp => rp.PermissionId);
+
+            modelBuilder.Entity<SystemUser>()
+
+                   .HasIndex(su => su.SystemUserCode)
+
+                   .IsUnique();
+
+
+            modelBuilder.Entity<SystemUser>()
+
+                .Property(su => su.SystemUserCode)
+
+                .IsRequired()
+
+                .HasMaxLength(20);
 
             // Account → Customer
             modelBuilder.Entity<Account>()
@@ -95,7 +131,7 @@ namespace FraudMonitoringSystem.Data
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.Account)
                 .WithMany()
-                .HasForeignKey(t => t.AccountID)
+                .HasForeignKey(t => t.AccountId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Transaction → Customer
@@ -129,10 +165,7 @@ namespace FraudMonitoringSystem.Data
                 .Property(d => d.Threshold)
                 .HasPrecision(18, 2);
 
-            modelBuilder.Entity<DocumentAttachment>()
-                .HasOne(d => d.ChatMessage)
-                .WithMany(c => c.Attachments)
-                .HasForeignKey(d => d.ChatMessageId);
+           
 
             modelBuilder.Entity<EntityLink>()
                 .HasKey(e => e.LinkId);

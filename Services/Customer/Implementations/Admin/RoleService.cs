@@ -4,89 +4,142 @@ using FraudMonitoringSystem.Exceptions.Admin;
 using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
+using System.Text.RegularExpressions;
 
 namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin
 {
     public class RoleService : IRoleService
     {
-        private readonly IRoleRepository _repository;
-        public RoleService(IRoleRepository repository) => _repository = repository;
+        private readonly IRoleRepository _repo;
 
-        public async Task<IEnumerable<RoleResponseDto>> GetAllAsync()
+
+        public RoleService(IRoleRepository repo)
+
         {
-            var roles = await _repository.GetAllAsync();
-            return roles.Select(r => new RoleResponseDto
-            {
-                RoleId = r.RoleId,
-                RoleName = r.RoleName,
-                Description = r.Description
-            });
+            _repo = repo;
+
         }
 
-        public async Task<RoleResponseDto> GetByIdAsync(int id)
-        {
-            if (id <= 0) throw new InvalidRoleException("Invalid Role Id");
-            var role = await _repository.GetByIdAsync(id) ?? throw new RoleNotFoundException("Role not found");
+        public async Task<Role> CreateAsync(RoleCreateDto dto)
 
-            return new RoleResponseDto
-            {
-                RoleId = role.RoleId,
-                RoleName = role.RoleName,
-                Description = role.Description
-            };
-        }
-
-        public async Task<string> CreateAsync(RoleCreateDto dto)
         {
-            var name = dto.RoleName?.Trim();
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(dto.RoleName))
+
                 throw new InvalidRoleException("Role name is required");
 
-            var existing = await _repository.GetByNameAsync(name);
-            if (existing != null)
-                throw new Exceptions.RoleAlreadyExistsException("Role already exists");
+
+            var name = dto.RoleName.Trim();
+
+            if (!Regex.IsMatch(name, @"^[A-Za-z ]+$"))
+
+                throw new InvalidRoleException("Role name must contain letters only");
+
+
+            var exists = await _repo.GetByNameAsync(name);
+
+            if (exists != null)
+
+                throw new RoleAlreadyyExistsException("Role already exists");
+
+
+            // ✅ R101 generation
+            string nextId;
+
+            var lastId = await _repo.GetLastRoleIdAsync();
+
+
+            if (string.IsNullOrEmpty(lastId))
+
+                nextId = "R101";
+
+            else
+            {
+                var num = int.Parse(lastId.Substring(1));
+
+                nextId = $"R{num + 1}";
+
+            }
 
             var role = new Role
             {
+                RoleId = nextId,
+
                 RoleName = name,
-                Description = dto.Description?.Trim(),
+
+                Description = dto.Description?.Trim()
+
             };
 
-            await _repository.AddAsync(role);
-            await _repository.SaveAsync();
-            return "Role created successfully";
+            await _repo.AddAsync(role);
+
+            await _repo.SaveAsync();
+
+            return role;
+
         }
 
-        public async Task<string> UpdateAsync(int id, RoleUpdateDto dto)
-        {
-            if (id != dto.RoleId)
-                throw new InvalidRoleException("Route Id and Body Id do not match");
+        public async Task<List<Role>> GetAllAsync() =>
+            await _repo.GetAllAsync();
 
-            var role = await _repository.GetByIdAsync(id) ?? throw new RoleNotFoundException("Role not found");
+
+        public async Task<Role> GetByIdAsync(string id)
+
+        {
+            if (string.IsNullOrWhiteSpace(id))
+
+                throw new InvalidRoleException("Invalid Role ID");
+
+
+            return await _repo.GetByIdAsync(id)
+
+                ?? throw new RoleNotFoundException("Role not found");
+
+        }
+
+        public async Task<Role> UpdateAsync(string id, RoleUpdateDto dto)
+
+        {
+            var role = await GetByIdAsync(id);
+
 
             var name = dto.RoleName?.Trim();
+
             if (string.IsNullOrWhiteSpace(name))
+
                 throw new InvalidRoleException("Role name is required");
 
-            var existing = await _repository.GetByNameAsync(name);
-            if (existing != null && existing.RoleId != id)
-                throw new Exceptions.RoleAlreadyExistsException("Role already exists");
+
+            var exists = await _repo.GetByNameAsync(name);
+
+            if (exists != null && exists.RoleId != id)
+
+                throw new RoleAlreadyyExistsException("Role already exists");
+
 
             role.RoleName = name;
+
             role.Description = dto.Description?.Trim();
-            _repository.Update(role);
-            await _repository.SaveAsync();
-            return "Role updated successfully";
+
+
+            await _repo.SaveAsync();
+
+            return role;
+
         }
 
-        public async Task<string> DeleteAsync(int id)
+
+        public async Task DeleteAsync(string id)
+
         {
-            if (id <= 0) throw new InvalidRoleException("Invalid Role Id");
-            var role = await _repository.GetByIdAsync(id) ?? throw new RoleNotFoundException("Role not found");
 
-            _repository.Delete(role);
-            await _repository.SaveAsync();
-            return "Role deleted successfully";
+            var role = await GetByIdAsync(id);
+
+            await _repo.DeleteAsync(role);
+
+            await _repo.SaveAsync();
+
         }
+
     }
+
 }

@@ -1,13 +1,23 @@
 ﻿using FraudMonitoringSystem.DTOs.Admin;
+using FraudMonitoringSystem.Models.Admin;
 
 namespace FraudMonitoringSystem.Services.Customer.Interfaces.Admin
 {
     public interface IRoleService
     {
-        Task<IEnumerable<RoleResponseDto>> GetAllAsync();
-        Task<RoleResponseDto> GetByIdAsync(int id);
-        Task<string> CreateAsync(RoleCreateDto dto);
-        Task<string> UpdateAsync(int id, RoleUpdateDto dto);
-        Task<string> DeleteAsync(int id);
+
+
+        Task<Role> CreateAsync(RoleCreateDto dto);
+
+        Task<List<Role>> GetAllAsync();
+
+        Task<Role> GetByIdAsync(string id);
+
+        Task<Role> UpdateAsync(string id, RoleUpdateDto dto);
+
+        Task DeleteAsync(string id);
+
+
     }
+
 }
