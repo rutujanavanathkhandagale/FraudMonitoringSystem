@@ -2,15 +2,7 @@
 using FraudMonitoringSystem.Models.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 
-using System.Collections.Generic;
-
-using System.Linq;
-
-using System.Threading.Tasks;
-
-using FraudMonitoringSystem.Models.ComplianceOfficer;
 
 public class RegulatoryReportRepository : IRegulatoryReportRepository
 
@@ -26,156 +18,145 @@ public class RegulatoryReportRepository : IRegulatoryReportRepository
 
     }
 
-    public Regulatory_Report GenerateReport(int customerId)
+    public async Task<Regulatory_Report> CreateAsync(Regulatory_Report report)
 
     {
 
-        var caseData = _context.Cases
-
-            .FirstOrDefault(c => c.CustomerId == customerId);
-
-        if (caseData == null)
-
-            throw new Exception("Case not found");
-
-        var checklist = _context.Control_Checklist
-
-            .FirstOrDefault(c => c.CaseID== caseData.CaseID);
-
-        var transaction = _context.Transactions
-
-            .FirstOrDefault(t => t.CustomerId == customerId);
-
-        string reportType = "SAR";
-
-        string status = "Fail";
-
-        // Currency Logic
-
-        if (transaction != null && transaction.Currency == "INR")
-
-            reportType = "STR";
-
-        else
-
-            reportType = "SAR";
-
-        // Control Checklist Logic
-
-        if (checklist != null && checklist.OverallResult == "Pass")
-
-            status = "Pass";
-
-        // Trusted Source Logic
-
-        var trustedSources = new List<string>
-
-        {
-
-            "LIC",
-
-            "Bank",
-
-            "Scholarship",
-
-            "Government",
-
-            "IncomeTax"
-
-        };
-
-        if (transaction != null && trustedSources.Contains(transaction.SourceType))
-
-            status = "Pass";
-
-        var report = new Regulatory_Report
-
-        {
-
-            CaseID = caseData.CaseID,
-
-            ReportType = reportType,
-
-            Period = DateTime.Now.ToString("yyyy-MM"),
-
-            SubmittedDate = DateTime.Now,
-
-            Status = status
-
-        };
-
         _context.Regulatory_Report.Add(report);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
 
         return report;
 
     }
 
-    public IEnumerable<Regulatory_Report> GetByCustomerId(int customerId)
+    public async Task<List<Regulatory_Report>> GetAllAsync()
 
     {
 
-        return _context.Regulatory_Report
-
-            .Where(r => r.Case.CustomerId == customerId)
-
-            .ToList();
+        return await _context.Regulatory_Report.ToListAsync();
 
     }
 
-    public IEnumerable<Regulatory_Report> GetByStatus(string status)
+    public async Task<Regulatory_Report?> GetByIdAsync(int reportId)
 
     {
 
-        return _context.Regulatory_Report
-
-            .Where(r => r.Status == status)
-
-            .ToList();
+        return await _context.Regulatory_Report.FindAsync(reportId);
 
     }
 
-    public Regulatory_Report UpdateReport(int id, Regulatory_Report report)
+    public async Task<List<Regulatory_Report>> GetByCaseIdAsync(int caseId)
 
     {
 
-        var existing = _context.Regulatory_Report
+        return await _context.Regulatory_Report
 
-            .FirstOrDefault(r => r.ReportID == id);
+            .Where(r => r.CaseID == caseId)
 
-        if (existing == null)
+            .ToListAsync();
 
-            throw new Exception("Report not found");
+    }
 
-        existing.Status = report.Status;
+
+    public async Task<Regulatory_Report?> UpdateAsync(Regulatory_Report report)
+
+    {
+
+        var existing = await _context.Regulatory_Report.FindAsync(report.ReportID);
+
+        if (existing == null) return null;
 
         existing.ReportType = report.ReportType;
 
-        _context.SaveChanges();
+        existing.Period = report.Period;
+
+        existing.SubmittedDate = report.SubmittedDate;
+
+        existing.Status = report.Status;
+
+        await _context.SaveChangesAsync();
 
         return existing;
 
     }
 
-    public bool DeleteReport(int id)
+    public async Task<bool> DeleteAsync(int reportId)
 
     {
 
-        var report = _context.Regulatory_Report
+        var report = await _context.Regulatory_Report.FindAsync(reportId);
 
-            .FirstOrDefault(r => r.ReportID == id);
-
-        if (report == null)
-
-            return false;
+        if (report == null) return false;
 
         _context.Regulatory_Report.Remove(report);
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
 
         return true;
 
     }
+    public async Task<bool> FreezeCustomerAccountsByCaseIdAsync(int caseId)
+    {
+        //Find the Case first
+        var alertCase = await _context.Cases.FirstOrDefaultAsync(c => c.CaseID == caseId);
+
+        if (alertCase == null)
+        {
+            Console.WriteLine($"DEBUG: Case {caseId} not found in database.");
+            return false;
+        }
+
+        // Use the CustomerId from that case to find accounts
+        var accounts = await _context.Accounts
+            .Where(a => a.CustomerId == alertCase.CustomerId)
+            .ToListAsync();
+
+        if (accounts.Count == 0)
+        {
+            Console.WriteLine($"DEBUG: No accounts found for Customer {alertCase.CustomerId}.");
+            return false;
+        }
+
+        // Freeze them
+        foreach (var acc in accounts)
+        {
+            acc.Status = "Frozen";
+        }
+
+        await _context.SaveChangesAsync();
+        return true;
+    }
+    // UPDATE BY CASE ID
+    public async Task<Regulatory_Report?> UpdateByCaseIdAsync(Regulatory_Report report)
+    {
+        var existing = await _context.Regulatory_Report
+            .FirstOrDefaultAsync(r => r.CaseID == report.CaseID);
+
+        if (existing == null) return null;
+
+        existing.ReportType = report.ReportType;
+        existing.Period = report.Period;
+        existing.Status = report.Status;
+        existing.SubmittedDate = report.SubmittedDate;
+
+        await _context.SaveChangesAsync();
+        return existing;
+    }
+
+    // DELETE BY CASE ID
+    public async Task<bool> DeleteByCaseIdAsync(int caseId)
+    {
+        var report = await _context.Regulatory_Report
+            .FirstOrDefaultAsync(r => r.CaseID == caseId);
+
+        if (report == null) return false;
+
+        _context.Regulatory_Report.Remove(report);
+        await _context.SaveChangesAsync();
+        return true;
+    }
 
 }
+ 
+

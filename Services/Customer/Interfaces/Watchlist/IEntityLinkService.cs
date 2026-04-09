@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FraudMonitoringSystem.Services.Customer.Interfaces.Watchlist
 {
-   
-  
 
-
-    
         public interface IEntityLinkService
         {
             Task<IEnumerable<EntityLinkDto>> GetLinksByCustomerIdAsync(long customerId);

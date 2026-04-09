@@ -1,12 +1,17 @@
 ﻿using FraudMonitoringSystem.Models;
 
-namespace FraudMonitoringSystem.Interfaces
+public interface IControlChecklistService
+
 {
-    public interface IControlChecklistService
-    {
-        Task<IEnumerable<ControlChecklist>> GetHistoryAsync(string status);
-        Task<ControlChecklist> CreateAnalysisAsync(ControlChecklist checklist);
-        Task<ControlChecklist> UpdateAnalysisAsync(int caseId, List<ControlDetail> details);
-        Task<bool> RemoveAnalysisAsync(int caseId);
-    }
+    
+
+
+    Task<ControlChecklist> CreateAnalysisAsync(ControlChecklist checklist);
+
+    Task<ControlChecklist> UpdateAnalysisAsync(int caseId, List<ControlDetail> details);
+
+    Task<IEnumerable<ControlChecklist>> GetHistoryAsync(string status);
+
+    Task<bool> RemoveAnalysisAsync(int caseId);
+
 }

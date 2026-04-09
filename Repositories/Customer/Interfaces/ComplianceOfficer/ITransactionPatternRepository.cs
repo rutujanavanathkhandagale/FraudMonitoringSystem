@@ -1,12 +1,13 @@
-﻿using FraudMonitoringSystem.Models;
-using FraudMonitoringSystem.Models.Customer;
-using FraudMonitoringSystem.Models.Investigator;
+﻿using FraudMonitoringSystem.Models.Investigator;
 
 public interface ITransactionPatternRepository
+
 {
-    Task<PersonalDetails> GetCustomerByIdAsync(int customerId);
+
+    Task<Transaction> GetTransactionByIdAsync(int transactionID);
+
     Task<List<Transaction>> GetTransactionsByCustomerIdAsync(int customerId);
-    Task<int> GetMappedAlertCountAsync(int customerId);
-    Task<Alert> GetHighestSeverityAlertAsync(int customerId);
-    Task SaveRiskScoreAsync(RiskScore score);
+
+    Task<RiskScore> GetRiskScoreByTransactionIdAsync(int transactionID);
+
 }

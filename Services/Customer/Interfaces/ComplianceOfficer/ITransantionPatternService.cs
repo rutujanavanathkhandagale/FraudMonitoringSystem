@@ -1,6 +1,10 @@
 ﻿using FraudMonitoringSystem.Models.DTOs;
 
+
 public interface ITransactionPatternService
+
 {
-    Task<TransactionPatternAnalysis> AnalyzePatternAsync(int customerId);
+
+    Task<TransactionPatternAnalysis> AnalyzeAsync(int customerId, int transactionID);
+
 }

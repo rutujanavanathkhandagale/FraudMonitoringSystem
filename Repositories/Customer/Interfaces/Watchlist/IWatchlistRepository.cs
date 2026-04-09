@@ -9,5 +9,10 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.Watchlist
         Task AddAsync(WatchlistEntry entry);
         Task UpdateAsync(WatchlistEntry entry);
         Task DeleteAsync(long id);
+
+        //  Logic to match Customer identifier
+        Task<List<EntityLink>> GetByCustomerIdAsync(int customerId);
+
+        Task<WatchlistEntry?> GetByMatchIdentifierAsync(string identifier);
     }
 }

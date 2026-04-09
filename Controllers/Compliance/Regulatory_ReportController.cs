@@ -1,90 +1,164 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
-using Microsoft.AspNetCore.Mvc;
+using FraudMonitoringSystem.Services.Interfaces;
 
-using Microsoft.AspNetCore.Mvc;
+using FraudMonitoringSystem.DTOs.ComplianceOfficer;
 
 using FraudMonitoringSystem.Models.ComplianceOfficer;
 
-using Microsoft.AspNetCore.Mvc;
-
-using FraudMonitoringSystem.Models.ComplianceOfficer;
-
-using Microsoft.AspNetCore.Mvc;
-
-using FraudMonitoringSystem.Models.ComplianceOfficer;
-
-[ApiController]
-
-[Route("api/[controller]")]
-
-public class RegulatoryReportController : ControllerBase
+namespace FraudMonitoringSystem.Controllers.ComplianceOfficer
 
 {
 
-    private readonly IRegulatoryReportService _service;
+    [ApiController]
 
-    public RegulatoryReportController(IRegulatoryReportService service)
+    [Route("api/[controller]")]
 
-    {
-
-        _service = service;
-
-    }
-
-    [HttpPost("{customerId}")]
-
-    public IActionResult GenerateReport(int customerId)
+    public class RegulatoryReportController : ControllerBase
 
     {
 
-        var result = _service.GenerateReport(customerId);
+        private readonly IRegulatoryReportService _service;
 
-        return Ok(result);
+        public RegulatoryReportController(IRegulatoryReportService service)
 
-    }
+        {
 
-    [HttpGet("customer/{customerId}")]
+            _service = service;
 
-    public IActionResult GetByCustomer(int customerId)
+        }
 
-    {
+        //CREATE REPORT
 
-        return Ok(_service.GetByCustomerId(customerId));
+        [HttpPost]
 
-    }
+        public async Task<IActionResult> Create([FromBody] CreateReportDto dto)
 
-    [HttpGet("status/{status}")]
+        {
 
-    public IActionResult GetByStatus(string status)
+            if (!ModelState.IsValid)
 
-    {
+                return BadRequest(ModelState);
 
-        return Ok(_service.GetByStatus(status));
+            var result = await _service.CreateAsync(dto);
 
-    }
+            return Ok(result);
 
-    [HttpPut("{id}")]
+        }
 
-    public IActionResult Update(int id, Regulatory_Report report)
+        //GET ALL REPORTS
 
-    {
+        [HttpGet]
 
-        return Ok(_service.UpdateReport(id, report));
+        public async Task<IActionResult> GetAll()
 
-    }
+        {
 
-    [HttpDelete("{id}")]
+            var reports = await _service.GetAllAsync();
 
-    public IActionResult Delete(int id)
+            return Ok(reports);
 
-    {
+        }
 
-        return Ok(_service.DeleteReport(id));
+        //GET REPORT BY ID
+
+        [HttpGet("{id}")]
+
+        public async Task<IActionResult> GetById(int id)
+
+        {
+
+            var report = await _service.GetByIdAsync(id);
+
+            if (report == null)
+
+                return NotFound($"Report with ID {id} not found");
+
+            return Ok(report);
+
+        }
+
+        // GET REPORTS BY CASE ID
+
+        [HttpGet("case/{caseId}")]
+
+        public async Task<IActionResult> GetByCaseId(int caseId)
+
+        {
+
+            var reports = await _service.GetByCaseIdAsync(caseId);
+
+            return Ok(reports);
+
+        }
+
+        // UPDATE REPORT
+
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> Update(int id, [FromBody] RegulatoryReportUpdateDto dto)
+
+        {
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            var updated = await _service.UpdateAsync(id, dto);
+
+            if (updated == null)
+
+                return NotFound($"Report with ID {id} not found");
+
+            return Ok(updated);
+
+        }
+
+        // DELETE REPORT
+
+        [HttpDelete("{id}")]
+
+        public async Task<IActionResult> Delete(int id)
+
+        {
+
+            var deleted = await _service.DeleteAsync(id);
+
+            if (!deleted)
+
+                return NotFound($"Report with ID {id} not found");
+
+            return Ok("Deleted successfully");
+
+
+        }
+        // UPDATE REPORT BY CASE ID
+        [HttpPut("case/{caseId}")]
+        public async Task<IActionResult> UpdateByCaseId(int caseId, [FromBody] RegulatoryReportUpdateDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var updated = await _service.UpdateByCaseIdAsync(caseId, dto);
+
+            if (updated == null)
+                return NotFound($"No report found for Case ID {caseId}");
+
+            return Ok(updated);
+        }
+
+        // DELETE REPORT BY CASE ID
+        [HttpDelete("case/{caseId}")]
+        public async Task<IActionResult> DeleteByCaseId(int caseId)
+        {
+            var deleted = await _service.DeleteByCaseIdAsync(caseId);
+
+            if (!deleted)
+                return NotFound($"No report found for Case ID {caseId}");
+
+            return Ok($"Report for Case #{caseId} deleted successfully");
+        }
 
     }
 
 }
-

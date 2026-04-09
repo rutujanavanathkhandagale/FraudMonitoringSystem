@@ -1,35 +1,66 @@
 ﻿using FraudMonitoringSystem.Data;
+
 using FraudMonitoringSystem.Models;
-using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Models.Investigator;
 using Microsoft.EntityFrameworkCore;
 
 public class TransactionPatternRepository : ITransactionPatternRepository
+
 {
+
     private readonly WebContext _context;
-    public TransactionPatternRepository(WebContext context) => _context = context;
 
-    public async Task<PersonalDetails> GetCustomerByIdAsync(int customerId) =>
-        await _context.PersonalDetails.FirstOrDefaultAsync(c => c.CustomerId == customerId);
+    public TransactionPatternRepository(WebContext context)
 
-    public async Task<List<Transaction>> GetTransactionsByCustomerIdAsync(int customerId) =>
-        await _context.Transactions.Where(t => t.CustomerId == customerId)
-            .OrderByDescending(t => t.Timestamp).ToListAsync();
-
-    public async Task<int> GetMappedAlertCountAsync(int customerId) =>
-        await (from map in _context.AlertCaseMappings
-               join c in _context.Cases on map.CaseID equals c.CaseID
-               where c.CustomerId == customerId
-               select map).CountAsync();
-
-    public async Task<Alert> GetHighestSeverityAlertAsync(int customerId) =>
-        await _context.Alerts.Where(a => _context.Transactions
-            .Where(t => t.CustomerId == customerId).Select(t => t.TransactionID).Contains(a.TransactionID))
-            .OrderByDescending(a => a.Severity).FirstOrDefaultAsync();
-
-    public async Task SaveRiskScoreAsync(RiskScore score)
     {
-        _context.RiskScores.Add(score);
-        await _context.SaveChangesAsync();
+
+        _context = context;
+
     }
+
+    // Get single transaction
+
+    public async Task<Transaction> GetTransactionByIdAsync(int transactionId)
+
+    {
+        return await _context.Transactions
+
+            .AsNoTracking()
+
+            .FirstOrDefaultAsync(t => t.TransactionID == transactionId);
+
+    }
+
+    //Get ALL transactions of a customer
+
+    public async Task<List<Transaction>> GetTransactionsByCustomerIdAsync(int customerId)
+
+    {
+
+        return await _context.Transactions
+
+            .AsNoTracking()
+
+            .Where(t => t.CustomerId == customerId)
+
+            .OrderByDescending(t => t.Timestamp) // latest first
+
+            .ToListAsync();
+
+    }
+
+    //Get risk score
+
+    public async Task<RiskScore> GetRiskScoreByTransactionIdAsync(int transactionId)
+
+    {
+
+        return await _context.RiskScores
+
+            .AsNoTracking()
+
+            .FirstOrDefaultAsync(r => r.TransactionID == transactionId);
+
+    }
+
 }

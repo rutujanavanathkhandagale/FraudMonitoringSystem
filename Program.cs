@@ -2,7 +2,6 @@
 using FraudMonitoringSystem.Authentication;
 using FraudMonitoringSystem.Data;
 using FraudMonitoringSystem.Hub;
-using FraudMonitoringSystem.Interfaces;
 using FraudMonitoringSystem.Repositories;
 using FraudMonitoringSystem.Repositories.Customer.Implementations;
 using FraudMonitoringSystem.Repositories.Customer.Implementations.Admin;

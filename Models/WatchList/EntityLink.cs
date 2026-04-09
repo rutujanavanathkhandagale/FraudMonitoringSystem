@@ -15,7 +15,7 @@ namespace FraudMonitoringSystem.Models.WatchList
 
         [Required]
         [RegularExpression("Owner|Authorized|Associated",
-            ErrorMessage = "LinkType must be Owner, Authorized, or Associated")]
+        ErrorMessage = "LinkType must be Owner, Authorized, or Associated")]
         public string LinkType { get; set; }
     }
 }

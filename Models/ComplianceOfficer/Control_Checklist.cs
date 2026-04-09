@@ -45,7 +45,7 @@ namespace FraudMonitoringSystem.Models
 
         [Required]
         [StringLength(100)]
-        public string ControlName { get; set; } = string.Empty; // e.g., "KYC Verification"
+        public string ControlName { get; set; } = string.Empty; // "KYC Verification"
 
         [Required]
         [RegularExpression("PASS|FAIL|PENDING", ErrorMessage = "Status must be PASS, FAIL, or PENDING.")]

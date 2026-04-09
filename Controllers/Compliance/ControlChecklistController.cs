@@ -1,37 +1,105 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using FraudMonitoringSystem.Models;
+﻿using FraudMonitoringSystem.Models;
+
+using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
+
 [Route("api/[controller]")]
+
 public class ControlChecklistController : ControllerBase
+
 {
-    private readonly ControlChecklistService _service;
-    public ControlChecklistController(ControlChecklistService service) => _service = service;
 
-    [HttpGet] // GET /api/ControlChecklist?status=PASS
-    public async Task<IActionResult> GetHistory([FromQuery] string status = "ALL") => Ok(await _service.GetHistoryAsync(status));
+    private readonly IControlChecklistService _service;
 
-    [HttpPost] // POST /api/ControlChecklist
-    public async Task<IActionResult> Create([FromBody] ControlChecklist checklist)
+    public ControlChecklistController(IControlChecklistService service)
+
     {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        _service = service;
+
+    }
+
+    // ================= GET ALL =================
+
+    [HttpGet]
+
+    public async Task<IActionResult> GetHistory([FromQuery] string status = "ALL")
+
+    {
+
+        var result = await _service.GetHistoryAsync(status);
+
+        return Ok(result ?? new List<ControlChecklist>());
+
+    }
+
+    // ================= GET BY CASE =================
+
+    [HttpGet("{caseId}")]
+
+    public async Task<IActionResult> GetByCaseId(int caseId)
+
+    {
+
+        var result = await _service.GetHistoryAsync("ALL");
+
+        var data = result.FirstOrDefault(x => x.CaseID == caseId);
+
+        if (data == null) return NotFound();
+
+        return Ok(data);
+
+    }
+
+    // ================= CREATE =================
+    [HttpPost]
+    public async Task<IActionResult> SaveChecklist([FromBody] ControlChecklist request)
+    {
         try
         {
-            var res = await _service.CreateAnalysisAsync(checklist);
-            return CreatedAtAction(nameof(GetHistory), new { id = res.Id }, res);
+            if (request == null) return BadRequest("Invalid request");
+
+            // The Service we updated in Step 2 will now force the FAIL status
+            var result = await _service.CreateAnalysisAsync(request);
+
+            return Ok(new
+            {
+                message = "Checklist created successfully",
+                data = result
+            });
         }
-        catch (ArgumentException ex) { return BadRequest(new { m = ex.Message }); }
-        catch (KeyNotFoundException ex) { return NotFound(new { m = ex.Message }); }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
     }
 
-    [HttpPut("{caseId}")] // PUT /api/ControlChecklist/101
+    // ================= UPDATE =================
+
+    [HttpPut("{caseId}")]
+
     public async Task<IActionResult> Update(int caseId, [FromBody] List<ControlDetail> details)
+
     {
+
         var res = await _service.UpdateAnalysisAsync(caseId, details);
-        return res == null ? NotFound() : Ok(res);
+
+        if (res == null) return NotFound();
+
+        return Ok(res);
+
     }
 
-    [HttpDelete("{caseId}")] // DELETE /api/ControlChecklist/101
-    public async Task<IActionResult> Delete(int caseId) =>
-        await _service.RemoveAnalysisAsync(caseId) ? NoContent() : NotFound();
+    // ================= DELETE =================
+
+    [HttpDelete("{caseId}")] 
+    public async Task<IActionResult> Delete([FromRoute] int caseId)
+    {
+        var deleted = await _service.RemoveAnalysisAsync(caseId);
+        if (!deleted) return NotFound(new { message = $"Analysis with ID {caseId} not found." });
+
+        return NoContent(); 
+    }
+
 }

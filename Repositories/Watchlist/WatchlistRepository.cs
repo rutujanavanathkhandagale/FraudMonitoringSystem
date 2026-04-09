@@ -3,19 +3,15 @@ using FraudMonitoringSystem.Models.WatchList;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Watchlist;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Watchlist
 {
     public class WatchlistRepository : IWatchlistRepository
     {
         private readonly WebContext _context;
-
-        public WatchlistRepository(WebContext context)
-        {
-            _context = context;
-        }
+        public WatchlistRepository(WebContext context) => _context = context;
 
         public async Task<IEnumerable<WatchlistEntry>> GetAllAsync() =>
+            
             await _context.WatchlistEntries.ToListAsync();
 
         public async Task<WatchlistEntry?> GetByIdAsync(long id) =>
@@ -42,6 +38,32 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Watchlist
                 await _context.SaveChangesAsync();
             }
         }
-    }
 
+        //  Logic to match ACCOUNT number
+        public async Task<WatchlistEntry?> GetByMatchIdentifierAsync(string identifier)
+
+        {
+
+            return await _context.WatchlistEntries
+
+                .FirstOrDefaultAsync(w =>
+
+                    w.Identifier.Trim().ToLower() == identifier.Trim().ToLower()
+                   && w.Status == "Active");
+
+        }
+
+        public async Task<List<EntityLink>> GetByCustomerIdAsync(int customerId)
+
+        {
+
+            return await _context.EntityLinks
+
+                .Where(x => x.FromCustomerId == customerId)
+
+                .ToListAsync();
+
+        }
+
+    }
 }

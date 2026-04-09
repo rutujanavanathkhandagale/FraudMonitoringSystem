@@ -7,11 +7,21 @@ public class TransactionPatternController : ControllerBase
     private readonly ITransactionPatternService _service;
     public TransactionPatternController(ITransactionPatternService service) => _service = service;
 
-    [HttpGet("{customerId}")]
-    public async Task<IActionResult> Get(int customerId)
+    [HttpGet("{customerId}/{transactionID}")]
+
+    public async Task<IActionResult> Analyze(int customerId, int transactionID)
+
     {
-        var result = await _service.AnalyzePatternAsync(customerId);
-        if (result == null) return NotFound(new { message = "Customer entity not found." });
+
+        var result = await _service.AnalyzeAsync(customerId, transactionID);
+
+        if (result == null)
+
+            return NotFound();
+
         return Ok(result);
+
     }
+
+
 }

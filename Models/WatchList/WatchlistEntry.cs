@@ -17,7 +17,7 @@ namespace FraudMonitoringSystem.Models.WatchList
 
         [Required]
         [StringLength(50)]
-        public string Identifier { get; set; } // e.g. Passport No, Account No
+        public string Identifier { get; set; } // Account No
 
         [Required]
         [RegularExpression("Active|Archived")]
