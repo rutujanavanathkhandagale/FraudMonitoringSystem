@@ -20,6 +20,7 @@ using FraudMonitoringSystem.Repositories.Notification;
 using FraudMonitoringSystem.Services.Customer.Implementations;
 using FraudMonitoringSystem.Services.Customer.Implementations.Admin;
 using FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase;
+using FraudMonitoringSystem.Services.Customer.Implementations.Common;
 using FraudMonitoringSystem.Services.Customer.Implementations.Investigator;
 using FraudMonitoringSystem.Services.Customer.Implementations.Rules;
 using FraudMonitoringSystem.Services.Customer.Implementations.Watchlist;
@@ -27,6 +28,7 @@ using FraudMonitoringSystem.Services.Customer.Implementations.Watchlist.FraudMon
 using FraudMonitoringSystem.Services.Customer.Interfaces;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
 using FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Common;
 using FraudMonitoringSystem.Services.Customer.Interfaces.ComplianceOfficer;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Investigator;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Rules;
@@ -172,7 +174,7 @@ builder.Services.AddScoped<ITransactionPatternService, TransactionPatternService
 
 
 //builder.Services.AddScoped<IEntityResolutionRepository, EntityResolutionRepository>();
-//builder.Services.AddScoped<IEntityResolutionService, EntityResolutionService>();
+builder.Services.AddScoped<IAuditLogService, AuditLogService>();
 
 
 //builder.Services.AddScoped<INotificationService, NotificationService>();
@@ -243,13 +245,13 @@ app.UseCors("AllowFrontend"); // apply the CORS policy
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
-    RequestPath = "/Uploads"
+////app.UseStaticFiles(new StaticFileOptions
+////{
+////    FileProvider = new PhysicalFileProvider(
+////        Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
+////    RequestPath = "/Uploads"
 
-});
+//});
 
 
 app.MapControllers();

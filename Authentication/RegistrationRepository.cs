@@ -42,42 +42,58 @@ namespace FraudMonitoringSystem.Authentication
              .FirstOrDefaultAsync(r => r.Role == role);
         }
 
-     
 
-       
-     
+
+
+
+
 
         //Admin Part
-      
+
         public async Task AddSystemUserAsync(Registration registration)
         {
-           
             var exists = await _context.SystemUsers
                 .AnyAsync(u => u.RegistrationId == registration.RegistrationId);
+
             if (exists)
             {
-                return; 
+                return;
             }
 
-           
-            var roleName = registration.Role.ToString(); 
+            // ✅ Map RoleName → RoleId
+            var roleName = registration.Role.ToString();
             var role = await _context.Roles
                 .AsNoTracking()
                 .FirstOrDefaultAsync(r => r.RoleName == roleName);
 
             if (role == null)
             {
-              
                 throw new InvalidOperationException(
                     $"Role '{roleName}' not found in Roles table. Seed/create the role first.");
             }
 
-           
+            // 1. Fetch codes from DB only (SQL‑safe)
+            var codes = await _context.SystemUsers
+                .Select(u => u.SystemUserCode)
+                .Where(code => code.StartsWith("B"))
+                .ToListAsync();
+
+            // 2. Parse in memory (C#)
+            var nextNumber = codes
+                .Select(code => int.Parse(code.Substring(1)))
+                .DefaultIfEmpty(299)
+                .Max() + 1;
+
+
+            var systemUserCode = $"B{nextNumber}";
+
+            // ✅ Create SystemUser with REQUIRED fields
             var systemUser = new SystemUser
             {
                 RegistrationId = registration.RegistrationId,
-                RoleId = role.RoleId
-            
+                RoleId = role.RoleId,
+                SystemUserCode = systemUserCode,
+                IsApproved = false
             };
 
             await _context.SystemUsers.AddAsync(systemUser);

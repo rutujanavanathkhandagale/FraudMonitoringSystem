@@ -2,8 +2,9 @@
 {
     public class RoleResponseDto
     {
-        public int RoleId { get; set; }
+        public string  RoleId { get; set; }
         public string RoleName { get; set; }
-        public string? Description { get; set; }
+         public int ActiveUserCount { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

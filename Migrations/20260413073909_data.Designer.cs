@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FraudMonitoringSystem.Migrations
 {
     [DbContext(typeof(WebContext))]
-    [Migration("20260408044121_data")]
+    [Migration("20260413073909_data")]
     partial class data
     {
         /// <inheritdoc />
@@ -86,8 +86,10 @@ namespace FraudMonitoringSystem.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("EntityId")
-                        .HasColumnType("int");
+                    b.Property<string>("EntityId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("EntityType")
                         .IsRequired()
@@ -99,6 +101,9 @@ namespace FraudMonitoringSystem.Migrations
 
                     b.Property<int>("PerformedBy")
                         .HasColumnType("int");
+
+                    b.Property<string>("PerformedByName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AuditLogId");
 
@@ -206,14 +211,22 @@ namespace FraudMonitoringSystem.Migrations
                     b.Property<int?>("ApprovedBy")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsApproved")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastAssignedRoleId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastAssignedRoleName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RegistrationId")
                         .HasColumnType("int");
 
                     b.Property<string>("RoleId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("SystemUserCode")
@@ -897,10 +910,8 @@ namespace FraudMonitoringSystem.Migrations
                         .IsRequired();
 
                     b.HasOne("FraudMonitoringSystem.Models.Admin.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("SystemUsers")
+                        .HasForeignKey("RoleId");
 
                     b.Navigation("Registration");
 
@@ -1064,6 +1075,11 @@ namespace FraudMonitoringSystem.Migrations
                 {
                     b.Navigation("UserInfo")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.Role", b =>
+                {
+                    b.Navigation("SystemUsers");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.Alert", b =>

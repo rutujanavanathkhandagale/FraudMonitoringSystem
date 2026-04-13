@@ -23,6 +23,7 @@ namespace FraudMonitoringSystem.Models.Admin
 
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public ICollection<SystemUser> SystemUsers { get; set; } = new List<SystemUser>();
 
     }
 

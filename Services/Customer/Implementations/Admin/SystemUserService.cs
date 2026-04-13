@@ -5,8 +5,9 @@ using FraudMonitoringSystem.Exceptions.Admin;
 using FraudMonitoringSystem.Models.Admin;
 using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces.Admin;
+using FraudMonitoringSystem.Services.Customer.Implementations.Common;
 using FraudMonitoringSystem.Services.Customer.Interfaces.Admin;
-using Humanizer;
+using FraudMonitoringSystem.Services.Customer.Interfaces.Common;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
 
@@ -14,275 +15,177 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.Admin
 {
     public class SystemUserService : ISystemUserService
     {
-        private readonly ISystemUserRepository _repository;
-
-        private readonly IRegistrationRepository _registrationRepository;
-
-
+        private readonly ISystemUserRepository _repo;
+        private readonly IRegistrationRepository _regRepo;
         private readonly WebContext _context;
-
+        private readonly IAuditLogService _audit;
 
         public SystemUserService(
-
-            ISystemUserRepository repository,
-
-            IRegistrationRepository registrationRepository,
-
-            WebContext context)
-
+            ISystemUserRepository repo,
+            IRegistrationRepository regRepo,
+            WebContext context,
+            IAuditLogService audit)
         {
-            _repository = repository;
-
-            _registrationRepository = registrationRepository;
-
+            _repo = repo;
+            _regRepo = regRepo;
             _context = context;
-
+            _audit = audit;
         }
 
         public async Task<List<SystemUserResponseDto>> GetAllAsync(int page, int pageSize)
-
         {
-            var users = await _repository.GetAllAsync(page, pageSize);
+            var users = await _repo.GetAllAsync(page, pageSize);
 
+            return users.Select(x => MapToDto(x)).ToList();
+        }
 
-            return users.Select(x => new SystemUserResponseDto
-            {
-                SystemUserId = x.Id,
+        public async Task<SystemUserResponseDto> GetByIdAsync(int id)
+        {
+            var user = await _repo.GetByIdAsync(id)
+                ?? throw new Exception("System user not found");
 
-                SystemUserCode = x.SystemUserCode,
-
-                IsApproved = x.IsApproved,
-
-                ApprovedAt = x.ApprovedAt,
-
-                ApprovedBy = x.ApprovedBy,
-
-
-                RegistrationId = x.Registration.RegistrationId,
-
-                FirstName = x.Registration.FirstName,
-
-                LastName = x.Registration.LastName,
-
-                Email = x.Registration.Email,
-
-                PhoneNo = x.Registration.PhoneNo,
-
-
-                Role = x.Role?.RoleName
-            }).ToList();
-
+            return MapToDto(user);
         }
 
         public async Task<List<SystemUserResponseDto>> GetByRoleIdAsync(string roleId)
-
         {
-            if (string.IsNullOrWhiteSpace(roleId))
-
-                throw new InvalidRoleException("Invalid role id");
-
-
-            var users = await _repository.GetByRoleIdAsync(roleId);
-
-
-            if (!users.Any())
-
-                throw new RoleNotFoundException("No system users found for this role");
-
-
-            return users.Select(x => new SystemUserResponseDto
-            {
-                SystemUserId = x.Id,
-
-                SystemUserCode = x.SystemUserCode,
-
-                IsApproved = x.IsApproved,
-
-                ApprovedAt = x.ApprovedAt,
-
-                ApprovedBy = x.ApprovedBy,
-
-
-                RegistrationId = x.Registration.RegistrationId,
-
-                FirstName = x.Registration.FirstName,
-
-                LastName = x.Registration.LastName,
-
-                Email = x.Registration.Email,
-
-                PhoneNo = x.Registration.PhoneNo,
-
-
-                Role = x.Role?.RoleName
-
-            }).ToList();
-
+            var users = await _repo.GetByRoleIdAsync(roleId);
+            return users.Select(x => MapToDto(x)).ToList();
         }
 
         public async Task AddAsync(SystemUserCreateDto dto)
-
         {
-            var registration = await _registrationRepository.GetByIdAsync(dto.RegistrationId);
+            if (await _repo.ExistsByRegistrationId(dto.RegistrationId))
+                throw new Exception("System user already exists");
 
-            if (registration == null)
-
-                throw new RoleNotFoundException("Registration not found");
-
-
-            if (await _repository.ExistsByRegistrationId(dto.RegistrationId))
-
-                throw new RoleAlreadyyExistsException("System user already exists for this registration");
-
-
-            var nextNumber = await _repository.GetNextSystemUserNumberAsync();
-
+            var next = await _repo.GetNextSystemUserNumberAsync();
 
             var user = new SystemUser
             {
                 RegistrationId = dto.RegistrationId,
-
                 RoleId = dto.RoleId,
-
-                SystemUserCode = $"B{nextNumber}",
-
-                IsApproved = false
+                SystemUserCode = $"B{next}",
+                IsApproved = false,
+                IsActive = false
             };
 
-            await _repository.AddAsync(user);
+            await _repo.AddAsync(user);
+
+            await _audit.LogAsync(
+                "SystemUser",
+                user.Id.ToString(),
+                "CREATE",
+                $"System user {user.SystemUserCode} created",
+                dto.RegistrationId
+            );
+        }
+
+        public async Task ApproveAsync(int id, int adminId)
+        {
+            var user = await _repo.GetByIdAsync(id)
+                ?? throw new Exception("System user not found");
+
+            if(user.IsApproved)
+             return;
 
 
-            _context.AuditLogs.Add(new AuditLog
-            {
-                EntityType = "SystemUser",
-
-                EntityId = user.Id,
-
-                Action = "CREATE",
-
-                Description = $"System user {user.SystemUserCode} created",
-
-                PerformedBy = dto.RegistrationId
-
-            });
+            user.IsApproved = true;
+            user.IsActive = true;
+            user.ApprovedAt = DateTime.UtcNow;
+            user.ApprovedBy = adminId;
 
             await _context.SaveChangesAsync();
 
+            await _audit.LogAsync(
+                "SystemUser",
+                user.Id.ToString(),
+                "APPROVE",
+                $"System user {user.SystemUserCode} approved",
+                adminId
+            );
+        }
+
+        public async Task DeactivateAsync(int id, int adminId)
+        {
+            var user = await _repo.GetByIdAsync(id)
+                ?? throw new Exception("System user not found");
+
+            if (user.Role != null)
+            {
+                user.LastAssignedRoleId = user.RoleId;
+                user.LastAssignedRoleName = user.Role.RoleName;
+                user.RoleId = null;
+            }
+
+            user.IsActive = false;
+
+            await _context.SaveChangesAsync();
+
+            await _audit.LogAsync(
+                "SystemUser",
+                user.Id.ToString(),
+                "DEACTIVATE",
+                $"System user {user.SystemUserCode} deactivated",
+                adminId
+            );
         }
 
         public async Task DeleteAsync(int id)
-
         {
-            var user = await _repository.GetByIdAsync(id)
-
-                ?? throw new RoleNotFoundException("System user not found");
-
-
-            await _repository.DeleteAsync(user);
-
-
-            _context.AuditLogs.Add(new AuditLog
-            {
-                EntityType = "SystemUser",
-
-                EntityId = user.Id,
-
-                Action = "DELETE",
-
-                Description = $"System user {user.SystemUserCode} deleted",
-
-                PerformedBy = user.ApprovedBy ?? 0
-
-            });
-
-
-            await _context.SaveChangesAsync();
-
-        }
-
-
-
-
-        public async Task ApproveAsync(int systemUserId, int adminRegistrationId)
-
-        {
-
-            var user = await _repository.GetByIdAsync(systemUserId)
-
-                ?? throw new RoleNotFoundException("System user not found");
-
-
-            if (user.IsApproved)
-
-                throw new InvalidRoleException("System user already approved");
-
-
-            await _repository.ApproveAsync(user, adminRegistrationId);
-
-
-
-            _context.AuditLogs.Add(new AuditLog
-
-            {
-
-                EntityType = "SystemUser",
-
-                EntityId = user.Id,
-
-                Action = "APPROVE",
-
-                Description = $"System user {user.SystemUserCode} approved",
-
-                PerformedBy = adminRegistrationId
-
-            });
-
-
-            await _context.SaveChangesAsync();
-
-        }
-
-        public async Task<SystemUserResponseDto> GetByIdAsync(int id)
-
-        {
-
-            var user = await _repository.GetByIdAsync(id)
-
+            var user = await _repo.GetByIdAsync(id)
                 ?? throw new Exception("System user not found");
 
-
-            return new SystemUserResponseDto
-
-            {
-
-                SystemUserId = user.Id,
-
-                SystemUserCode = user.SystemUserCode,
-
-                IsApproved = user.IsApproved,
-
-                ApprovedAt = user.ApprovedAt,
-
-                ApprovedBy = user.ApprovedBy,
-
-
-                RegistrationId = user.Registration.RegistrationId,
-
-                FirstName = user.Registration.FirstName,
-
-                LastName = user.Registration.LastName,
-
-                Email = user.Registration.Email,
-
-                PhoneNo = user.Registration.PhoneNo,
-
-
-                Role = user.Role?.RoleName
-
-            };
-
+            await _repo.DeleteAsync(user);
         }
 
-    }
+        private static SystemUserResponseDto MapToDto(SystemUser x) =>
+            new SystemUserResponseDto
+            {
+                SystemUserId = x.Id,
+                SystemUserCode = x.SystemUserCode,
+                IsApproved = x.IsApproved,
+                IsActive = x.IsActive,
+                ApprovedAt = x.ApprovedAt,
+                ApprovedBy = x.ApprovedBy,
+                RegistrationId = x.RegistrationId,
+                FirstName = x.Registration.FirstName,
+                LastName = x.Registration.LastName,
+                Email = x.Registration.Email,
+                PhoneNo = x.Registration.PhoneNo,
+                Role = x.Role?.RoleName,
+                LastAssignedRoleId = x.LastAssignedRoleId,
+                LastAssignedRoleName = x.LastAssignedRoleName
+            };
 
-}
+        public async Task ChangeRoleAsync(
+    int systemUserId,
+    string newRoleId,
+    int adminRegistrationId)
+        {
+            var user = await _repo.GetByIdAsync(systemUserId)
+                ?? throw new Exception("System user not found");
+
+            // ✅ Only ACTIVE & APPROVED users
+            if (!user.IsApproved || !user.IsActive)
+                throw new Exception("Role can be changed only for active users");
+
+            // ✅ Store previous role (IMPORTANT)
+            user.LastAssignedRoleId = user.RoleId;
+            user.LastAssignedRoleName = user.Role?.RoleName;
+
+            // ✅ Assign new role
+            user.RoleId = newRoleId;
+
+            await _context.SaveChangesAsync();
+
+            // ✅ AUDIT LOG
+            await _audit.LogAsync(
+                "SystemUser",
+                user.Id.ToString(),
+                "ROLE_CHANGE",
+                $"Role changed from {user.LastAssignedRoleName} to {user.Role?.RoleName}",
+                adminRegistrationId
+            );
+        }
+    }
+    }

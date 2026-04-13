@@ -18,10 +18,11 @@ namespace FraudMonitoringSystem.Migrations
                     AuditLogId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EntityType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    EntityId = table.Column<int>(type: "int", nullable: false),
+                    EntityId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Action = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     PerformedBy = table.Column<int>(type: "int", nullable: false),
+                    PerformedByName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PerformedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -380,8 +381,11 @@ namespace FraudMonitoringSystem.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SystemUserCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     RegistrationId = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(10)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    LastAssignedRoleId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastAssignedRoleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsApproved = table.Column<bool>(type: "bit", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
                     ApprovedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ApprovedBy = table.Column<int>(type: "int", nullable: true)
                 },
@@ -398,8 +402,7 @@ namespace FraudMonitoringSystem.Migrations
                         name: "FK_SystemUsers_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
-                        principalColumn: "RoleId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "RoleId");
                 });
 
             migrationBuilder.CreateTable(
