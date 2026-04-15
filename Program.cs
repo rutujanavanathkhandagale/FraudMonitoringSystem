@@ -39,6 +39,7 @@ using Microsoft.EntityFrameworkCore;
 
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
 
+
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -129,7 +130,7 @@ builder.Services.AddScoped<ICaseRepository, CaseRepository>();
 builder.Services.AddScoped<IAlertCaseMappingRepository, AlertCaseMappingRepository>();
 builder.Services.AddScoped<ICaseAttachmentRepository, CaseAttachmentRepository>();
 builder.Services.AddScoped<IInvestigationNoteRepository, InvestigationNoteRepository>();
-
+builder.Services.AddHostedService<AlertBackgroundService>();
 
 // Service Dependency Injection
 builder.Services.AddScoped<IAlertService, AlertService>();
@@ -220,13 +221,19 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddControllers()
+	.AddJsonOptions(options =>
+	{
+		options.JsonSerializerOptions.ReferenceHandler =
+			System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+	});
 
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
-            .WithOrigins("http://localhost:5173") // React dev server
+            .WithOrigins("http://localhost:5174") // React dev server
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials());
@@ -242,8 +249,10 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseCors("AllowFrontend"); // apply the CORS policy
+//app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 
 ////app.UseStaticFiles(new StaticFileOptions
 ////{

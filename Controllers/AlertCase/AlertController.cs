@@ -4,6 +4,7 @@ using FraudMonitoringSystem.DTOs.AlertCase;
 using FraudMonitoringSystem.Models;
 using FraudMonitoringSystem.Models.AlertCase;
 using FraudMonitoringSystem.Models.AlertsCase;
+using FraudMonitoringSystem.Models.Investigator;
 using FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,15 +26,15 @@ using Microsoft.EntityFrameworkCore;
 			_context = context;
 		}
 
-		[HttpPost("generate-from-risk")]
-		public async Task<IActionResult> GenerateFromRisk()
-		{
-			var scores = await _context.RiskScores.ToListAsync();
+		//[HttpPost("generate-from-risk")]
+		//public async Task<IActionResult> GenerateFromRisk()
+		//{
+		//	var scores = await _context.RiskScores.ToListAsync();
 
-			await _alertService.GenerateAlertsFromRiskScores(scores);
+		//	await _alertService.GenerateAlertsFromRiskScores(scores);
 
-			return Ok("Alerts and Cases generated successfully");
-		}
+		//	return Ok("Alerts and Cases generated successfully");
+		//}
 
 		// ✅ GET ALL
 		[HttpGet]
@@ -74,13 +75,72 @@ using Microsoft.EntityFrameworkCore;
 				var alert = new Alert
 				{
 					TransactionID = dto.TransactionID,
-					RuleID = dto.RuleID,
+				
 					Severity = dto.Severity,
-					Status = dto.Status
+					Status = dto.Status,
+					ReasonDetails = Newtonsoft.Json.JsonConvert.SerializeObject(dto.ReasonDetails),
 				};
 
 				var result = await _alertService.CreateAlert(alert);
 
+				return Ok(result);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+
+		[HttpPost("create")]
+		public async Task<IActionResult> CreateCase([FromBody] CreateCaseDto dto)
+		{
+			var alert = await _context.Alerts.FindAsync(dto.AlertId);
+
+			if (alert == null)
+				return NotFound("Alert not found");
+
+			// ✅ CHECK USING MAPPING (IMPORTANT)
+			var exists = await _context.AlertCaseMappings
+				.AnyAsync(x => x.AlertID == dto.AlertId);
+
+			if (exists)
+				return BadRequest("Case already exists");
+
+			// ✅ CREATE CASE
+			var newCase = new Case
+			{
+				CustomerId = alert.CustomerId,
+				TransactionId = alert.TransactionID,
+				CaseType = "Fraud",
+				Priority = "High",
+				Status = "Open",
+				CreatedDate = DateTime.Now
+			};
+
+			_context.Cases.Add(newCase);
+			await _context.SaveChangesAsync();
+
+			// ✅ CREATE MAPPING
+			var mapping = new AlertCaseMapping
+			{
+				AlertID = alert.AlertID,
+				CaseID = newCase.CaseID
+			};
+
+			_context.AlertCaseMappings.Add(mapping);
+			await _context.SaveChangesAsync();
+
+			return Ok(newCase);
+		}
+		
+		
+		
+		[HttpPost("{alertId}/create-case")]
+		public async Task<IActionResult> CreateCaseFromAlert(int alertId)
+		{
+			try
+			{
+				var result = await _alertService.CreateCaseFromAlert(alertId);
 				return Ok(result);
 			}
 			catch (Exception ex)
@@ -153,19 +213,38 @@ using Microsoft.EntityFrameworkCore;
 		{
 			try
 			{
-				await _alertService.DeleteAlert(id);
-				return Ok("Alert deleted successfully ✅");
+				await _alertService.UpdateAlert(id, "Resolved"); // ✅ CHANGE HERE
+				return Ok("Alert resolved successfully");
 			}
 			catch (Exception ex)
 			{
 				return BadRequest(ex.Message);
 			}
-
 		}
 
-        }
+		[HttpPost("generate/{transactionId}")]
+		public async Task<IActionResult> GenerateAlertForTransaction(int transactionId)
+		{
+			var result = await _alertService.GenerateAlertForTransaction(transactionId);
 
-    }
+			return Ok(new
+			{
+				success = result.success,
+				message = result.message
+			});
+		}
+
+
+		private async Task GenerateAlertsFromRiskScores(List<RiskScore> riskScores)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+
+}
+
+    
 
 
 

@@ -16,6 +16,7 @@ namespace FraudMonitoringSystem.Models.AlertsCase
 
 		public DateTime CreatedDate { get; set; }
 
+
 		// Navigation Property
 		[JsonIgnore]
 		public Case? Case { get; set; }

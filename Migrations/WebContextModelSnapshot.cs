@@ -251,14 +251,18 @@ namespace FraudMonitoringSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlertID"));
 
-                    b.Property<int?>("CaseID")
+                    b.Property<int?>("CaseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("RuleID")
-                        .HasColumnType("int");
+                    b.Property<long>("CustomerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ReasonDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Severity")
                         .IsRequired()
@@ -273,7 +277,7 @@ namespace FraudMonitoringSystem.Migrations
 
                     b.HasKey("AlertID");
 
-                    b.HasIndex("CaseID");
+                    b.HasIndex("CaseId");
 
                     b.ToTable("Alerts");
                 });
@@ -286,9 +290,13 @@ namespace FraudMonitoringSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CaseID"));
 
+                    b.Property<int>("AlertId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CaseType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CaseType");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -919,13 +927,13 @@ namespace FraudMonitoringSystem.Migrations
                 {
                     b.HasOne("FraudMonitoringSystem.Models.AlertCase.Case", null)
                         .WithMany("Alerts")
-                        .HasForeignKey("CaseID");
+                        .HasForeignKey("CaseId");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.AlertsCase.AlertCaseMapping", b =>
                 {
                     b.HasOne("FraudMonitoringSystem.Models.Alert", "Alert")
-                        .WithMany("AlertCaseMappings")
+                        .WithMany()
                         .HasForeignKey("AlertID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1077,11 +1085,6 @@ namespace FraudMonitoringSystem.Migrations
             modelBuilder.Entity("FraudMonitoringSystem.Models.Admin.Role", b =>
                 {
                     b.Navigation("SystemUsers");
-                });
-
-            modelBuilder.Entity("FraudMonitoringSystem.Models.Alert", b =>
-                {
-                    b.Navigation("AlertCaseMappings");
                 });
 
             modelBuilder.Entity("FraudMonitoringSystem.Models.AlertCase.Case", b =>

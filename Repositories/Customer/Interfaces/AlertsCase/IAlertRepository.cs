@@ -14,5 +14,6 @@ namespace FraudMonitoringSystem.Repositories.Customer.Interfaces.AlertsCase
 		Task UpdateAlert(Alert alert);
 
 		Task DeleteAlert(int id);
+		Task AddAlert(object alert);
 	}
 }

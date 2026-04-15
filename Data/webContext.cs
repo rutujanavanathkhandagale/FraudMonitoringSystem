@@ -186,30 +186,30 @@ namespace FraudMonitoringSystem.Data
 
 
 
-			// AlertCaseMapping Relationships
-			modelBuilder.Entity<AlertCaseMapping>()
-				.HasOne(ac => ac.Alert)
-				.WithMany(a => a.AlertCaseMappings)
-				.HasForeignKey(ac => ac.AlertID);
+			//// AlertCaseMapping Relationships
+			//modelBuilder.Entity<AlertCaseMapping>()
+			//	.HasOne(ac => ac.Alert)
+			//	.WithMany(a => a.AlertCaseMappings)
+			//	.HasForeignKey(ac => ac.AlertID);
 
-			modelBuilder.Entity<AlertCaseMapping>()
-				.HasOne(ac => ac.Case)
-				.WithMany(c => c.AlertCaseMappings)
-				.HasForeignKey(ac => ac.CaseID);
-
-
-			// Case → InvestigationNotes
-			modelBuilder.Entity<InvestigationNote>()
-				.HasOne(n => n.Case)
-				.WithMany(c => c.InvestigationNotes)
-				.HasForeignKey(n => n.CaseID);
+			//modelBuilder.Entity<AlertCaseMapping>()
+			//	.HasOne(ac => ac.Case)
+			//	.WithMany(c => c.AlertCaseMappings)
+			//	.HasForeignKey(ac => ac.CaseID);
 
 
-			// Case → Attachments
-			modelBuilder.Entity<CaseAttachment>()
-				.HasOne(a => a.Case)
-				.WithMany(c => c.CaseAttachments)
-				.HasForeignKey(a => a.CaseID);
+			//// Case → InvestigationNotes
+			//modelBuilder.Entity<InvestigationNote>()
+			//	.HasOne(n => n.Case)
+			//	.WithMany(c => c.InvestigationNotes)
+			//	.HasForeignKey(n => n.CaseID);
+
+
+			//// Case → Attachments
+			//modelBuilder.Entity<CaseAttachment>()
+			//	.HasOne(a => a.Case)
+			//	.WithMany(c => c.CaseAttachments)
+			//	.HasForeignKey(a => a.CaseID);
         }
     }
 }

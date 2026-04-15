@@ -7,7 +7,7 @@ namespace FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase
     public interface IAlertService
     {
 		//  Get all alerts
-		Task<IEnumerable<Alert>> GetAllAlerts();
+		//Task<IEnumerable<Alert>> GetAllAlerts();
 
 		//  Get by ID (MUST return Alert)
 		Task<Alert> GetAlertById(int id);
@@ -17,12 +17,14 @@ namespace FraudMonitoringSystem.Services.Customer.Interfaces.AlertsCase
 
 		//  Update (return updated object)
 		Task<Alert> UpdateAlert(int id, string status);
+		Task<(bool success, string message)> GenerateAlertForTransaction(int transactionId);
 
 		//  Delete (no return needed)
 		Task DeleteAlert(int id);
 		Task GenerateAlertsFromRiskScores(List<RiskScore> scores);
 		Task<Case> UpdateCaseStatus(int caseId, string status);
-
-
+		Task<Case> CreateCaseFromAlert(int alertId);
+		Task<IEnumerable<Object>> GetAllAlerts();
+		//	Task GenerateAlertForTransaction(int transactionId);
 	}
 }

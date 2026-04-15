@@ -14,9 +14,9 @@ namespace FraudMonitoringSystem.Models.AlertCase
 
         [Key]
 
-        public int CaseID { get; set; }
-
-        [Required]
+        public int CaseID{ get; set; }
+		//public int CaseId { get; set; }
+		[Required]
         public long CustomerId { get; set; }
 
         [ForeignKey("CustomerId")]
@@ -27,7 +27,7 @@ namespace FraudMonitoringSystem.Models.AlertCase
 
 		[Required]
 		[RegularExpression("Fraud|AML", ErrorMessage = "CaseType must be Fraud or AML")]
-		
+		[Column("CaseType")]
 
 		public string CaseType { get; set; }  // Fraud / AML
 
@@ -38,8 +38,8 @@ namespace FraudMonitoringSystem.Models.AlertCase
         [Required, MaxLength(20)]
 
         public string Status { get; set; } = "Open"; // Open / Investigating / Resolved
-
-        public ICollection<Alert> Alerts { get; set; } = new List<Alert>();
+		[JsonIgnore]
+		public ICollection<Alert> Alerts { get; set; } = new List<Alert>();
         [JsonIgnore]
 		public ICollection<AlertCaseMapping> AlertCaseMappings { get; set; }
 		[JsonIgnore]
@@ -47,7 +47,10 @@ namespace FraudMonitoringSystem.Models.AlertCase
 		[JsonIgnore]
 		public ICollection<CaseAttachment> CaseAttachments { get; set; }
 		public int TransactionId { get; internal set; }
-		//public int AlertId { get; internal set; }
+		//public string Type { get; internal set; }
+
+		[ForeignKey("AlertId")]
+		public int AlertId { get; set; }
 	}
 
 }

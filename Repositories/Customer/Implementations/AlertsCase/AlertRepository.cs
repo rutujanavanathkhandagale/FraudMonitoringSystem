@@ -51,9 +51,23 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.AlertsCase
 
 			if (alert != null)
 			{
+				// 🔥 DELETE RELATED CASES FIRST
+				var relatedCases = _context.Cases
+					.Where(c => c.AlertId == id);
+
+				_context.Cases.RemoveRange(relatedCases);
+
+				// 🔥 DELETE ALERT
 				_context.Alerts.Remove(alert);
+
 				await _context.SaveChangesAsync();
 			}
+		}
+
+
+		public Task AddAlert(object alert)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

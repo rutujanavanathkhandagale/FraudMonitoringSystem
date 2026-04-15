@@ -80,7 +80,6 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase
 		// ✅ UPDATE (Status only like Alerts)
 		public async Task<Case> UpdateCaseStatus(int id, string status)
 		{
-			// ✅ CASE VALID STATUSES (FROM PDF)
 			var validStatuses = new[] { "Open", "Investigating", "Resolved", "Reported" };
 
 			if (!validStatuses.Contains(status))
@@ -91,7 +90,15 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations.AlertsCase
 			if (caseObj == null)
 				throw new Exception("Case not found");
 
-			// 🔥 Optional: avoid duplicate update
+			// 🔥 ROLE CHECK (ADD THIS)
+			var role = "Compliance"; // change manually for testing
+
+			if (role == "Analyst" && (status == "Resolved" || status == "Reported"))
+			{
+				throw new Exception("Analyst cannot mark case as Resolved/Reported");
+			}
+
+			// ❌ prevent same update
 			if (caseObj.Status == status)
 				throw new Exception("Status already same");
 

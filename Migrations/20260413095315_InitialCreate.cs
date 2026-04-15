@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FraudMonitoringSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class data : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -41,7 +41,8 @@ namespace FraudMonitoringSystem.Migrations
                     CaseType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Priority = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    TransactionId = table.Column<int>(type: "int", nullable: false)
+                    TransactionId = table.Column<int>(type: "int", nullable: false),
+                    AlertId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -201,18 +202,19 @@ namespace FraudMonitoringSystem.Migrations
                     AlertID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TransactionID = table.Column<int>(type: "int", nullable: false),
-                    RuleID = table.Column<int>(type: "int", nullable: false),
                     Severity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CaseID = table.Column<int>(type: "int", nullable: true)
+                    ReasonDetails = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CaseId = table.Column<int>(type: "int", nullable: true),
+                    CustomerId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Alerts", x => x.AlertID);
                     table.ForeignKey(
-                        name: "FK_Alerts_Cases_CaseID",
-                        column: x => x.CaseID,
+                        name: "FK_Alerts_Cases_CaseId",
+                        column: x => x.CaseId,
                         principalTable: "Cases",
                         principalColumn: "CaseID");
                 });
@@ -546,9 +548,9 @@ namespace FraudMonitoringSystem.Migrations
                 column: "CaseID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Alerts_CaseID",
+                name: "IX_Alerts_CaseId",
                 table: "Alerts",
-                column: "CaseID");
+                column: "CaseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CaseAttachments_CaseID",
