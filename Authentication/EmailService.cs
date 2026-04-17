@@ -44,7 +44,7 @@ public class EmailService : IEmailService
              
             "smtp.gmail.com",
 
-            465,
+            587,
 
             MailKit.Security.SecureSocketOptions.SslOnConnect
 

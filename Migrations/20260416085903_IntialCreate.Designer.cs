@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FraudMonitoringSystem.Migrations
 {
     [DbContext(typeof(WebContext))]
-    [Migration("20260413095315_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260416085903_IntialCreate")]
+    partial class IntialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -48,6 +48,5 @@ namespace FraudMonitoringSystem.Repositories.Customer.Implementations.Investigat
             throw new NotImplementedException();
         }
 
-        // REMOVE all the bottom methods that threw NotImplementedException!
     }
 }

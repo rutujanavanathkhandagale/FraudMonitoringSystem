@@ -1,11 +1,9 @@
-﻿using FraudMonitoringSystem.Models.Customer;
-
+﻿using System.Text.Json;
+using FraudMonitoringSystem.Models.Customer;
 using FraudMonitoringSystem.Repositories.Customer.Interfaces;
-
 using FraudMonitoringSystem.Services.Customer.Interfaces;
-
-using System.Text.Json;
-
+using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace FraudMonitoringSystem.Services.Customer.Implementations
 
 {
@@ -26,7 +24,6 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
         {
             return await _repository.GetByCustomerIdAsync(customerId);
         }
-
         public async Task<List<KYCProfile>> SearchAsync(string query)
 
             => await _repository.SearchAsync(query);
@@ -41,13 +38,10 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
                 if (file != null && file.Length > 0)
                 {
                     var path = Path.Combine("wwwroot/uploads", file.FileName);
-                    using (var stream = new FileStream(path, FileMode.Create))//“Create a new file at the given path,
-                                                                              //copy the uploaded file’s contents into it,
-                                                                              //and then close the file safely.”
+                    using (var stream = new FileStream(path, FileMode.Create))//“Create a new file at the given path,//copy the uploaded file’s contents into it,//and then close the file safely.”
                     {
                         await file.CopyToAsync(stream);
                     }
-
                     docMappings.Add(new
                     {
                         Type = docType,
@@ -55,16 +49,13 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
                     });
                 }
             }
-
             var profile = new KYCProfile
             {
                 CustomerId = customerId,
                 DocumentRefsJSON = JsonSerializer.Serialize(docMappings),
 
-               
                 Status = "Pending"
             };
-
             return await _repository.AddAsync(profile);
         }
 
@@ -74,7 +65,6 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
         }
 
 
-
         public async Task<KYCProfile?> VerifyAsync(long id)
         {
             var profile = await _repository.GetByIdAsync(id);
@@ -82,8 +72,13 @@ namespace FraudMonitoringSystem.Services.Customer.Implementations
 
             return await _repository.VerifyAsync(profile);
         }
-
+        public async Task<IEnumerable<KYCProfile>> GetAllAsync()
+        {
+            // ✅ Fix: Call the repository method instead of accessing a table directly
+            return await _repository.GetAllWithDetailsAsync();
+        }
 
     }
 
 }
+

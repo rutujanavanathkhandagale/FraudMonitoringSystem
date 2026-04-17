@@ -233,11 +233,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
-            .WithOrigins("http://localhost:5174") // React dev server
+            .WithOrigins("http://localhost:5173") // React dev server
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials());
 });
+
 
 var app = builder.Build();
 
@@ -250,6 +251,15 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowFrontend"); // apply the CORS policy
 //app.UseCors("AllowAll");
+app.UseStaticFiles(new StaticFileOptions
+{
+
+    FileProvider = new PhysicalFileProvider(
+
+        Path.Combine(builder.Environment.ContentRootPath, "wwwroot/uploads")),
+
+    RequestPath = "/uploads"
+});
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();

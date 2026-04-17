@@ -1,5 +1,6 @@
 ﻿using FraudMonitoringSystem.Authentication;
 using FraudMonitoringSystem.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FraudMonitoringSystem.Controllers
@@ -68,22 +69,29 @@ namespace FraudMonitoringSystem.Controllers
 
 
         // ✅ RESET PASSWORD
+        // Reset password will update the user's password using their authenticated identity
+        //[Authorize]
         [HttpPost("reset-password")]
-
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
-
         {
+            // We do NOT use User.Identity?.Name because there is no token yet.
+            // We use the email the user typed in your React frontend.
 
+            if (string.IsNullOrEmpty(dto.Email))
+            {
+                return BadRequest(new { Message = "Email is required to reset password." });
+            }
+
+            // Call the service to update the database
             var result = await _auth.ResetPasswordAsync(dto);
 
             if (!result)
+            {
+                return BadRequest(new { Message = "User not found or update failed." });
+            }
 
-                return BadRequest(new { Message = "Invalid OTP or expired." });
-
-            return Ok(new { Message = "Password updated successfully." });
-
+            return Ok(new { Message = "Password has been reset successfully. You can now login." });
         }
-
 
         // ✅ LOGOUT
         [HttpPost("logout")]

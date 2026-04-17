@@ -10,6 +10,7 @@ namespace FraudMonitoringSystem.Services.Customer.Interfaces
         Task<List<KYCProfile>> SearchAsync(string query);
         Task<KYCProfile> CreateAsync(long customerId, List<IFormFile> documents, List<string> requiredDocs);
         Task<KYCProfile?> VerifyAsync(long id);
+        Task<IEnumerable<KYCProfile>> GetAllAsync();
         Task<KYCProfile?> VerifyByCustomerIdAsync(long customerId); // new by CustomerId
     }
 }
